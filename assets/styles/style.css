@@ -1,105 +1,117 @@
-*{
+* {
     margin: 1rem;
 }
 
-body{
+body {
     font-family: 'dancing script';
     text-align: center;
     background: #558A78;
 }
 
-header{
+header {
     display: flex;
     text-align: center;
     padding: 1rem;
     justify-content: space-evenly;
     background-color: #614433;
-    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38% ;
+    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
 }
 
-h1{
+h1 {
     text-decoration: underline;
     text-underline-offset: 10px;
     font-size: 4rem;
     color: #EEAA23;
 }
 
-.headimg{
+.headimg {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.imghand{
+.imghand {
     width: 5rem;
     height: 5rem;
-    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38% ;
+    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
 }
 
 
 @media (max-width: 750px) {
-    header{
+    header {
         flex-direction: column;
     }
 
-    .headimg{
+    .headimg {
         flex-wrap: wrap;
         justify-content: center;
     }
 }
-.scroll{
+
+.scroll {
     display: flex;
     justify-content: center;
 }
 
-nav{
+nav {
     display: flex;
     background: #EEAA23;
     height: 80px;
     width: 80%;
     margin: 1rem auto;
-    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38% ;
+    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
     color: #614433;
     font-size: 2rem;
     justify-content: center;
     align-items: center;
 }
 
-.burger_icon{
+.burger_icon {
     display: none;
 }
 
-.burger{
+.burger {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
 }
 
-.burger>a{
+.burger>a {
     text-decoration: none;
     color: #614433;
 }
 
-@media screen and (max-width: 750px) {
-    .burger_icon{
+@media (max-width: 750px) {
+    .burger_icon {
         display: flex;
         border: none;
         background-color: #EEAA23;
         font-size: 2rem;
     }
 
-    .burger{
+    .burger {
         display: none;
+        /* flex-wrap: nowrap;
+        flex-direction: column; */
+    }
+
+    nav {
+        /* flex-direction: column;
+        flex-wrap: nowrap; */
+        width: auto;
+        height: auto;
     }
 }
 
-footer{
+footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
     color: #EEAA23;
 }
 
-hr{
+hr {
     border: 1px solid #EEAA23;
     text-align: center;
     width: 40%;
