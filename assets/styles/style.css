@@ -3,19 +3,12 @@
 }
 
 body {
-    font-family: 'raleway thin', sans-serif;
     text-align: center;
+    background-image: url('../img/DSC_0028\ copie\ bd.jpg');
+    background-size: cover;
 }
 
-.background{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.2;
-    z-index: -1;
-}
+
 
 header {
     display: flex;
@@ -34,6 +27,7 @@ h1 {
     font-weight: 100;
     font-style: italic;
     padding-bottom: 0.7rem;
+    font-family: 'raleway thin', sans-serif;
 }
 
 .headimg {
@@ -53,12 +47,23 @@ h1 {
 
 @media (max-width: 750px) {
     header {
-        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 
     .headimg {
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .imghand{
+        width: 2rem;
+        height: 2rem;
+        margin: 0 0.5rem;
     }
 }
 
@@ -70,9 +75,11 @@ h1 {
 }
 
 .intro{
-    font-size: 3rem;
+    font-size: 2rem;
+    width: 64rem;
     font-weight: 600;
     margin: auto;
+    font-family: 'raleway';
     text-align: justify;
     margin: 4rem;
 }
@@ -93,6 +100,7 @@ nav {
     font-size: 2rem;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .burger_icon {
@@ -115,21 +123,19 @@ nav {
     .burger_icon {
         display: flex;
         border: none;
-        background-color: #EEAA23;
+        background-color: #ae2012;
+        border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
         font-size: 2rem;
     }
 
     .burger {
         display: none;
-        /* flex-wrap: nowrap;
-        flex-direction: column; */
     }
 
     nav {
-        /* flex-direction: column;
-        flex-wrap: nowrap; */
         width: auto;
         height: auto;
+        padding: 1.5rem;
     }
 }
 
@@ -139,6 +145,54 @@ nav {
     justify-content: space-around;
     align-items: center;
     margin: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+thead{
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
+    width: 5rem;
+    font-weight: 900;
+}
+
+.small_screen{
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .small_screen{
+        display: block;
+    }
+    .big_screen{
+        display: none;
+    }
+}
+
+td{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.test{
+    position: relative;
+}
+
+.calendar{
+    color: black;
+    border: 2px solid black;
+    transform: rotate(168deg);
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    width: 100%;
+    border-radius: 50%;
 }
 
 .card_event {
@@ -182,8 +236,8 @@ footer {
     margin: auto;
 }
 
-hr {
-    border: 1px solid #EEAA23;
+.foot {
+    border: 1px solid #ae2012;
     text-align: center;
     width: 40%;
     margin: auto;

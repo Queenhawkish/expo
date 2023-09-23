@@ -4,113 +4,467 @@
 
 
 <div class="contain">
-    <div class="card_event">
-        <div class="card_event_img">
-            <img src="https://picsum.photos/200/300" alt="event image">
-        </div>
-        <div class="card_event_info">
-            <h1>Event Name</h1>
-            <p>Event Description</p>
-            <p>Event Date</p>
-            <p>Event Location</p>
-            <p>Event Price</p>
-            <p>Event Capacity</p>
-            <p>Event Category</p>
-            <p>Event Organizer</p>
-            <p>Event Contact</p>
-            <a href="../controllers/event_controller.php">Details</a>
-        </div>
-    </div>
-    
-    <div class="card_event">
-        <div class="card_event_img">
-            <img src="https://picsum.photos/200/300" alt="event image">
-        </div>
-        <div class="card_event_info">
-            <h1>Event Name</h1>
-            <p>Event Description</p>
-            <p>Event Date</p>
-            <p>Event Location</p>
-            <p>Event Price</p>
-            <p>Event Capacity</p>
-            <p>Event Category</p>
-            <p>Event Organizer</p>
-            <p>Event Contact</p>
-            <a href="../controllers/event_controller.php">Details</a>
-        </div>
-    </div>
-    
-    <div class="card_event">
-        <div class="card_event_img">
-            <img src="https://picsum.photos/200/300" alt="event image">
-        </div>
-        <div class="card_event_info">
-            <h1>Event Name</h1>
-            <p>Event Description</p>
-            <p>Event Date</p>
-            <p>Event Location</p>
-            <p>Event Price</p>
-            <p>Event Capacity</p>
-            <p>Event Category</p>
-            <p>Event Organizer</p>
-            <p>Event Contact</p>
-            <a href="../controllers/event_controller.php">Details</a>
-        </div>
-    </div>
-    
-    <div class="card_event">
-        <div class="card_event_img">
-            <img src="https://picsum.photos/200/300" alt="event image">
-        </div>
-        <div class="card_event_info">
-            <h1>Event Name</h1>
-            <p>Event Description</p>
-            <p>Event Date</p>
-            <p>Event Location</p>
-            <p>Event Price</p>
-            <p>Event Capacity</p>
-            <p>Event Category</p>
-            <p>Event Organizer</p>
-            <p>Event Contact</p>
-            <a href="../controllers/event_controller.php">Details</a>
-        </div>
-    </div>
-    
-    <div class="card_event">
-        <div class="card_event_img">
-            <img src="https://picsum.photos/200/300" alt="event image">
-        </div>
-        <div class="card_event_info">
-            <h1>Event Name</h1>
-            <p>Event Description</p>
-            <p>Event Date</p>
-            <p>Event Location</p>
-            <p>Event Price</p>
-            <p>Event Capacity</p>
-            <p>Event Category</p>
-            <p>Event Organizer</p>
-            <p>Event Contact</p>
-            <a href="../controllers/event_controller.php">Details</a>
-        </div>
-    </div>
-    
-    <div class="card_event">
-        <div class="card_event_img">
-            <img src="https://picsum.photos/200/300" alt="event image">
-        </div>
-        <div class="card_event_info">
-            <h1>Event Name</h1>
-            <p>Event Description</p>
-            <p>Event Date</p>
-            <p>Event Location</p>
-            <p>Event Price</p>
-            <p>Event Capacity</p>
-            <p>Event Category</p>
-            <p>Event Organizer</p>
-            <p>Event Contact</p>
-            <a href="../controllers/event_controller.php">Details</a>
-        </div>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><b class="big_screen">Janvier</b><b class="small_screen">01</b></th>
+                <th><b class="big_screen">Février</b><b class="small_screen">02</b></th>
+                <th><b class="big_screen">Mars</b><b class="small_screen">03</b></th>
+                <th><b class="big_screen">Avril</b><b class="small_screen">04</b></th>
+                <th><b class="big_screen">Mai</b><b class="small_screen">05</b></th>
+                <th><b class="big_screen">Juin</b><b class="small_screen">06</b></th>
+                <th><b class="big_screen">Juillet</b><b class="small_screen">07</b></th>
+                <th><b class="big_screen">Août</b><b class="small_screen">08</b></th>
+                <th><b class="big_screen">Septembre</b><b class="small_screen">09</b></th>
+                <th><b class="big_screen">Octobre</b><b class="small_screen">10</b></th>
+                <th><b class="big_screen">Novembre</b><b class="small_screen">11</b></th>
+                <th><b class="big_screen">Decembre</b><b class="small_screen">12</b></th>
+
+            </tr>
+        </thead>
+        <tr>
+            <td class="test">1
+                <hr class="calendar">
+            </td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td class="test">2
+                <hr class="calendar">
+            </td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td class="test">3
+                <hr class="calendar">
+            </td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td class="test">4
+                <hr class="calendar">
+            </td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td class="test">5
+                <hr class="calendar">
+            </td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td class="test">6
+                <hr class="calendar">
+            </td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td class="test">8
+                <hr class="calendar">
+            </td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td class="test">9
+                <hr class="calendar">
+            </td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td class="test">10
+                <hr class="calendar">
+            </td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td class="test">11
+                <hr class="calendar">
+            </td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+            <td>16</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+            <td>17</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+            <td>21</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+            <td>27</td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+            <td>28</td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td></td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+            <td>29</td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td></td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td></td>
+            <td>31</td>
+            <td></td>
+            <td>31</td>
+            <td></td>
+            <td>31</td>
+            <td>31</td>
+            <td></td>
+            <td>31</td>
+            <td></td>
+            <td>31</td>
+        </tr>
+    </table>
+
 </div>
 
 <?php include 'components/footer.php'; ?>

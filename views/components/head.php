@@ -11,18 +11,7 @@
 </head>
 
 <body>
-    <img src="../assets/img/DSC_0028 copie bd.jpg" alt="tapisserie" class="background">
     <header>
-        <!-- <div class="headimg"> -->
             <img src="../assets/img/Logo main HD 2cm-2.webp" alt="main magique" class="imghand">
-            <!-- <img src="../assets/img/header/hand2.jpg" alt="main magique" class="imghand"> -->
-            <!-- <img src="../assets/img/header/hand3.jpg" alt="main magique" class="imghand"> -->
-            <!-- <img src="../assets/img/header/hand4.jpg" alt="main magique" class="imghand"> -->
-        <!-- </div> -->
         <h1>les7mainsmagiques</h1>
-        <!-- <div class="headimg">
-            <img src="../assets/img/header/hand5.png" alt="main magique" class="imghand">
-            <img src="../assets/img/header/hand6.webp" alt="main magique" class="imghand">
-            <img src="../assets/img/header/hand7.jpg" alt="main magique" class="imghand">
-        </div> -->
     </header>
