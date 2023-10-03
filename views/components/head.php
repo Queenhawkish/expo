@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <header>
-            <img src="../assets/img/Logo main HD 2cm-2.webp" alt="main magique" class="imghand">
-        <h1>les7mainsmagiques</h1>
-    </header>
+    <div class="head">
+        <header>
+            <img src="../assets/img/Logo main HD 2cm-2.webp" alt="main magique" class="logo">
+            <h1>les7mainsmagiques</h1>
+        </header>
+    </div>

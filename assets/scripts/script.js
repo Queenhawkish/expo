@@ -1,5 +1,8 @@
 let burger = document.querySelector('.burger_icon');
 let btest = false;
+
+console.log(screen.width);
+
 if (burger) {
 
     burger.addEventListener('click', function () {
@@ -19,33 +22,32 @@ if (burger) {
         }
     })
 
-    window.onresize = function () {
-        if (window.innerWidth < 750) {
-            window.addEventListener('scroll', function () {
 
-                if (window.scrollY > 950) {
-                    document.querySelector('nav').style.position = "fixed";
-                    document.querySelector('nav').style.top = "0";
-                    document.querySelector('nav').style.margin = "1rem auto";
-                } else {
-                    document.querySelector('nav').style.position = "relative";
-                    document.querySelector('nav').style.top = "0";
-                    document.querySelector('nav').style.margin = "1rem auto";
-                }
-            })
-        } else {
-            window.addEventListener('scroll', function () {
+    if (screen.width < 750) {
+        window.addEventListener('scroll', function () {
 
-                if (window.scrollY > 150) {
-                    document.querySelector('nav').style.position = "fixed";
-                    document.querySelector('nav').style.top = "0";
-                    document.querySelector('nav').style.margin = "1rem auto";
-                } else {
-                    document.querySelector('nav').style.position = "relative";
-                    document.querySelector('nav').style.top = "0";
-                    document.querySelector('nav').style.margin = "1rem auto";
-                }
-            })
-        }
+            if (window.scrollY > 950) {
+                document.querySelector('nav').style.position = "fixed";
+                document.querySelector('nav').style.top = "0";
+                document.querySelector('nav').style.margin = "1rem auto";
+            } else {
+                document.querySelector('nav').style.position = "relative";
+                document.querySelector('nav').style.top = "0";
+                document.querySelector('nav').style.margin = "1rem auto";
+            }
+        })
+
     }
 }
+window.addEventListener('scroll', function () {
+
+    if (window.scrollY > 150) {
+        document.querySelector('nav').style.position = "fixed";
+        document.querySelector('nav').style.top = "0";
+        document.querySelector('nav').style.margin = "1rem auto";
+    } else {
+        document.querySelector('nav').style.position = "relative";
+        document.querySelector('nav').style.top = "0";
+        document.querySelector('nav').style.margin = "1rem auto";
+    }
+})

@@ -8,8 +8,6 @@ body {
     background-size: cover;
 }
 
-
-
 header {
     display: flex;
     text-align: center;
@@ -30,13 +28,8 @@ h1 {
     font-family: 'raleway thin', sans-serif;
 }
 
-.headimg {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
-.imghand {
+.logo {
     width: 6rem;
     height: 6rem;
     margin-top: 0.5rem;
@@ -46,24 +39,25 @@ h1 {
 
 
 @media (max-width: 750px) {
-    header {
-        padding: 1rem;
-        margin: 0;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .headimg {
-        flex-wrap: wrap;
+    .head{
+        display: flex;
         justify-content: center;
     }
 
-    .imghand{
-        width: 2rem;
-        height: 2rem;
-        margin: 0 0.5rem;
+    header {
+        padding: 0.3rem;
+        margin: 0.5rem;
+        width: fit-content;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    .logo{
+        width: 0.7rem;
+        height: 0.7rem;
+        margin: 0.2rem;
     }
 }
 
@@ -71,7 +65,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
 }
 
 .intro{
@@ -83,6 +76,15 @@ h1 {
     text-align: justify;
     margin: 4rem;
 }
+
+@media screen and (max-width: 750px) {
+    .intro{
+        font-size: 1.5rem;
+        width: auto;
+        margin: 1rem;
+    }
+}
+    
 
 .scroll {
     display: flex;
@@ -125,7 +127,7 @@ nav {
         border: none;
         background-color: #ae2012;
         border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
-        font-size: 2rem;
+        font-size: 0.5rem;
     }
 
     .burger {
@@ -133,9 +135,10 @@ nav {
     }
 
     nav {
-        width: auto;
+        width: fit-content;
         height: auto;
-        padding: 1.5rem;
+        padding: 1rem;
+        font-size: 0.7rem;
     }
 }
 
@@ -195,28 +198,47 @@ td{
     border-radius: 50%;
 }
 
-.card_event {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40rem;
-    margin: 0.5rem;
-    border: 3px solid #614433;
-    color: #614433;
+.today{
+    border: 5px solid black;
+    font-weight: 700;
 }
 
-.event_details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #614433;
-}
+
 
 .event {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20rem;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+}
 
+@media screen and (max-width: 750px) {
+    .event {
+        width: 15rem;
+    }
+}
+    
+
+
+h2{
+    margin: 1rem;
+
+}
+
+.event_description{
+    margin: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
 }
 
 .footer{
