@@ -19,9 +19,11 @@
         <?php 
             for ($day = 1; $day < 32; $day++){ ?>
         <tr>
-            <td id="<?= $name_month["Janvier"]?>" <?php if ($day == $today && $name_month["Janvier"] == $this_month){ ?> class= "today" <?php } ?>><?= $day ?></td>
+            <td id="<?= $name_month["Janvier"]?>" <?php if ($day == $today && $name_month["Janvier"] == $this_month){ ?> class= "today" <?php } ?>><button id="event"><?= $day ?></button></td>
 
-            <?php if ($day < 29){ ?>
+            <?php if ($year == 2023 && $day < 29){ ?>
+            <td id="<?= $name_month["Février"]?>" <?php if ($day == $today && $name_month["Février"] == $this_month){ ?> class= "today" <?php } ?>><?= $day ?></td>
+            <?php } else if ($year == 2024 && $day < 30){ ?>
             <td id="<?= $name_month["Février"]?>" <?php if ($day == $today && $name_month["Février"] == $this_month){ ?> class= "today" <?php } ?>><?= $day ?></td>
             <?php } else { ?>
             <td></td>
@@ -67,21 +69,19 @@
         
     </table>
 
-    <div class="legend">
-        <div class="legend_item">
-            <div class="legend_color"></div>
-            <div class="legend_text">Event 1</div>
-        </div>
-        <div class="legend_item">
-            <div class="legend_color"></div>
-            <div class="legend_text">Event 2</div>
-        </div>
-        <div class="legend_item">
-            <div class="legend_color"></div>
-            <div class="legend_text">Event 3</div>
-        </div>
-    </div>
+        <ul class="legend">
+            <li class="legend_item"><div class="legend_color green"></div>Sorties</li>
+            <li class="legend_item"><div class="legend_color orange"></div>Assemblées Générales</li>
+            <li class="legend_item"><div class="legend_color fuchsia"></div>Expositions</li>
+            <li class="legend_item"><div class="legend_color today"></div>Aujourd'hui</li>
+        </ul>
 
+</div>
+
+<div id="display_event">
+    <div class="event_image">
+        <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
+    </div>
 </div>
 
 <?php include 'components/footer.php'; ?>

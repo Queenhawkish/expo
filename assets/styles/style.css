@@ -6,6 +6,7 @@ body {
     text-align: center;
     background-image: url('../img/DSC_0028\ copie\ bd.jpg');
     background-size: cover;
+    width: 100%;
 }
 
 header {
@@ -142,6 +143,10 @@ nav {
     }
 }
 
+h3{
+    font-size: 3rem;
+}
+
 .contain {
     display: flex;
     flex-wrap: wrap;
@@ -170,6 +175,9 @@ th {
 }
 
 @media screen and (max-width: 750px) {
+    table{
+        width: 100%;
+    }
     .small_screen{
         display: block;
     }
@@ -181,21 +189,7 @@ th {
 td{
     border-left: 1px solid black;
     border-right: 1px solid black;
-}
-
-.test{
-    position: relative;
-}
-
-.calendar{
-    color: black;
-    border: 2px solid black;
-    transform: rotate(168deg);
-    position: absolute;
-    top: 8px;
-    left: 0px;
-    width: 100%;
-    border-radius: 50%;
+    text-align: center;
 }
 
 .today{
@@ -203,7 +197,35 @@ td{
     font-weight: 700;
 }
 
+.legend{
+    text-align: left;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+}
 
+.legend_item{
+    display: flex;
+    margin: 0.5rem;
+}
+
+.legend_color{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+}
+
+.green{
+    background-color: #AEFF00;
+}
+
+.orange{
+    background-color: #FF4B00;
+}
+
+.fuchsia{
+    background-color: #FD35BC;
+}
 
 .event {
     display: flex;
@@ -239,6 +261,12 @@ ul{
 
 li{
     list-style: none;
+}
+
+.poster{
+    width: 15rem;
+    height: 15rem;
+    margin: 1rem;
 }
 
 .footer{
