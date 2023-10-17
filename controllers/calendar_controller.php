@@ -1,10 +1,14 @@
 <?php
+// if (isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] != '127.0.0.1'){
+//     header('Location: ../index.php');
+//     exit;
+// }
 
 $year = date('Y');
 $today = date('d');
 $this_month = date('m');
 $ip = $_SERVER['REMOTE_ADDR'];
-var_dump($ip);
+// var_dump($ip);
 
 
 

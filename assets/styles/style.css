@@ -38,6 +38,10 @@ h1 {
     border: 1px solid #ae2012;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 
 @media (max-width: 750px) {
     .head{
@@ -128,7 +132,7 @@ nav {
         border: none;
         background-color: #ae2012;
         border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
-        font-size: 0.5rem;
+        font-size: 1rem;
     }
 
     .burger {
@@ -197,6 +201,16 @@ td{
     font-weight: 700;
 }
 
+#event_display{
+    border: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#event_display:hover{
+    cursor: pointer;
+}
+
 .legend{
     text-align: left;
     border: 1px solid black;
@@ -263,9 +277,67 @@ li{
     list-style: none;
 }
 
+#display_past_event{
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.old_event{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20rem;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+#display_event{
+    display: none;
+    justify-content: center;
+    border: 1px solid black;
+    width: fit-content;
+    margin: auto;
+    margin-top: 1rem;
+}
+
 .poster{
     width: 15rem;
     height: 15rem;
+    margin: 1rem;
+}
+
+.event_infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 1rem;
+}
+
+/* h4{
+    margin: 3rem;
+} */
+
+.connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+    border: 1px solid black;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 1rem;
+    width: 70%;
+}
+
+h5{
+    font-size: 2rem;
+}
+
+.login{
+    text-align: center;
     margin: 1rem;
 }
 
@@ -284,6 +356,7 @@ footer {
     flex-direction: column;
     color: #ae2012;
     margin: auto;
+    margin-top: 1rem;
 }
 
 .foot {

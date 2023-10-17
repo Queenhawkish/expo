@@ -13,7 +13,7 @@
 <body>
     <div class="head">
         <header>
-            <img src="../assets/img/Logo main HD 2cm-2.webp" alt="main magique" class="logo">
+            <a href="connexion_controllers.php"><img src="../assets/img/Logo main HD 2cm-2.webp" alt="main magique" class="logo"></a>
             <h1>les7mainsmagiques</h1>
         </header>
     </div>
