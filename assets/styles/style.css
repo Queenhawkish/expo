@@ -319,7 +319,7 @@ li{
     margin: 3rem;
 } */
 
-.connexion{
+.connection{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,6 +330,7 @@ li{
     margin: auto;
     margin-top: 1rem;
     width: 70%;
+    color: #ae2012;
 }
 
 h5{
@@ -339,6 +340,22 @@ h5{
 .login{
     text-align: center;
     margin: 1rem;
+    font-size: 1.2rem;
+}
+
+.connect{
+    padding: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.content{
+    width: fit-content;
+    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
+    border: 5px solid #ae2012;
+    margin: auto;
+    padding: 5rem;
+    font-size: 3rem;
+    margin-top: 3rem;
 }
 
 .footer{

@@ -8,6 +8,7 @@
             <a href="../controllers/calendar_controller.php">Événements</a>
             <a href="../controllers/gallery_controller.php">Galerie</a>
             <a href="../controllers/about_controller.php">Contact</a>
+            <?php ?>
         </div>
     </nav>
 </div>
