@@ -4,8 +4,6 @@
 
 body {
     text-align: center;
-    background-image: url('../img/DSC_0028\ copie\ bd.jpg');
-    background-size: cover;
     width: 100%;
 }
 
@@ -16,7 +14,7 @@ header {
     margin: 2rem;
     justify-content: space-evenly;
     background: linear-gradient(0.25turn, white, #ae2012, white);
-    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
+    border-radius: 11% 89% 9% 91% / 73% 27% 73% 27%;
     border-left: 1px solid #ae2012;
     border-right: 1px solid #ae2012;
 }
@@ -69,6 +67,7 @@ button:hover {
 .home {
     display: flex;
     justify-content: center;
+    background: url('../img/home.jpg');
     align-items: center;
 }
 
@@ -78,6 +77,8 @@ button:hover {
     font-weight: 600;
     margin: auto;
     font-family: 'raleway';
+    background-color: black;
+    color: white;
     text-align: justify;
     margin: 4rem;
 }
@@ -98,12 +99,9 @@ button:hover {
 
 nav {
     display: flex;
-    background: #ae2012;
     height: 80px;
-    width: 80%;
+    width: 100%;
     margin: 1rem auto;
-    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
-    color: #EEAA23;
     font-size: 2rem;
     justify-content: center;
     align-items: center;
@@ -123,7 +121,12 @@ nav {
 
 .burger>a {
     text-decoration: none;
-    color: white;
+    color: black;
+}
+
+.burger>hr{
+    width: 2rem;
+    transform: rotate(90deg);
 }
 
 @media (max-width: 750px) {
@@ -147,6 +150,15 @@ nav {
     }
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: url('../img/calendar.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 h3{
     font-size: 3rem;
 }
@@ -161,17 +173,19 @@ h3{
 
 table {
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 3px solid black;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #00891E;
 }
 
 thead{
-    border: 1px solid black;
+    border: 3px solid black;
 }
 
 th {
-    border: 1px solid black;
+    border: 3px solid black;
     width: 5rem;
-    font-weight: 900;
 }
 
 .small_screen{
@@ -191,8 +205,8 @@ th {
 }
 
 td{
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
     text-align: center;
 }
 
@@ -245,10 +259,16 @@ td{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 20rem;
+    width: 20%;
     border: 1px solid black;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.poster{
+    width: 80%;
+    height: 15rem;
+    margin: auto;
 }
 
 @media screen and (max-width: 750px) {
@@ -302,11 +322,6 @@ li{
     margin-top: 1rem;
 }
 
-.poster{
-    width: 15rem;
-    height: 15rem;
-    margin: 1rem;
-}
 
 .event_infos{
     display: flex;
@@ -348,14 +363,21 @@ h5{
     font-size: 1.5rem;
 }
 
+.about{
+    background: url('../img/about.jpg');
+    padding: 1rem;
+}
+
 .content{
     width: fit-content;
-    border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
+    border-radius: 11% 89% 9% 91% / 73% 27% 73% 27%;
     border: 5px solid #ae2012;
     margin: auto;
     padding: 5rem;
     font-size: 3rem;
-    margin-top: 3rem;
+    color: #00891E;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
 }
 
 .footer{
