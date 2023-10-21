@@ -5,7 +5,7 @@
 
     <h3>Année <?= $year ?></h3>
 
-    <div class="contain calendar">
+    <div class="calendar">
         <table>
             <thead>
 
@@ -24,7 +24,7 @@
                     <td id="<?= $name_month["Janvier"] ?>" <?php if ($day == $today && $name_month["Janvier"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
 
                     <?php if ($year == 2023 && $day < 29) { ?>
-                        <td id="<?= $name_month["Février"] ?>" <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Février"] ?>" <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } ?> <?php if ($day == 5) { ?> class="orange" <?php } ?>><?= $day ?></td>
                     <?php } else if ($year == 2024 && $day < 30) { ?>
                         <td id="<?= $name_month["Février"] ?>" <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
                     <?php } else { ?>
@@ -84,94 +84,97 @@
             <li class="legend_item">
                 <div class="legend_color today"></div>Aujourd'hui
             </li>
+            <li class="legend_item">
+                <div class="legend_color select"></div>Evènement sélectionné
+            </li>
         </ul>
 
     </div>
+
+    <button id="past_event">Évènement passés</button>
 </div>
 
-<button id="past_event">Évènement passés</button>
-
 <div id="display_past_event">
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
-        </div>
-    </div>
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
-        </div>
-    </div>
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
-        </div>
-    </div>
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
-        </div>
-    </div>
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
-        </div>
-    </div>
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
-        </div>
-    </div>
-    <div class="old_event">
-        <div class="event_image">
-            <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-        </div>
-        <div class="event_infos">
-            <h4>Titre de l'évènement</h4>
-            <p>Lieux</p>
-            <button>Galerie</button>
+    <div class="gallery">
+        <h4 class="year_event">2023</h4>
+        <div class="year">
+            <div class="event">
+                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
+                <div class="event_description">
+                    <h2>Event Name</h2>
+                    <ul>
+                        <li>Date</li>
+                        <li>Lieux</li>
+                    </ul>
+                    <button>Photos</button>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
+                <div class="event_description">
+                    <h2>Event Name</h2>
+                    <ul>
+                        <li>Date</li>
+                        <li>Lieux</li>
+                    </ul>
+                    <button>Photos</button>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
+                <div class="event_description">
+                    <h2>Event Name</h2>
+                    <ul>
+                        <li>Date</li>
+                        <li>Lieux</li>
+                    </ul>
+                    <button>Photos</button>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
+                <div class="event_description">
+                    <h2>Event Name</h2>
+                    <ul>
+                        <li>Date</li>
+                        <li>Lieux</li>
+                    </ul>
+                    <button>Photos</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div id="display_event">
-    <div class="event_image">
-        <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-    </div>
-    <div class="event_infos">
-        <h4>Titre de l'évènement</h4>
-        <p>Lieux</p>
-        <button>+ d'infos</button>
+    <p class="date">21/10/2023</p>
+    <div class="display_event">
+        <div class="event_title">
+            <h4>Titre de l'évènement</h4>
+        </div>
+        <div class="event_infos">
+            <p>Lieux: </p>
+            <p>Date: </p>
+            <p>Participants: </p>
+            <div class="participation">
+                <button id="part">Je souhaite participer</button>
+                <button id="unpart">Je ne souhaite plus participer</button>
+                <div class="wishpart">
+                    <label for="participant_number">Nombre de participants</label>
+                    <input type="number" id="numbpart" placeholder="0" name="participant_number">
+                    <button class="nbpartvalidate">Valider</button>
+                </div>
+                <div id="part_infos">
+                </div>
+                <div class="register">
+                    <button class="cancel">Annuler</button>
+                    <button>S'enregistrer</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

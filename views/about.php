@@ -3,11 +3,13 @@
 <div class="about">
     <div class="content">
         <ul>
-            <li>Nom : Donati</li>
-            <li>Prénom : Nadine</li>
-            <li>Téléphone : </li>
-            <li>Email : </li>
+            <li>Donati</li>
+            <li>Nadine</li>
+            <li>01 48 93 62 73</li>
+            <li>donati4@orange.fr</li>
         </ul>
     </div>
 </div>
+<div class="footer">
 <?php include 'components/footer.php'; ?>
+</div>

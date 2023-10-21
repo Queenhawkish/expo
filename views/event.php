@@ -6,8 +6,11 @@
     <div class="card_event_img">
         <img src="https://picsum.photos/200/300" alt="event image">
     </div>
-    <div class="card_event_info">
-        <h1>Event Name</h1>
+    <div class="title">
+        <h4>Event title</h4>
+    </div>
+    <button class="infos">+ d'infos</button>
+    <div class="info_display">
         <p>Event Description</p>
         <p>Event Date</p>
         <p>Event Location</p>
@@ -16,9 +19,37 @@
         <p>Event Category</p>
         <p>Event Organizer</p>
         <p>Event Contact</p>
-        <a href="../controllers/calendar_controller.php">Retour</a>
+    </div>
+    <a href="../controllers/calendar_controller.php">
+        <button class="picture">Retour</button>
+    </a>
+    <div class="gallery_event">
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
+        <div class="event_img">
+            <img src="https://picsum.photos/200/300" alt="event image">
+        </div>
     </div>
 </div>
 
 
-    <?php include 'components/footer.php'; ?>
+<?php include 'components/footer.php'; ?>
