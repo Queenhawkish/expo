@@ -91,62 +91,6 @@
 
     </div>
 
-    <button id="past_event">Évènement passés</button>
-</div>
-
-<div id="display_past_event">
-    <div class="gallery">
-        <h4 class="year_event">2023</h4>
-        <div class="year">
-            <div class="event">
-                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-                <div class="event_description">
-                    <h2>Event Name</h2>
-                    <ul>
-                        <li>Date</li>
-                        <li>Lieux</li>
-                    </ul>
-                    <button>Photos</button>
-                </div>
-            </div>
-
-            <div class="event">
-                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-                <div class="event_description">
-                    <h2>Event Name</h2>
-                    <ul>
-                        <li>Date</li>
-                        <li>Lieux</li>
-                    </ul>
-                    <button>Photos</button>
-                </div>
-            </div>
-
-            <div class="event">
-                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-                <div class="event_description">
-                    <h2>Event Name</h2>
-                    <ul>
-                        <li>Date</li>
-                        <li>Lieux</li>
-                    </ul>
-                    <button>Photos</button>
-                </div>
-            </div>
-
-            <div class="event">
-                <img src="../assets/img/DSC_0028 copie bd.jpg" alt="affiche" class="poster">
-                <div class="event_description">
-                    <h2>Event Name</h2>
-                    <ul>
-                        <li>Date</li>
-                        <li>Lieux</li>
-                    </ul>
-                    <button>Photos</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div id="display_event">
@@ -156,22 +100,26 @@
             <h4>Titre de l'évènement</h4>
         </div>
         <div class="event_infos">
-            <p>Lieux: </p>
-            <p>Date: </p>
-            <p>Participants: </p>
+            <div class="infos_event">
+                <p>Lieux: </p>
+                <p>Date: </p>
+                <p>Participants: </p>
+                <div class="butpart">
+                    <button id="part">Je souhaite participer</button>
+                    <button id="unpart">Je ne souhaite plus participer</button>
+                </div>
+            </div>
             <div class="participation">
-                <button id="part">Je souhaite participer</button>
-                <button id="unpart">Je ne souhaite plus participer</button>
                 <div class="wishpart">
-                    <label for="participant_number">Nombre de participants</label>
-                    <input type="number" id="numbpart" placeholder="0" name="participant_number">
+                    <label for="participant_number" id="partnumb">Nombre de participants</label>
+                    <input type="number" id="numbpart" placeholder="0" name="number_participant">
                     <button class="nbpartvalidate">Valider</button>
                 </div>
                 <div id="part_infos">
                 </div>
                 <div class="register">
                     <button class="cancel">Annuler</button>
-                    <button>S'enregistrer</button>
+                    <button class="save">S'enregistrer</button>
                 </div>
             </div>
         </div>

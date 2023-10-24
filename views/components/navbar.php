@@ -4,13 +4,13 @@
             <i class="bi bi-list"></i>
         </button>
         <div class="burger">
-            <a href="../controllers/home_controller.php">Accueil</a>
+            <a href="home_controller.php" id="home">Présentation</a>
             <hr>
-            <a href="../controllers/calendar_controller.php">Événements</a>
+            <a href="calendar_controller.php" id="calendar">Programmation</a>
             <hr>
-            <a href="../controllers/gallery_controller.php">Galerie</a>
+            <a href="gallery_controller.php" id="gallery">Galerie</a>
             <hr>
-            <a href="../controllers/about_controller.php">Contact</a>
+            <a href="about_controller.php" id="about">Contact</a>
             <?php ?>
         </div>
     </nav>

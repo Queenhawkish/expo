@@ -1,3 +1,36 @@
+let home = document.querySelector('#home');
+let about = document.querySelector('#about');
+let events = document.querySelector('#calendar');
+let gallery = document.querySelector('#gallery');
+let homepage = document.querySelector('.home');
+let aboutpage = document.querySelector('.about');
+let eventspage = document.querySelector('.calendar');
+let gallerypage = document.querySelector('.gallerypage');
+
+if (homepage) {
+    home.style.color = "white";
+    home.style.backgroundColor = "black";
+}
+
+if (aboutpage) {
+    about.style.color = "white";
+    about.style.backgroundColor = "black";
+}
+
+if (eventspage) {
+    events.style.color = "white";
+    events.style.backgroundColor = "black";
+}
+
+if (gallerypage) {
+    gallery.style.color = "white";
+    gallery.style.backgroundColor = "black";
+}
+
+
+
+
+
 let burger = document.querySelector('.burger_icon');
 let btest = false;
 
@@ -23,26 +56,11 @@ if (burger) {
     })
 
 
-    if (screen.width < 750) {
-        window.addEventListener('scroll', function () {
-
-            if (window.scrollY > 100) {
-                document.querySelector('nav').style.position = "fixed";
-                document.querySelector('nav').style.top = "0";
-                document.querySelector('nav').style.margin = "1rem auto";
-            } else {
-                document.querySelector('nav').style.position = "relative";
-                document.querySelector('nav').style.top = "0";
-                document.querySelector('nav').style.margin = "1rem auto";
-            }
-        })
-
-    }
 }
 window.addEventListener('scroll', function () {
 
 
-    if (window.scrollY > 400) {
+    if (window.scrollY > 850) {
         document.querySelector('nav').style.position = "fixed";
         document.querySelector('nav').style.top = "0";
         document.querySelector('nav').style.margin = "auto";
@@ -81,40 +99,28 @@ if (calendar) {
 
 
 
-
-    let pastevent = document.querySelector('#past_event');
-
-    pastevent.addEventListener('click', () => {
-        if (display_event.style.display == "flex") {
-            display_event.style.display = "none";
-            display_past_event.style.display = "flex";
-            nodisplaypastevent = true;
-            nodisplayevent = false;
-        } else if (nodisplaypastevent == true) {
-            display_past_event.style.display = "none";
-            nodisplaypastevent = false;
-        } else {
-            display_past_event.style.display = "flex";
-            nodisplaypastevent = true;
-        }
-    })
-
     let part = document.querySelector('#part');
     let unpart = document.querySelector('#unpart');
 
     part.addEventListener('click', () => {
+        let participation = document.querySelector('.participation');
+        participation.style.display = "flex";
+        part.style.display = "none";
         unpart.style.display = "none";
+        let infos_event = document.querySelector('.infos_event');
+        infos_event.style.display = "none";
         let wishpart = document.querySelector('.wishpart');
         wishpart.style.display = "flex";
         let numbpart = document.querySelector('#numbpart');
 
         numbpart.addEventListener('input', () => {
-            let numb = numbpart.value;
             let part_infos = document.querySelector('#part_infos');
-            for (let test = 0; test < numb; test++) {
+            part_infos.innerHTML = "";
+            let numb = numbpart.value;
+            for (let people = 0; people < numb; people++) {
                 part_infos.innerHTML += `
             <div class="participant">
-                <p>Participant ${test + 1}</p>
+                <p>Participant ${people + 1}</p>
                 <input class="part_info" type="text" name="name" placeholder="Nom">
                 <input class="part_info" type="text" name="firstname" placeholder="Prénom">
                 <input class="part_info" type="text" name="email" placeholder="Adresse email">
@@ -132,6 +138,7 @@ if (calendar) {
                 cancel.addEventListener('click', () => {
                     part_infos.style.display = "none";
                     part.style.display = "flex";
+                    infos_event.style.display = "flex";
                     register.style.display = "none";
                     unpart.style.display = "flex";
                 })
@@ -140,20 +147,66 @@ if (calendar) {
 
 
     })
+
+
+    unpart.addEventListener('click', () => {
+        unpart.style.display = "none";
+        part.style.display = "none";
+        partnumb.innerHTML = `
+        Nombre de personne souhaitant se désinscrire :
+        `
+        let wishpart = document.querySelector('.wishpart');
+        wishpart.style.display = "flex";
+        let numbpart = document.querySelector('#numbpart');
+        numbpart.addEventListener('input', () => {
+            let numb = numbpart.value;
+            let part_infos = document.querySelector('#part_infos');
+            for (let people = 0; people < numb; people++) {
+                part_infos.innerHTML += `
+                <div class="participant">
+                    <p>Participant ${people + 1}</p>
+                    <input class="part_info" type="text" name="name" placeholder="Nom">
+                    <input class="part_info" type="text" name="firstname" placeholder="Prénom">
+                    <input class="part_info" type="text" name="email" placeholder="Adresse email">
+                </div>
+            `
+            }
+            let validate = document.querySelector('.nbpartvalidate');
+            validate.addEventListener('click', () => {
+                part_infos.style.display = "flex";
+                let register = document.querySelector('.register');
+                register.style.display = "flex";
+                wishpart.style.display = "none";
+                unpart.style.display = "none";
+                let cancel = document.querySelector('.cancel');
+                cancel.addEventListener('click', () => {
+                    part_infos.style.display = "none";
+                    unpart.style.display = "flex";
+                    infos_event.style.display = "flex";
+                    register.style.display = "none";
+                    part.style.display = "flex";
+                })
+            })
+        })
+    })
 }
 
+let event_details = document.querySelector('.event_details');
 
-let info = document.querySelector('.infos');
-let noinfo = false;
+if (event_details) {
 
-info.addEventListener('click', () => {
-    if (noinfo == false) {
-        let info_display = document.querySelector('.info_display');
-        info_display.style.display = "flex";
-        noinfo = true;
-    } else {
-        let info_display = document.querySelector('.info_display');
-        info_display.style.display = "none";
-        noinfo = false;
-    }
-})
+    let info = document.querySelector('.infos');
+    let noinfo = false;
+
+    info.addEventListener('click', () => {
+        if (noinfo == false) {
+            let info_display = document.querySelector('.info_display');
+            info_display.style.display = "flex";
+            noinfo = true;
+        } else {
+            let info_display = document.querySelector('.info_display');
+            info_display.style.display = "none";
+            noinfo = false;
+        }
+    })
+}

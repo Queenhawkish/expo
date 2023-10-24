@@ -6,7 +6,7 @@
     <h5>Connexion à l'espace administrateur</h5>
     <input type="text" name="login" placeholder="login" class="login">
     <input type="password" name="password" placeholder="password" class="login">
-    <a href="">
+    <a href="home_controller.php">
         <button class="connect">Connexion</button>
     </a>
 </div>
