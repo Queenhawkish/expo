@@ -13,7 +13,7 @@ header {
     text-align: center;
     padding: 1rem;
     margin: 2rem;
-    justify-content: space-evenly;
+    justify-content: center;
     color: white;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #ae2012;
@@ -25,6 +25,7 @@ h1 {
     font-style: italic;
     padding-bottom: 0.7rem;
     font-family: 'raleway thin', sans-serif;
+    margin-left: 2rem;
 }
 
 
@@ -135,7 +136,8 @@ nav {
 #home,
 #about,
 #gallery,
-#calendar {
+#calendar,
+#connection {
     padding: 0 3rem;
     border-radius: 5px;
 }
@@ -595,9 +597,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 h5 {
     font-size: 2rem;
-    color: white;
+    color: #ae2012;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
+    /* text-decoration: underline;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 2px ; */
     padding: 0.5rem;
     margin-bottom: 3rem;
     border-radius: 5px;
@@ -682,7 +687,7 @@ h5 {
 .connect {
     padding: 0.5rem;
     font-size: 1.5rem;
-    background-color: #fff;
+    background-color: transparent;
     font-weight: 700;
     color: black;
     /* -webkit-text-stroke-width: 1px;
@@ -850,16 +855,17 @@ input{
     flex-direction: column;
     justify-content: center;
     margin-top: 2rem;
+    background: url('../img/visitor.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 98%;
+    padding: 2rem;
 }
 
 .signup>h5{
     width: fit-content;
     margin: auto;
-    background-color: #fff;
-    color: #ae2012;
-    text-decoration: underline;
-    text-underline-offset: 7px;
-    text-decoration-thickness: 2px ;
     margin-bottom: 2rem;
 }
 
@@ -867,6 +873,11 @@ input{
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+}
+
+.signup_item>label{
+    font-weight: 700;
+    /* font-size: 1.3rem; */
 }
 
 .signup_item>input{
@@ -884,10 +895,13 @@ input{
     padding: 0.5rem;
     border: 1px solid black;
     justify-content: center;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 .password, .passwordc{
     border: none;
+    background-color: transparent;
 }
 
 .password:focus , .passwordc:focus{
@@ -958,14 +972,28 @@ input{
     }
 }
 
-.signup_item>button{
-    background-color: black;
+.signup_item>a{
+    background-color: transparent;
     color: white;
     font-size: 1rem;
     padding: 10px;
     border-radius: 15rem;
     width: fit-content;
     margin: auto;
+}
+
+.signup_item>a:hover{
+    cursor: pointer;
+}
+
+.visitor{
+    background: url('../img/visitor.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 98%;
+    text-align: center;
+    padding: 2rem;
 }
  
 .footer {
@@ -981,7 +1009,7 @@ footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    color: #ae2012;
+    color: black;
     margin: auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -1018,4 +1046,56 @@ footer {
         font-size: 5rem;
     }
 
+}
+
+@media screen and (max-width: 1700px){
+    nav{
+        font-size: 1.4rem;
+    }
+    h1{
+        font-size: 5rem;
+    }
+
+    .logo{
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .add_event{
+        font-size: 1.5rem;
+    }
+
+    .about{
+        height: 8rem;
+    }
+
+    .signup_item{
+        font-size: 1rem;
+    }
+
+    footer>p{
+        font-size: 1rem;
+    }
+
+    .footer {
+        position: relative;
+    }
+
+}
+
+@media screen and (max-width: 1350px){
+    nav{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .burger>a{
+        width: 15rem;
+    }
 }

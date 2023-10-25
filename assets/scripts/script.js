@@ -2,10 +2,12 @@ let home = document.querySelector('#home');
 let about = document.querySelector('#about');
 let events = document.querySelector('#calendar');
 let gallery = document.querySelector('#gallery');
+let connection = document.querySelector('#connection');
 let homepage = document.querySelector('.home');
 let aboutpage = document.querySelector('.about');
 let eventspage = document.querySelector('.calendar');
 let gallerypage = document.querySelector('.gallerypage');
+let connectionpage = document.querySelector('.visitor');
 
 if (homepage) {
     home.style.color = "white";
@@ -25,6 +27,11 @@ if (eventspage) {
 if (gallerypage) {
     gallery.style.color = "white";
     gallery.style.backgroundColor = "black";
+}
+
+if (connectionpage) {
+    connection.style.color = "white";
+    connection.style.backgroundColor = "black";
 }
 
 

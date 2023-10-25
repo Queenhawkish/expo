@@ -12,7 +12,7 @@
             <hr>
             <a href="about_controller.php" id="about">Contact</a>
             <hr>
-            <a href="connection_visitor_controller.php" id="connection">Connexion / inscription</a>
+            <a href="connection_visitor_controller.php" id="connection">Connexion / Inscription</a>
             <hr>
             <a href="disconnect_controller.php">Déconnexion</a>
             <?php ?>

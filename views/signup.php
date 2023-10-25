@@ -1,7 +1,7 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-<form action="" class="signup">
+<form class="signup">
     <h5>S'inscrire</h5>
     <div class="signup_item">
         <label for="user_lastname">Veuillez saisir votre nom</label>
@@ -22,12 +22,12 @@
             <i class="bi bi-eye eye"></i>
             <i class="bi bi-eye-slash eye-slash"></i>
         </div>
-    <div class="password_strength">
-        <div class="tolow"></div>
-        <div class="low"></div>
-        <div class="correct"></div>
-        <div class="strong"></div>
-    </div>
+        <div class="password_strength">
+            <div class="tolow"></div>
+            <div class="low"></div>
+            <div class="correct"></div>
+            <div class="strong"></div>
+        </div>
     </div>
     <div class="signup_item">
         <label for="user_password_confirm">Veuillez confirmer votre mot de passe</label>
@@ -38,7 +38,9 @@
         </div>
     </div>
     <div class="signup_item">
-        <button>S'inscrire</button>
+        <a href="connection_visitor_controller.php">
+            <button class="connect signupbut">S'inscrire</button>
+        </a>
     </div>
 </form>
 

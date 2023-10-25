@@ -2,7 +2,7 @@
 <?php include 'components/navbar.php'; ?>
 
 
-<div class="connection">
+<div class="connection visitor">
     <h5>Espace visiteur</h5>
     <input type="text" name="login" placeholder="login" class="login">
     <input type="password" name="password" placeholder="password" class="login">
