@@ -11,6 +11,10 @@
             <a href="gallery_controller.php" id="gallery">Galerie</a>
             <hr>
             <a href="about_controller.php" id="about">Contact</a>
+            <hr>
+            <a href="connection_visitor_controller.php" id="connection">Connexion / inscription</a>
+            <hr>
+            <a href="disconnect_controller.php">Déconnexion</a>
             <?php ?>
         </div>
     </nav>

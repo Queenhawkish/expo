@@ -31,10 +31,6 @@
             <textarea name="event_description" placeholder="Description de l'exposition" cols="30" rows="10">
             </textarea>
         </div>
-        <div class="item_old_event">
-            <label for="event_nb_pic">Nombre de photo pour l'exposition :</label>
-            <input type="number" placeholder="0" class="event_nb_pic">
-        </div>
         <div class="add_picture">
             <p>Photo d'affiche</p>
             <input class="pic_input old" type="file" name="poster" accept="image/png, image/jpeg">

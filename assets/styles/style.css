@@ -596,17 +596,25 @@ input[type=number]::-webkit-outer-spin-button {
 h5 {
     font-size: 2rem;
     color: white;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
-    background-color: #ae2012;
     padding: 0.5rem;
     margin-bottom: 3rem;
+    border-radius: 5px;
+    border: 2px inset #ae2012;
 }
 
 .login {
     text-align: center;
     margin: 1rem;
     font-size: 1.2rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.signupbut{
+    margin-top: 1rem;
 }
 
 
@@ -674,12 +682,17 @@ h5 {
 .connect {
     padding: 0.5rem;
     font-size: 1.5rem;
-    background-color: black;
+    background-color: #fff;
     font-weight: 700;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ae2012;
+    color: black;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ae2012; */
     border: 2px inset #ae2012;
+    border-radius: 5px;
+}
+
+.co{
+    margin-top: 2rem;
 }
 
 .visiter_home{
@@ -832,6 +845,129 @@ input{
     border-radius: 15rem;
 }
 
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.signup>h5{
+    width: fit-content;
+    margin: auto;
+    background-color: #fff;
+    color: #ae2012;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 2px ;
+    margin-bottom: 2rem;
+}
+
+.signup_item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.signup_item>input{
+    margin: 0.5rem auto;
+    width: 15rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.psw , .pswc{
+    display: flex;
+    margin: 0.5rem auto;
+    width: 15rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    justify-content: center;
+}
+
+.password, .passwordc{
+    border: none;
+}
+
+.password:focus , .passwordc:focus{
+    outline: none;
+}
+
+.eye , .eyec{
+    display: none;
+    font-size: 1.3rem;
+}
+
+.eye:hover , .eyec:hover , .eye-slash:hover , .eye-slashc:hover{
+    cursor: pointer;
+}
+
+.eye-slash , .eye-slashc{
+    display: none;
+    font-size: 1.3rem;
+}
+
+.password_strength{
+    display: none;
+    width: 16rem;
+    margin: auto;
+    height: 10px;
+    border: 1px solid black;
+}
+
+.tolow{
+    display: none;
+    background-color: rgb(255, 0, 0);
+    width: 25%;
+    height: 100%;
+    animation: strength 1s;
+}
+
+.low{
+    display: none;
+    background-color: orange;
+    width: 25%;
+    height: 100%;
+    animation: strength 1s;
+}
+
+.correct{
+    display: none;
+    background-color: yellowgreen;
+    width: 25%;
+    height: 100%;
+    animation: strength 1s;
+}
+
+.strong{
+    display: none;
+    background-color: green;
+    width: 25%;
+    height: 100%;
+    animation: strength 1s;
+}
+
+@keyframes strength {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 25%;
+    }
+}
+
+.signup_item>button{
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 15rem;
+    width: fit-content;
+    margin: auto;
+}
+ 
 .footer {
     position: fixed;
     bottom: 0;

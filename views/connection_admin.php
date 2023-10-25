@@ -7,7 +7,7 @@
     <input type="text" name="login" placeholder="login" class="login">
     <input type="password" name="password" placeholder="password" class="login">
     <a href="home_controller.php">
-        <button class="connect">Connexion</button>
+        <button class="connect co">Connexion</button>
     </a>
 </div>
 
