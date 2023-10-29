@@ -2,10 +2,10 @@
 <?php include 'components/navbar.php'; ?>
 
 <div class="adminspace">
-    <a href="calendar_controller.php">
+    <a href="add_new_event_controller.php">
         <button class="add_event new">Ajouter un évènement à venir</button>
     </a>
-    <a href="gallery_controller.php">
+    <a href="add_old_event_controller.php">
         <button class="add_event past">Ajouter un évènement passé</button>
     </a>
 </div>

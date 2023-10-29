@@ -8,31 +8,42 @@ body {
     width: 100%;
 }
 
+.head {
+    display: flex;
+    justify-content: center;
+}
+
 header {
     display: flex;
     text-align: center;
     padding: 1rem;
-    margin: 2rem;
     justify-content: center;
     color: white;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #ae2012;
 }
 
+header>a {
+    display: flex;
+    align-items: center;
+}
+
 h1 {
+    display: flex;
     font-size: 7rem;
     font-weight: 100;
     font-style: italic;
     padding-bottom: 0.7rem;
     font-family: 'raleway thin', sans-serif;
-    margin-left: 2rem;
+    margin-left: 3rem;
 }
 
 
 .logo {
+    display: flex;
     width: 6rem;
     height: 6rem;
-    margin-top: 0.5rem;
+    margin-top: 0.5rem auto;
     border-radius: 11% 89% 9% 91% / 73% 27% 73% 27%;
     border: 1px solid #ae2012;
 }
@@ -41,60 +52,34 @@ button:hover {
     cursor: pointer;
 }
 
-
-@media (max-width: 750px) {
-    .head {
-        display: flex;
-        justify-content: center;
-    }
-
-    header {
-        padding: 0.3rem;
-        margin: 0.5rem;
-        width: fit-content;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-        margin-left: 1rem;
-        margin-top: 5px;
-    }
-
-    .logo {
-        width: 2rem;
-        height: 2rem;
-        margin: auto;
-    }
+.visiter_home {
+    display: none;
+    margin-top: 3rem;
 }
 
 .homeimg {
-    width: 100%;
+    width: 50%;
     height: 20rem;
     background: url('../img/home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .home {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
 }
 
 .intro {
     font-size: 2rem;
-    width: 64rem;
+    width: 72%;
     font-weight: 600;
     margin: auto;
     font-family: 'raleway';
     text-align: justify;
-    margin: 4rem;
-}
-
-@media screen and (max-width: 750px) {
-    .intro {
-        font-size: 1.5rem;
-        width: auto;
-        margin: 1rem;
-    }
 }
 
 
@@ -107,7 +92,7 @@ nav {
     display: flex;
     height: 80px;
     width: 100%;
-    margin: 1rem auto;
+    margin-bottom: 1rem;
     font-size: 2rem;
     justify-content: center;
     align-items: center;
@@ -147,35 +132,8 @@ nav {
     transform: rotate(90deg);
 }
 
-@media (max-width: 750px) {
-    .burger_icon {
-        display: flex;
-        border: none;
-        font-size: 1rem;
-        background-color: transparent;
-    }
-
-    .burger {
-        display: none;
-        margin-top: 0.5rem;
-    }
-
-    nav {
-        width: fit-content;
-        height: auto;
-        padding: 1rem;
-        font-size: 0.7rem;
-        background-color: #ae2012;
-        border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
-    }
-
-    .burger>hr {
-        display: none;
-    }
-}
-
 .gallery {
-    display: none;
+    display: flex;
     justify-content: center;
     flex-direction: column;
 }
@@ -213,7 +171,7 @@ nav {
 }
 
 .container {
-    display: none;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     background: url('../img/calendar.jpg');
@@ -226,13 +184,6 @@ nav {
 h3 {
     font-size: 3rem;
     color: black;
-}
-
-@media screen and (max-width: 750px) {
-    h3 {
-        font-size: 1.5rem;
-    }
-
 }
 
 .calendar {
@@ -269,26 +220,22 @@ th {
     display: none;
 }
 
-@media screen and (max-width: 750px) {
-    table {
-        width: 100%;
-    }
-
-    .small_screen {
-        display: block;
-    }
-
-    .big_screen {
-        display: none;
-    }
-}
-
 td {
     border-left: 3px solid black;
     border-right: 3px solid black;
     text-align: center;
     -webkit-text-stroke-width: 0.2px;
     -webkit-text-stroke-color: white;
+}
+
+.impair{
+    background-color: #E4D7AC;
+    color: black;
+}
+
+.pair{
+    background-color: #B0B3BE;
+    color: black;
 }
 
 .today {
@@ -345,14 +292,6 @@ td {
     background-color: #FD35BC;
 }
 
-@media screen and (max-width: 750px) {
-    .event {
-        width: 15rem;
-    }
-}
-
-
-
 h2 {
     margin: 1rem;
 
@@ -385,13 +324,6 @@ li {
     -webkit-text-stroke-color: white;
     font-weight: 600;
     font-style: italic;
-}
-
-@media screen and (max-width: 750px) {
-    #past_event {
-        font-size: 1.5rem;
-    }
-
 }
 
 #display_past_event {
@@ -600,13 +532,12 @@ h5 {
     color: #ae2012;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
-    /* text-decoration: underline;
-    text-underline-offset: 7px;
-    text-decoration-thickness: 2px ; */
+    margin: auto;
     padding: 0.5rem;
     margin-bottom: 3rem;
     border-radius: 5px;
     border: 2px inset #ae2012;
+    width: fit-content;
 }
 
 .login {
@@ -618,7 +549,7 @@ h5 {
     border-radius: 5px;
 }
 
-.signupbut{
+.signupbut {
     margin-top: 1rem;
 }
 
@@ -645,9 +576,9 @@ h5 {
     align-items: center;
 }
 
-.content>ul{
+.content>ul {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     margin: auto;
 }
 
@@ -687,37 +618,32 @@ h5 {
 .connect {
     padding: 0.5rem;
     font-size: 1.5rem;
-    background-color: transparent;
+    background-color: white;
     font-weight: 700;
     color: black;
-    /* -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ae2012; */
     border: 2px inset #ae2012;
     border-radius: 5px;
 }
 
-.co{
+.co {
     margin-top: 2rem;
 }
 
-.visiter_home{
-    display: none;
-}
-
-.adminspace{
+.adminspace {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 4rem;
 }
 
-.adminspace>a{
+.adminspace>a {
     text-decoration: none;
     color: black;
 }
 
-.add_event{
+.add_event {
     display: flex;
+    background-color: transparent;
     font-size: 2rem;
     width: fit-content;
     margin: 1rem auto;
@@ -726,19 +652,17 @@ h5 {
     padding: 5px;
 }
 
-.new{
-    background-color: #AEFF00;
+.new {
     color: black;
     border: 2px inset #AEFF00;
 }
 
-.past{
-    background-color: #ae2012;
-    color: white;
+.past {
+    color: black;
     border: 2px inset #ae2012;
 }
 
-h6{
+h6 {
     font-size: 2.5rem;
     margin: 1rem;
     -webkit-text-stroke-width: 2px;
@@ -747,10 +671,10 @@ h6{
     font-style: italic;
     text-decoration: underline;
     text-underline-offset: 7px;
-    text-decoration-thickness: 2px ;
+    text-decoration-thickness: 2px;
 }
 
-.form_old_event>form{
+.form_old_event>form , .form_new_event>form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -762,65 +686,65 @@ h6{
     font-size: 2rem;
 }
 
-.item_old_event{
+.item_old_event {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 1.5rem auto;
 }
 
-.item_old_event>input{
+.item_old_event>input {
     margin-top: 0.5rem;
     font-size: 1rem;
 }
 
-.adddate{
+.adddate {
     margin-top: 0.5rem;
 }
 
-.time{
+.time {
     width: 5rem;
     margin: auto;
 }
 
-textarea{
+textarea {
     margin-top: 0.5rem;
 }
 
-.item_old_event > input[type=number]{
+.item_old_event>input[type=number] {
     width: 3rem;
     margin: 0.5rem auto;
 }
 
 
 
-input{
+input {
     text-align: center;
 }
 
-.nb_pic{
+.nb_pic {
     display: none;
     width: fit-content;
     margin: 1rem auto;
 }
 
-.addposter{
+.addposter {
     display: none;
     margin: 1rem auto;
 }
 
-.pictures{
+.pictures {
     display: none;
     flex-direction: column;
 }
 
-.add_pictures{
+.add_pictures {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.add_picture{
+.add_picture {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -828,21 +752,21 @@ input{
     margin: 5px;
 }
 
-.picture_poster{
+.picture_poster {
     color: #ae2012;
 }
 
-.pic_input{
+.pic_input {
     padding: 0.5rem;
     border: 1px solid black;
 }
 
-.old{
+.old {
     width: fit-content;
     margin: 1rem auto;
 }
 
-.event_add{
+.event_add {
     background-color: black;
     color: white;
     font-size: 2rem;
@@ -850,7 +774,7 @@ input{
     border-radius: 15rem;
 }
 
-.signup{
+.signup {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -859,28 +783,34 @@ input{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 98%;
+    width: 96.5%;
     padding: 2rem;
 }
 
-.signup>h5{
+.form_signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
     width: fit-content;
     margin: auto;
-    margin-bottom: 2rem;
 }
 
-.signup_item{
+.signup_item {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
 }
 
-.signup_item>label{
+.signup_item>label {
     font-weight: 700;
     /* font-size: 1.3rem; */
 }
 
-.signup_item>input{
+.signup_item>input {
     margin: 0.5rem auto;
     width: 15rem;
     padding: 0.5rem;
@@ -888,7 +818,8 @@ input{
     border-radius: 5px;
 }
 
-.psw , .pswc{
+.psw,
+.pswc {
     display: flex;
     margin: 0.5rem auto;
     width: 15rem;
@@ -899,30 +830,49 @@ input{
     background-color: #fff;
 }
 
-.password, .passwordc{
+.password,
+.passwordc,
+.passwordo,
+.passwordn,
+.passwordnc {
     border: none;
     background-color: transparent;
 }
 
-.password:focus , .passwordc:focus{
+.password:focus,
+.passwordc:focus,
+.passwordo:focus,
+.passwordn:focus,
+.passwordnc:focus {
     outline: none;
 }
 
-.eye , .eyec{
+.eye,
+.eyec,
+.eyeo,
+.eyen,
+.eyenc {
     display: none;
     font-size: 1.3rem;
 }
 
-.eye:hover , .eyec:hover , .eye-slash:hover , .eye-slashc:hover{
+.eye:hover,
+.eyec:hover,
+.eye-slash:hover,
+.eye-slashc:hover {
     cursor: pointer;
 }
 
-.eye-slash , .eye-slashc{
+.eye-slash,
+.eye-slashc,
+.eye-slasho,
+.eye-slashn,
+.eye-slashnc {
     display: none;
     font-size: 1.3rem;
 }
 
-.password_strength{
+.password_strength, .password_strengthn {
     display: none;
     width: 16rem;
     margin: auto;
@@ -930,7 +880,7 @@ input{
     border: 1px solid black;
 }
 
-.tolow{
+.tolow , .tolown{
     display: none;
     background-color: rgb(255, 0, 0);
     width: 25%;
@@ -938,7 +888,7 @@ input{
     animation: strength 1s;
 }
 
-.low{
+.low, .lown {
     display: none;
     background-color: orange;
     width: 25%;
@@ -946,7 +896,7 @@ input{
     animation: strength 1s;
 }
 
-.correct{
+.correct, .correctn {
     display: none;
     background-color: yellowgreen;
     width: 25%;
@@ -954,7 +904,7 @@ input{
     animation: strength 1s;
 }
 
-.strong{
+.strong, .strongn {
     display: none;
     background-color: green;
     width: 25%;
@@ -972,7 +922,7 @@ input{
     }
 }
 
-.signup_item>a{
+.signup_item>a {
     background-color: transparent;
     color: white;
     font-size: 1rem;
@@ -982,20 +932,142 @@ input{
     margin: auto;
 }
 
-.signup_item>a:hover{
+.signup_item>a:hover {
     cursor: pointer;
 }
 
-.visitor{
+.visitor {
+    display: none;
     background: url('../img/visitor.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 98%;
+    width: 96.5%;
     text-align: center;
     padding: 2rem;
 }
- 
+
+.visitor>h5 {
+    font-weight: 900;
+    background-color: black;
+    color: #8E7630;
+    border: none;
+    -webkit-text-stroke-width: 0;
+}
+
+.sign {
+    background-color: #fff;
+}
+
+.profil {
+    display: flex;
+}
+
+.profil_img {
+    display: flex;
+    width: 50%;
+    background: url('../img/profil.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.profil_infos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.profil_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: fit-content;
+    margin: auto;
+}
+
+.profil_item>ul {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.modify_psw{
+    display: none;
+}
+
+.profil_info {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 1rem;
+    width: 30rem;
+}
+
+.modifybut {
+    margin-top: 1rem;
+}
+
+.event_signup {
+    margin-top: 2rem;
+}
+
+.signup_event {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup_event_item {
+    text-align: center;
+}
+
+.name-event {
+    margin-bottom: 0.5rem;
+}
+
+.profilbut {
+    font-size: 1rem;
+    background-color: #fff;
+    padding: 3px;
+    color: black;
+    font-weight: 800;
+    border: 5px inset #507D3F;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.delete{
+    color: #ae2012;
+    border : 5px inset #ae2012;
+}
+
+.accompte{
+    margin-top: 1rem;
+}
+
+.modify_user_info{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.input_user_info, .input_user_info_psw{
+    width: fit-content;
+}
+
+.modify_user_info_button{
+    display: flex;
+    justify-content: center;
+}
+
+.validbut, .cancelbutl, .cancelbutf, .cancelbute, .cancelbutp{
+    margin: auto;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
@@ -1022,7 +1094,215 @@ footer {
     margin: 1REM auto;
 }
 
+
+@media screen and (max-width: 1700px) {
+    nav {
+        font-size: 1.4rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .logo {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .visiter_home {
+        margin: 0;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .homeimg {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        height: 10rem;
+    }
+
+    .home {
+        margin: auto;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .add_event {
+        font-size: 1.5rem;
+    }
+
+    .signup_item {
+        font-size: 1rem;
+    }
+
+    footer>p {
+        font-size: 1rem;
+    }
+
+    .footer {
+        position: relative;
+    }
+
+}
+
+@media screen and (max-width: 1350px) {
+    nav {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .burger>a {
+        width: 15rem;
+    }
+
+    .profilbut {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    #home,
+    #about,
+    #gallery,
+    #calendar,
+    #connection {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    header {
+        margin: 0.5rem;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    header>a {
+        width: fit-content;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-left: 2rem;
+        font-family: 'raleway', sans-serif;
+        color: white;
+        font-weight: 200;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #ae2012;
+    }
+
+    .logo {
+        width: 3rem;
+        height: 3rem;
+    }
+    .profil {
+        flex-direction: column-reverse;
+    }
+
+    .profil_img {
+        width: 100%;
+        height: 30rem;
+    }
+
+    .profil_infos {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .small_screen {
+        display: block;
+    }
+
+    .big_screen {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 750px) {
+    header {
+        padding: 0.3rem;
+        margin: 0.5rem;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+        margin-top: 5px;
+    }
+
+    .logo {
+        width: 2rem;
+        height: 2rem;
+        margin: auto;
+    }
+
+    .intro {
+        font-size: 1.5rem;
+        width: auto;
+        margin: 1rem;
+    }
+
+    .burger_icon {
+        display: flex;
+        border: none;
+        font-size: 1rem;
+        background-color: transparent;
+    }
+
+    .burger {
+        display: none;
+        margin-top: 0.5rem;
+    }
+
+    nav {
+        width: fit-content;
+        height: auto;
+        padding: 1rem;
+        font-size: 0.7rem;
+        background-color: #ae2012;
+        border-radius: 11% 89% 18% 82% / 62% 13% 87% 38%;
+    }
+
+    .burger>hr {
+        display: none;
+    }
+
+    .intro{
+        font-size: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    table {
+        width: 100%;
+    }
+    
+    .event {
+        width: 15rem;
+    }
+
+    #past_event {
+        font-size: 1.5rem;
+    }
+
+    .footer{
+        position: fixed;
+    }
+
     .foot {
         width: 10rem;
     }
@@ -1033,69 +1313,90 @@ footer {
 
 }
 
-/* @media (min-width: 900px) and (max-width: 1200px) {
-    .footer {
-        position: relative;
+@media screen and (max-width: 700px) {
+    .content {
+        font-size: 2rem;
     }
 
-} */
-
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    h1 {
-        font-size: 5rem;
-    }
-
-}
-
-@media screen and (max-width: 1700px){
-    nav{
-        font-size: 1.4rem;
-    }
-    h1{
-        font-size: 5rem;
-    }
-
-    .logo{
-        width: 5rem;
-        height: 5rem;
-    }
-
-    .add_event{
+    .old_event {
         font-size: 1.5rem;
     }
 
-    .about{
-        height: 8rem;
-    }
-
-    .signup_item{
+    .item_old_event,
+    .add_picture {
         font-size: 1rem;
     }
 
-    footer>p{
+    .event_add {
         font-size: 1rem;
     }
 
-    .footer {
-        position: relative;
+    .form_old_event>form {
+        width: fit-content;
+        justify-content: center;
+    }
+
+    #home,
+    #about,
+    #gallery,
+    #calendar,
+    #connection {
+        padding: 0;
+        width: fit-content;
     }
 
 }
 
-@media screen and (max-width: 1350px){
-    nav{
-        font-size: 1.2rem;
+
+@media screen and (max-width: 550px) {
+    h1 {
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+    .container{
+        background: none;
+    }
+
+    .add_event {
+        font-size: 1rem;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+        -webkit-text-stroke-width: 0px;
+        color: black;
+    }
+
+    .profil_info, .signup_event  {
+        font-size: 1rem;
+    }
+
+    .profil_img{
+        display: none;
+    }
+
+    footer>p {
+        font-size: 0.5rem;
     }
 }
 
-@media screen and (max-width: 1200px){
-    nav{
-        display: flex;
-        flex-wrap: wrap;
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 400;
     }
 
-    .burger>a{
-        width: 15rem;
+    h5{
+        font-size: 1.3rem;
+    }
+
+    .logo {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .form_old_event>form {
+        padding: 0;
     }
 }

@@ -8,6 +8,8 @@ let aboutpage = document.querySelector('.about');
 let eventspage = document.querySelector('.calendar');
 let gallerypage = document.querySelector('.gallerypage');
 let connectionpage = document.querySelector('.visitor');
+let form_old_event = document.querySelector('.form_old_event');
+let form_new_event = document.querySelector('.form_new_event');
 
 if (homepage) {
     home.style.color = "white";
@@ -19,12 +21,12 @@ if (aboutpage) {
     about.style.backgroundColor = "black";
 }
 
-if (eventspage) {
+if (eventspage || form_new_event) {
     events.style.color = "white";
     events.style.backgroundColor = "black";
 }
 
-if (gallerypage) {
+if (gallerypage || form_old_event) {
     gallery.style.color = "white";
     gallery.style.backgroundColor = "black";
 }
@@ -85,7 +87,6 @@ if (calendar) {
     let thisevent = document.querySelector('.today');
     let display_event = document.querySelector('#display_event');
     let nodisplayevent = false;
-    let nodisplaypastevent = false;
     let display_past_event = document.querySelector('#display_past_event');
 
     thisevent.addEventListener('click', () => {
@@ -218,7 +219,6 @@ if (event_details) {
     })
 }
 
-let form_old_event = document.querySelector('.form_old_event');
 
 if (form_old_event) {
     let event_nb_pic = document.querySelector('.event_nb_pic');
@@ -351,6 +351,242 @@ if (signup) {
         }
 
 
+
+    })
+}
+
+let profil = document.querySelector('.profil');
+
+if (profil) {
+    let modify_lastname = document.querySelector('#modify_lastname');
+    let modify_firstname = document.querySelector('#modify_firstname');
+    let modify_email = document.querySelector('#modify_email');
+    let modify_pwd = document.querySelector('#modify_pwd');
+    let signup_item = document.querySelector('.signup_item');
+    signup_item.style.display = "none";
+
+    modify_lastname.addEventListener('click', () => {
+        let actual_lastname = document.querySelector('.actual_lastname');
+        let old_lastname = actual_lastname.innerHTML;
+        modify_lastname.style.display = "none";
+        let lastname = document.querySelector('.lastname');
+        lastname.style.justifyContent = "center";
+        actual_lastname.style.display = "flex";
+        actual_lastname.style.flexDirection = "column";
+        actual_lastname.style.justifyContent = "center";
+        actual_lastname.innerHTML = `
+            <label for="user_lastname" class="modify_user_info">Veuillez saisir votre nom</label>
+            <div class="modify_user_info">
+                <input type="text" name="user_lastname" class="input_user_info" placeholder="Doe">
+            </div>
+            <div class="modify_user_info_button">
+                <button class="profilbut cancelbutl">Annuler</button>
+                <button class="profilbut validbut">Valider</button>
+            </div>
+        `
+        let cancelbut = document.querySelector('.cancelbutl');
+        cancelbut.addEventListener('click', () => {
+            actual_lastname.innerHTML = old_lastname;
+            modify_lastname.style.display = "flex";
+            actual_lastname.style.flexDirection = "row";
+            lastname.style.justifyContent = "space-between";
+        })
+
+    })
+
+    modify_firstname.addEventListener('click', () => {
+        let actual_firstname = document.querySelector('.actual_firstname');
+        let old_firstname = actual_firstname.innerHTML;
+        modify_firstname.style.display = "none";
+        let firstname = document.querySelector('.firstname');
+        firstname.style.justifyContent = "center";
+        actual_firstname.style.display = "flex";
+        actual_firstname.style.flexDirection = "column";
+        actual_firstname.style.justifyContent = "center";
+        actual_firstname.innerHTML = `
+            <label for="user_firstname" class="modify_user_info">Veuillez saisir votre prénom</label>
+            <div class="modify_user_info">
+                <input type="text" name="user_firstname" class="input_user_info" placeholder="John">
+            </div>
+            <div class="modify_user_info_button">
+                <button class="profilbut cancelbutf">Annuler</button>
+                <button class="profilbut validbut">Valider</button>
+            </div>
+        `
+        let cancelbut = document.querySelector('.cancelbutf');
+        cancelbut.addEventListener('click', () => {
+            actual_firstname.innerHTML = old_firstname;
+            modify_firstname.style.display = "flex";
+            actual_firstname.style.flexDirection = "row";
+            firstname.style.justifyContent = "space-between";
+        })
+
+    })
+
+    modify_email.addEventListener('click', () => {
+        let actual_email = document.querySelector('.actual_email');
+        let old_email = actual_email.innerHTML;
+        modify_email.style.display = "none";
+        let email = document.querySelector('.email');
+        email.style.justifyContent = "center";
+        actual_email.style.display = "flex";
+        actual_email.style.flexDirection = "column";
+        actual_email.style.justifyContent = "center";
+        actual_email.innerHTML = `
+            <label for="user_email" class="modify_user_info">Veuillez saisir votre adresse email</label>
+            <div class="modify_user_info">
+                <input type="email" name="user_email" class="input_user_info" placeholder="doe.john@email.com">
+            </div>
+            <div class="modify_user_info_button">
+                <button class="profilbut cancelbute">Annuler</button>
+                <button class="profilbut validbut">Valider</button>
+            </div>
+        `
+        let cancelbut = document.querySelector('.cancelbute');
+        cancelbut.addEventListener('click', () => {
+            actual_email.innerHTML = old_email;
+            modify_email.style.display = "flex";
+            actual_email.style.flexDirection = "row";
+            email.style.justifyContent = "space-between";
+        })
+
+    })
+
+    modify_pwd.addEventListener('click', () => {
+        let actual_pwd = document.querySelector('.actual_pwd');
+        let old_pwd = actual_pwd.innerHTML;
+        modify_pwd.style.display = "none";
+        let pwd = document.querySelector('.pwd');
+        pwd.style.justifyContent = "center";
+        actual_pwd.style.display = "flex";
+        actual_pwd.style.flexDirection = "column";
+        actual_pwd.style.justifyContent = "center";
+        actual_pwd.innerHTML = `
+            <label for="user_pwd" class="modify_user_info">Veuillez saisir votre ancien mot de passe</label>
+            <div class="psw">
+                <input type="password" name="user_password" class="passwordo">
+                <i class="bi bi-eye eyeo"></i>
+                <i class="bi bi-eye-slash eye-slasho"></i>
+            </div>
+            <div class="signup_item">
+            <label for="user_password">Veuillez saisir votre mot de passe</label>
+            <div class="pswn">
+                <input type="password" name="user_password" class="passwordn">
+                <i class="bi bi-eye eyen"></i>
+                <i class="bi bi-eye-slash eye-slashn"></i>
+            </div>
+            <div class="password_strengthn">
+                <div class="tolown"></div>
+                <div class="lown"></div>
+                <div class="correctn"></div>
+                <div class="strongn"></div>
+            </div>
+            </div>
+            <div class="signup_item">
+                <label for="user_password_confirm">Veuillez confirmer votre mot de passe</label>
+                <div class="pswnc">
+                    <input type="password" name="user_password_confirm" class="passwordnc">
+                    <i class="bi bi-eye eyenc"></i>
+                    <i class="bi bi-eye-slash eye-slashnc"></i>
+                </div>
+            </div>
+            <div class="modify_user_info_button">
+                <button class="profilbut cancelbutp">Annuler</button>
+                <button class="profilbut validbut">Valider</button>
+            </div>
+        `
+        let passwordo = document.querySelector('.passwordo');
+        passwordo.addEventListener('input', () => {
+
+            let eye = document.querySelector('.eyeo');
+            eye.style.display = "block";
+
+            eye.addEventListener('click', () => {
+                eye.style.display = "none";
+                let eye_slash = document.querySelector('.eye-slasho');
+                eye_slash.style.display = "block";
+                passwordo.type = "text";
+                eye_slash.addEventListener('click', () => {
+                    eye_slash.style.display = "none";
+                    eye.style.display = "block";
+                    passwordo.type = "password";
+                })
+
+            })
+            if (passwordo.value.length == 0) {
+                eye.style.display = "none";
+                eye_slash.style.display = "none";
+            }
+        })
+
+        let passwordn = document.querySelector('.passwordn');
+        passwordn.addEventListener('input', () => {
+
+            let eye = document.querySelector('.eyen');
+            eye.style.display = "block";
+            let password_strength = document.querySelector('.password_strengthn');
+            password_strength.style.display = "flex";
+            let tolow = document.querySelector('.tolown');
+            let low = document.querySelector('.lown');
+            let correct = document.querySelector('.correctn');
+            let strong = document.querySelector('.strongn');
+
+            let first_check = new RegExp(/^((?=.*[a-z])(?=.*[A-Z])).{4,}$|^((?=.*[a-z])(?=.*[0-9])).{4,}$|^(?=.*[a-z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[A-Z])(?=.*[0-9]).{4,}$|^(?=.*[A-Z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[0-9])(?=.*[!@#$%^&*]).{4,}$/);
+    
+            let second_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/);
+    
+            let last_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/);
+
+            eye.addEventListener('click', () => {
+                eye.style.display = "none";
+                let eye_slash = document.querySelector('.eye-slashn');
+                eye_slash.style.display = "block";
+                passwordn.type = "text";
+                eye_slash.addEventListener('click', () => {
+                    eye_slash.style.display = "none";
+                    eye.style.display = "block";
+                    passwordn.type = "password";
+                })
+
+            })
+            if (passwordn.value.length == 0) {
+                eye.style.display = "none";
+                password_strength.style.display = "none";
+                tolow.style.display = "none";
+                low.style.display = "none";
+                correct.style.display = "none";
+                strong.style.display = "none";
+                psw.style.backgroundColor = "white";
+            }
+        })
+
+        let passwordnc = document.querySelector('.passwordnc');
+        passwordnc.addEventListener('input', () => {
+
+            let eye = document.querySelector('.eyenc');
+            eye.style.display = "block";
+
+            eye.addEventListener('click', () => {
+                eye.style.display = "none";
+                let eye_slash = document.querySelector('.eye-slashnc');
+                eye_slash.style.display = "block";
+                passwordnc.type = "text";
+                eye_slash.addEventListener('click', () => {
+                    eye_slash.style.display = "none";
+                    eye.style.display = "block";
+                    passwordnc.type = "password";
+                })
+
+            })
+        })
+
+        let cancelbut = document.querySelector('.cancelbutp');
+        cancelbut.addEventListener('click', () => {
+            actual_pwd.innerHTML = old_pwd;
+            modify_pwd.style.display = "flex";
+            actual_pwd.style.flexDirection = "row";
+            pwd.style.justifyContent = "space-between";
+        })
 
     })
 }

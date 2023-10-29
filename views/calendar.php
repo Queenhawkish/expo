@@ -1,47 +1,6 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-<div class="form_old_event">
-    <form action="" method="post">
-        <h6 class="old_event">Ajouter un évènement futur</h6>
-        <div class="item_old_event">
-            <label for="event_name">Nom de l'exposition :</label>
-            <input type="text" name="event_name" placeholder="Nom de l'exposition">
-        </div>
-        <div class="item_old_event">
-            <label for="event_place">Lieu de l'exposition :</label>
-            <input type="text" name="event_place" placeholder="Lieu de l'exposition">
-        </div>
-        <div class="item_old_event">
-            <p>Dates de l'exposition :</p>
-            <label for="event_first_date" class="adddate">Du :</label>
-            <input type="date" name="event_first_date">
-            <label for="event_second_date" class="adddate">Au :</label>
-            <input type="date" name="event_second_date">
-        </div>
-        <div class="item_old_event">
-            <p>Heure de l'exposition :</p>
-            <label for="event_first_time" class="adddate">De :</label>
-            <input type="time" name="event_first_time" class="time">
-            <label for="event_second_time" class="adddate">À :</label>
-            <input type="time" name="event_second_time" class="time">
-        </div>
-        <div class="item_old_event">
-            <label for="event_description">Description de l'exposition :</label>
-            <textarea name="event_description" placeholder="Description de l'exposition" cols="30" rows="10">
-            </textarea>
-        </div>
-        <div class="add_picture">
-            <p>Photo d'affiche</p>
-            <input class="pic_input old" type="file" name="poster" accept="image/png, image/jpeg">
-        </div>
-
-        <div class="item_old_event">
-            <button class="event_add">Ajouter l'exposition</button>
-        </div>
-    </form>
-</div>
-
 <div class="container">
 
     <h3>Année <?= $year ?></h3>
@@ -53,7 +12,10 @@
                 <tr>
                     <?php foreach ($name_month as $month => $month_number) {
                     ?>
-                        <th><b class="big_screen"><?= $month ?></b><b class="small_screen"><?= $month_number ?></b></th>
+                        <th <?php if ($month == 'Janvier' || $month == 'Mars' || $month == 'Mai'||$month == 'Juillet'||$month == 'Septembre'||$month == 'Novembre') { ?>class="impair" <?php } else { ?> class="pair" <?php } ?>>
+                            <b class="big_screen"><?= $month ?></b>
+                            <b class="small_screen"><?= $month_number ?></b>
+                        </th>
                     <?php $month_number++;
                     } ?>
                 </tr>
@@ -62,51 +24,51 @@
             <?php
             for ($day = 1; $day < 32; $day++) { ?>
                 <tr>
-                    <td id="<?= $name_month["Janvier"] ?>" <?php if ($day == $today && $name_month["Janvier"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Janvier"] ?>" <?php if ($day == $today && $name_month["Janvier"] == $this_month) { ?> class="today" <?php } else { ?> class="impair" <?php } ?>><?= $day ?></td>
 
                     <?php if ($year == 2023 && $day < 29) { ?>
-                        <td id="<?= $name_month["Février"] ?>" <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } ?> <?php if ($day == 5) { ?> class="orange" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Février"] ?>" <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } if($day == 5) { ?> class="orange" <?php } else{ ?> class="pair" <?php } ?> ><?= $day ?></td>
                     <?php } else if ($year == 2024 && $day < 30) { ?>
-                        <td id="<?= $name_month["Février"] ?>" <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Février"] ?>"  <?php if ($day == $today && $name_month["Février"] == $this_month) { ?> class="today" <?php } else { ?> class="pair" <?php } ?>><?= $day ?></td>
                     <?php } else { ?>
                         <td></td>
                     <?php } ?>
 
-                    <td id="<?= $name_month["Mars"] ?>" <?php if ($day == $today && $name_month["Mars"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Mars"] ?>"<?php if ($day == $today && $name_month["Mars"] == $this_month) { ?> class="today" <?php } else { ?> class="impair" <?php } ?>><?= $day ?></td>
 
                     <?php if ($day < 31) { ?>
-                        <td id="<?= $name_month["Avril"] ?>" <?php if ($day == $today && $name_month["Avril"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Avril"] ?>"  <?php if ($day == $today && $name_month["Avril"] == $this_month) { ?> class="today" <?php } else { ?> class="pair" <?php } ?>><?= $day ?></td>
                     <?php } else { ?>
                         <td></td>
                     <?php } ?>
 
-                    <td id="<?= $name_month["Mai"] ?>" <?php if ($day == $today && $name_month["Mai"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Mai"] ?>" <?php if ($day == $today && $name_month["Mai"] == $this_month) { ?> class="today" <?php } else { ?> class="impair" <?php } ?>><?= $day ?></td>
 
                     <?php if ($day < 31) { ?>
-                        <td id="<?= $name_month["Juin"] ?>" <?php if ($day == $today && $name_month["Juin"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Juin"] ?>"  <?php if ($day == $today && $name_month["Juin"] == $this_month) { ?> class="today" <?php } else { ?> class="pair" <?php } ?>><?= $day ?></td>
                     <?php } else { ?>
                         <td></td>
                     <?php } ?>
 
-                    <td id="<?= $name_month["Juillet"] ?>" <?php if ($day == $today && $name_month["Juillet"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Juillet"] ?>"<?php if ($day == $today && $name_month["Juillet"] == $this_month) { ?> class="today" <?php } else { ?> class="impair" <?php } ?>><?= $day ?></td>
 
-                    <td id="<?= $name_month["Août"] ?>" <?php if ($day == $today && $name_month["Août"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Août"] ?>"  <?php if ($day == $today && $name_month["Août"] == $this_month) { ?> class="today" <?php } else { ?> class="pair" <?php } ?>><?= $day ?></td>
 
                     <?php if ($day < 31) { ?>
-                        <td id="<?= $name_month["Septembre"] ?>" <?php if ($day == $today && $name_month["Septembre"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Septembre"] ?>" <?php if ($day == $today && $name_month["Septembre"] == $this_month) { ?> class="today" <?php } else { ?> class="impair" <?php } ?>><?= $day ?></td>
                     <?php } else { ?>
                         <td></td>
                     <?php } ?>
 
-                    <td id="<?= $name_month["Octobre"] ?>" <?php if ($day == $today && $name_month["Octobre"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Octobre"] ?>"  <?php if ($day == $today && $name_month["Octobre"] == $this_month) { ?> class="today" <?php } else { ?> class="pair" <?php } ?>><?= $day ?></td>
 
                     <?php if ($day < 31) { ?>
-                        <td id="<?= $name_month["Novembre"] ?>" <?php if ($day == $today && $name_month["Novembre"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                        <td id="<?= $name_month["Novembre"] ?>" <?php if ($day == $today && $name_month["Novembre"] == $this_month) { ?> class="today" <?php } else { ?> class="impair" <?php } ?>><?= $day ?></td>
                     <?php } else { ?>
                         <td></td>
                     <?php } ?>
 
-                    <td id="<?= $name_month["Décembre"] ?>" <?php if ($day == $today && $name_month["Décembre"] == $this_month) { ?> class="today" <?php } ?>><?= $day ?></td>
+                    <td id="<?= $name_month["Décembre"] ?>"  <?php if ($day == $today && $name_month["Décembre"] == $this_month) { ?> class="today" <?php } else { ?> class="pair" <?php } ?>><?= $day ?></td>
                 </tr>
             <?php } ?>
 
