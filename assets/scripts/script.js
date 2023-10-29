@@ -524,18 +524,6 @@ if (profil) {
 
             let eye = document.querySelector('.eyen');
             eye.style.display = "block";
-            let password_strength = document.querySelector('.password_strengthn');
-            password_strength.style.display = "flex";
-            let tolow = document.querySelector('.tolown');
-            let low = document.querySelector('.lown');
-            let correct = document.querySelector('.correctn');
-            let strong = document.querySelector('.strongn');
-
-            let first_check = new RegExp(/^((?=.*[a-z])(?=.*[A-Z])).{4,}$|^((?=.*[a-z])(?=.*[0-9])).{4,}$|^(?=.*[a-z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[A-Z])(?=.*[0-9]).{4,}$|^(?=.*[A-Z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[0-9])(?=.*[!@#$%^&*]).{4,}$/);
-    
-            let second_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/);
-    
-            let last_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/);
 
             eye.addEventListener('click', () => {
                 eye.style.display = "none";
@@ -549,6 +537,22 @@ if (profil) {
                 })
 
             })
+
+            let password_strength = document.querySelector('.password_strengthn');
+            password_strength.style.display = "flex";
+            let tolow = document.querySelector('.tolown');
+            let low = document.querySelector('.lown');
+            let correct = document.querySelector('.correctn');
+            let strong = document.querySelector('.strongn');
+
+            let first_check = new RegExp(/^((?=.*[a-z])(?=.*[A-Z])).{4,}$|^((?=.*[a-z])(?=.*[0-9])).{4,}$|^(?=.*[a-z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[A-Z])(?=.*[0-9]).{4,}$|^(?=.*[A-Z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[0-9])(?=.*[!@#$%^&*]).{4,}$/);
+    
+            let second_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/);
+    
+            let last_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/);
+
+            let psw = document.querySelector('.pswn');
+
             if (passwordn.value.length == 0) {
                 eye.style.display = "none";
                 password_strength.style.display = "none";
@@ -557,6 +561,33 @@ if (profil) {
                 correct.style.display = "none";
                 strong.style.display = "none";
                 psw.style.backgroundColor = "white";
+            } else if (passwordn.value.length <= 3) {
+                tolow.style.display = "block";
+                low.style.display = "none";
+                correct.style.display = "none";
+                strong.style.display = "none";
+                psw.style.backgroundColor = "white";
+            } else if (first_check.test(passwordn.value)) {
+                tolow.style.display = "block";
+                low.style.display = "block";
+                correct.style.display = "none";
+                strong.style.display = "none";
+                psw.style.backgroundColor = "white";
+            } 
+            if (second_check.test(passwordn.value)) {
+                tolow.style.display = "block";
+                low.style.display = "block";
+                correct.style.display = "block";
+                strong.style.display = "none";
+                psw.style.backgroundColor = "white";
+            }
+            if (last_check.test(passwordn.value)) {
+                tolow.style.display = "block";
+                low.style.display = "block";
+                correct.style.display = "block";
+                strong.style.display = "block";
+                passwordn.style.backgroundColor = "transparent";
+                psw.style.backgroundColor = "rgba(0, 128, 0, 0.5)";
             }
         })
 
@@ -576,8 +607,20 @@ if (profil) {
                     eye.style.display = "block";
                     passwordnc.type = "password";
                 })
-
             })
+            let psw = document.querySelector('.pswnc');
+
+            if (passwordnc.value.length == 0) {
+                eye.style.display = "none";
+                psw.style.backgroundColor = "white";
+            } else if (passwordnc.value == passwordn.value) {
+                passwordnc.style.backgroundColor = "transparent";
+                psw.style.backgroundColor = "rgba(0, 128, 0, 0.5)";
+            }
+            else {
+                passwordnc.style.backgroundColor = "transparent";
+                psw.style.backgroundColor = "rgba(255, 0, 0, 0.5)";
+            }
         })
 
         let cancelbut = document.querySelector('.cancelbutp');

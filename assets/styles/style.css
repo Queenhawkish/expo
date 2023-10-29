@@ -819,7 +819,9 @@ input {
 }
 
 .psw,
-.pswc {
+.pswc,
+.pswn,
+.pswnc {
     display: flex;
     margin: 0.5rem auto;
     width: 15rem;
