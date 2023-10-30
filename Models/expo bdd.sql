@@ -4,32 +4,32 @@
 
 
 #------------------------------------------------------------
-# Table: Event
+# Table: Évènements
 #------------------------------------------------------------
 
-CREATE TABLE Event(
+CREATE TABLE Évenements(
         Id          Int  Auto_increment  NOT NULL ,
         Poster      Int NOT NULL ,
         Nom         Varchar (50) NOT NULL ,
-        Type_Id     Int NOT NULL ,
         Date        Varchar (50) ,
         Heure       Varchar (50) ,
         Lieu        Varchar (50) ,
         Description Text ,
-        Archiver    Bool NOT NULL
-	,CONSTRAINT Event_PK PRIMARY KEY (Id)
+        Archiver    Bool NOT NULL ,
+        Participant Int NOT NULL
+	,CONSTRAINT Évenements_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Picture
+# Table: Photo
 #------------------------------------------------------------
 
-CREATE TABLE Picture(
-        Id           Int  Auto_increment  NOT NULL ,
-        Event_Id     Int NOT NULL ,
-        Picture_path Varchar (250) NOT NULL
-	,CONSTRAINT Picture_PK PRIMARY KEY (Id)
+CREATE TABLE Photo(
+        Id         Int  Auto_increment  NOT NULL ,
+        Affiche    Bool NOT NULL ,
+        Lien_image Varchar (100) NOT NULL
+	,CONSTRAINT Photo_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
 
@@ -45,41 +45,69 @@ CREATE TABLE Type(
 
 
 #------------------------------------------------------------
-# Table: Administrator
+# Table: Administrateur
 #------------------------------------------------------------
 
-CREATE TABLE Administrator(
-        ID       Int  Auto_increment  NOT NULL ,
-        Login    Varchar (50) NOT NULL ,
-        Password Varchar (50) NOT NULL
-	,CONSTRAINT Administrator_PK PRIMARY KEY (ID)
+CREATE TABLE Administrateur(
+        ID           Int  Auto_increment  NOT NULL ,
+        Login        Varchar (50) NOT NULL ,
+        Mot_de_passe Varchar (100) NOT NULL
+	,CONSTRAINT Administrateur_PK PRIMARY KEY (ID)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: relation0
+# Table: Utilisateur
 #------------------------------------------------------------
 
-CREATE TABLE relation0(
-        Id         Int NOT NULL ,
-        Id_Picture Int NOT NULL
-	,CONSTRAINT relation0_PK PRIMARY KEY (Id,Id_Picture)
-
-	,CONSTRAINT relation0_Event_FK FOREIGN KEY (Id) REFERENCES Event(Id)
-	,CONSTRAINT relation0_Picture0_FK FOREIGN KEY (Id_Picture) REFERENCES Picture(Id)
+CREATE TABLE Utilisateur(
+        Id           Int  Auto_increment  NOT NULL ,
+        Nom          Varchar (50) NOT NULL ,
+        Prenom       Varchar (50) NOT NULL ,
+        Email        Varchar (100) NOT NULL ,
+        Mot_de_passe Varchar (100) NOT NULL
+	,CONSTRAINT Utilisateur_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: relation1
+# Table: Photo évènement
 #------------------------------------------------------------
 
-CREATE TABLE relation1(
+CREATE TABLE Photo_evenement(
         Id       Int NOT NULL ,
-        Id_Event Int NOT NULL
-	,CONSTRAINT relation1_PK PRIMARY KEY (Id,Id_Event)
+        Id_Photo Int NOT NULL
+	,CONSTRAINT Photo_evenement_PK PRIMARY KEY (Id,Id_Photo)
 
-	,CONSTRAINT relation1_Type_FK FOREIGN KEY (Id) REFERENCES Type(Id)
-	,CONSTRAINT relation1_Event0_FK FOREIGN KEY (Id_Event) REFERENCES Event(Id)
+	,CONSTRAINT Photo_evenement_Évenements_FK FOREIGN KEY (Id) REFERENCES Évenements(Id)
+	,CONSTRAINT Photo_evenement_Photo0_FK FOREIGN KEY (Id_Photo) REFERENCES Photo(Id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Type évènement
+#------------------------------------------------------------
+
+CREATE TABLE Type_evenement(
+        Id            Int NOT NULL ,
+        Id_Évenements Int NOT NULL
+	,CONSTRAINT Type_evenement_PK PRIMARY KEY (Id,Id_Évenements)
+
+	,CONSTRAINT Type_evenement_Type_FK FOREIGN KEY (Id) REFERENCES Type(Id)
+	,CONSTRAINT Type_evenement_Évenements0_FK FOREIGN KEY (Id_Évenements) REFERENCES Évenements(Id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Participant
+#------------------------------------------------------------
+
+CREATE TABLE Participant(
+        Id            Int NOT NULL ,
+        Id_Évenements Int NOT NULL
+	,CONSTRAINT Participant_PK PRIMARY KEY (Id,Id_Évenements)
+
+	,CONSTRAINT Participant_Utilisateur_FK FOREIGN KEY (Id) REFERENCES Utilisateur(Id)
+	,CONSTRAINT Participant_Évenements0_FK FOREIGN KEY (Id_Évenements) REFERENCES Évenements(Id)
 )ENGINE=InnoDB;
 

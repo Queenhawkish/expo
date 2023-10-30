@@ -276,6 +276,7 @@ if (signup) {
         let last_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/);
 
         let psw = document.querySelector('.psw');
+        let requierements = document.querySelector('.requierements');
 
         if (password.value.length == 0) {
             eye.style.display = "none";
@@ -284,6 +285,7 @@ if (signup) {
             low.style.display = "none";
             correct.style.display = "none";
             strong.style.display = "none";
+            requierements.style.display = "none";
             psw.style.backgroundColor = "white";
         } else if (password.value.length <= 3) {
             tolow.style.display = "block";
@@ -291,12 +293,14 @@ if (signup) {
             correct.style.display = "none";
             strong.style.display = "none";
             psw.style.backgroundColor = "white";
+            requierements.style.display = "flex";
         } else if (first_check.test(password.value)) {
             tolow.style.display = "block";
             low.style.display = "block";
             correct.style.display = "none";
             strong.style.display = "none";
             psw.style.backgroundColor = "white";
+            requierements.style.display = "flex";
         }
         if (second_check.test(password.value)) {
             tolow.style.display = "block";
@@ -304,6 +308,7 @@ if (signup) {
             correct.style.display = "block";
             strong.style.display = "none";
             psw.style.backgroundColor = "white";
+            requierements.style.display = "flex";
         }
         if (last_check.test(password.value)) {
             tolow.style.display = "block";
@@ -312,7 +317,64 @@ if (signup) {
             strong.style.display = "block";
             password.style.backgroundColor = "transparent";
             psw.style.backgroundColor = "rgba(0, 128, 0, 0.5)";
+            requierements.style.display = "none";
         }
+
+
+        let length = document.querySelector('#length_checked');
+        let nolength = document.querySelector('#length_unchecked');
+        let lowercase = document.querySelector('#lowercase_checked');
+        let nolowercase = document.querySelector('#lowercase_unchecked');
+        let uppercase = document.querySelector('#uppercase_checked');
+        let nouppercase = document.querySelector('#uppercase_unchecked');
+        let number = document.querySelector('#number_checked');
+        let nonumber = document.querySelector('#number_unchecked');
+        let special = document.querySelector('#special_checked');
+        let nospecial = document.querySelector('#special_unchecked');
+        let length_check = new RegExp(/.{8,}/);
+        let lowercase_check = new RegExp(/[a-z]/gm);
+        let uppercase_check = new RegExp(/[A-Z]/gm);
+        let number_check = new RegExp(/[0-9]/gm);
+        let special_check = new RegExp(/\W/gm);
+
+        if (length_check.test(password.value)) {
+            length.style.display = "block";
+            nolength.style.display = "none";
+        } else {
+            length.style.display = "none";
+            nolength.style.display = "block";
+        }
+        if (lowercase_check.test(password.value)) {
+            lowercase.style.display = "block";
+            nolowercase.style.display = "none";
+        } else {
+            lowercase.style.display = "none";
+            nolowercase.style.display = "block";
+        }
+        if (uppercase_check.test(password.value)) {
+            uppercase.style.display = "block";
+            nouppercase.style.display = "none";
+        } else {
+            uppercase.style.display = "none";
+            nouppercase.style.display = "block";
+        }
+        if (number_check.test(password.value)) {
+            number.style.display = "block";
+            nonumber.style.display = "none";
+        } else {
+            number.style.display = "none";
+            nonumber.style.display = "block";
+        }
+        if (special_check.test(password.value)) {
+            special.style.display = "block";
+            nospecial.style.display = "none";
+        } else {
+            special.style.display = "none";
+            nospecial.style.display = "block";
+        }
+
+
+
     })
 
 
@@ -362,8 +424,6 @@ if (profil) {
     let modify_firstname = document.querySelector('#modify_firstname');
     let modify_email = document.querySelector('#modify_email');
     let modify_pwd = document.querySelector('#modify_pwd');
-    let signup_item = document.querySelector('.signup_item');
-    signup_item.style.display = "none";
 
     modify_lastname.addEventListener('click', () => {
         let actual_lastname = document.querySelector('.actual_lastname');
@@ -481,6 +541,16 @@ if (profil) {
                 <div class="correctn"></div>
                 <div class="strongn"></div>
             </div>
+            <div class="requierementsn">
+                <p>Le mot de passe doit contenir :</p>
+                <ul>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Entre 8 et 20 caractères <i class="bi bi-x unchecked" id="length_uncheckedn"></i><i class="bi bi-check-lg checked" id="length_checkedn"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins une majuscule <i class="bi bi-x unchecked" id="uppercase_uncheckedn"></i><i class="bi bi-check-lg checked" id="uppercase_checkedn"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins une minuscule <i class="bi bi-x unchecked" id="lowercase_uncheckedn"></i><i class="bi bi-check-lg checked" id="lowercase_checkedn"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins un chiffre <i class="bi bi-x unchecked" id="number_uncheckedn"></i><i class="bi bi-check-lg checked" id="number_checkedn"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins un caractère spécial <i class="bi bi-x unchecked" id="special_uncheckedn"></i><i class="bi bi-check-lg checked" id="special_checkedn"></i></li>
+                </ul>
+            </div>
             </div>
             <div class="signup_item">
                 <label for="user_password_confirm">Veuillez confirmer votre mot de passe</label>
@@ -546,12 +616,13 @@ if (profil) {
             let strong = document.querySelector('.strongn');
 
             let first_check = new RegExp(/^((?=.*[a-z])(?=.*[A-Z])).{4,}$|^((?=.*[a-z])(?=.*[0-9])).{4,}$|^(?=.*[a-z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[A-Z])(?=.*[0-9]).{4,}$|^(?=.*[A-Z])(?=.*[!@#$%^&*]).{4,}$|^(?=.*[0-9])(?=.*[!@#$%^&*]).{4,}$/);
-    
+
             let second_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$|^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$|^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{6,}$/);
-    
+
             let last_check = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}$/);
 
             let psw = document.querySelector('.pswn');
+            let requierements = document.querySelector('.requierementsn');
 
             if (passwordn.value.length == 0) {
                 eye.style.display = "none";
@@ -560,25 +631,29 @@ if (profil) {
                 low.style.display = "none";
                 correct.style.display = "none";
                 strong.style.display = "none";
+                requierements.style.display = "none";
                 psw.style.backgroundColor = "white";
             } else if (passwordn.value.length <= 3) {
                 tolow.style.display = "block";
                 low.style.display = "none";
                 correct.style.display = "none";
                 strong.style.display = "none";
+                requierements.style.display = "flex";
                 psw.style.backgroundColor = "white";
             } else if (first_check.test(passwordn.value)) {
                 tolow.style.display = "block";
                 low.style.display = "block";
                 correct.style.display = "none";
                 strong.style.display = "none";
+                requierements.style.display = "flex";
                 psw.style.backgroundColor = "white";
-            } 
+            }
             if (second_check.test(passwordn.value)) {
                 tolow.style.display = "block";
                 low.style.display = "block";
                 correct.style.display = "block";
                 strong.style.display = "none";
+                requierements.style.display = "flex";
                 psw.style.backgroundColor = "white";
             }
             if (last_check.test(passwordn.value)) {
@@ -586,9 +661,64 @@ if (profil) {
                 low.style.display = "block";
                 correct.style.display = "block";
                 strong.style.display = "block";
+                requierements.style.display = "none";
                 passwordn.style.backgroundColor = "transparent";
                 psw.style.backgroundColor = "rgba(0, 128, 0, 0.5)";
             }
+
+            let length = document.querySelector('#length_checkedn');
+            let nolength = document.querySelector('#length_uncheckedn');
+            let lowercase = document.querySelector('#lowercase_checkedn');
+            let nolowercase = document.querySelector('#lowercase_uncheckedn');
+            let uppercase = document.querySelector('#uppercase_checkedn');
+            let nouppercase = document.querySelector('#uppercase_uncheckedn');
+            let number = document.querySelector('#number_checkedn');
+            let nonumber = document.querySelector('#number_uncheckedn');
+            let special = document.querySelector('#special_checkedn');
+            let nospecial = document.querySelector('#special_uncheckedn');
+            let length_check = new RegExp(/.{8,}/);
+            let lowercase_check = new RegExp(/[a-z]/gm);
+            let uppercase_check = new RegExp(/[A-Z]/gm);
+            let number_check = new RegExp(/[0-9]/gm);
+            let special_check = new RegExp(/\W/gm);
+
+            if (length_check.test(passwordn.value)) {
+                length.style.display = "block";
+                nolength.style.display = "none";
+            } else {
+                length.style.display = "none";
+                nolength.style.display = "block";
+            }
+            if (lowercase_check.test(passwordn.value)) {
+                lowercase.style.display = "block";
+                nolowercase.style.display = "none";
+            } else {
+                lowercase.style.display = "none";
+                nolowercase.style.display = "block";
+            }
+            if (uppercase_check.test(passwordn.value)) {
+                uppercase.style.display = "block";
+                nouppercase.style.display = "none";
+            } else {
+                uppercase.style.display = "none";
+                nouppercase.style.display = "block";
+            }
+            if (number_check.test(passwordn.value)) {
+                number.style.display = "block";
+                nonumber.style.display = "none";
+            } else {
+                number.style.display = "none";
+                nonumber.style.display = "block";
+            }
+            if (special_check.test(passwordn.value)) {
+                special.style.display = "block";
+                nospecial.style.display = "none";
+            } else {
+                special.style.display = "none";
+                nospecial.style.display = "block";
+            }
+
+
         })
 
         let passwordnc = document.querySelector('.passwordnc');
@@ -630,6 +760,24 @@ if (profil) {
             actual_pwd.style.flexDirection = "row";
             pwd.style.justifyContent = "space-between";
         })
-
     })
+
+    let delete_accompte = document.querySelector('#delete_accompte');
+    delete_accompte.addEventListener('click', () => {
+        let delete_accompte_confirm = document.querySelector('.delete_accompte_confirm');
+        let profil_infos = document.querySelector('.profil_infos');
+        let profil_img = document.querySelector('.profil_img');
+        profil_img.style.height = "30rem";
+        profil_infos.style.display = "none";
+        delete_accompte_confirm.style.display = "flex";
+        let notdelete = document.querySelector('#notdelete');
+        notdelete.addEventListener('click', () => {
+            profil_infos.style.display = "flex";
+            delete_accompte_confirm.style.display = "none";
+            profil_img.style.height = "auto";
+        })
+    })
+
+
+
 }

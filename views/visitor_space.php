@@ -32,15 +32,7 @@
                 </li>
                 <li class="modifybut pwd">
                     <p class="actual_pwd"></p><button class="profilbut" id="modify_pwd">Modifier le mot de passe</button>
-                </li>
-                <div class="signup_item">
-                    <label for="user_password_confirm">Veuillez confirmer votre mot de passe</label>
-                    <div class="pswc">
-                        <input type="password" name="user_password_confirm" class="passwordc">
-                        <i class="bi bi-eye eyec"></i>
-                        <i class="bi bi-eye-slash eye-slashc"></i>
-                    </div>
-                </div>
+                </li> 
                 <li class="mofifybut"><button class="profilbut delete accompte" id="delete_accompte">Supprimer mon compte</button></li>
                 </li>
             </ul>
@@ -52,6 +44,13 @@
                 <li class="signup_event_item">Date de l'évènement</li>
                 <li class="modifybut"><button class="profilbut delete">Se désinscrire</button></li>
             </ul>
+        </div>
+    </div>
+    <div class="delete_accompte_confirm">
+        <p>Êtes-vous sûr de vouloir supprimer votre compte ?</p>
+        <div class="deletebut">
+            <button class="profilbut delete"><a href="">Oui</a></button>
+            <button class="profilbut delete" id="notdelete">Non</button>
         </div>
     </div>
 </div>

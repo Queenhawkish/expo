@@ -29,6 +29,16 @@
                 <div class="correct"></div>
                 <div class="strong"></div>
             </div>
+            <div class="requierements">
+                <p>Le mot de passe doit contenir :</p>
+                <ul>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Entre 8 et 20 caractères <i class="bi bi-x unchecked" id="length_unchecked"></i><i class="bi bi-check-lg checked" id="length_checked"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins une majuscule <i class="bi bi-x unchecked" id="uppercase_unchecked"></i><i class="bi bi-check-lg checked" id="uppercase_checked"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins une minuscule <i class="bi bi-x unchecked" id="lowercase_unchecked"></i><i class="bi bi-check-lg checked" id="lowercase_checked"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins un chiffre <i class="bi bi-x unchecked" id="number_unchecked"></i><i class="bi bi-check-lg checked" id="number_checked"></i></li>
+                    <li class="requierement"><i class="bi bi-asterisk star"></i> Au moins un caractère spécial <i class="bi bi-x unchecked" id="special_unchecked"></i><i class="bi bi-check-lg checked" id="special_checked"></i></li>
+                </ul>
+            </div>
         </div>
         <div class="signup_item">
             <label for="user_password_confirm">Veuillez confirmer votre mot de passe</label>

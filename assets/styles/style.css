@@ -924,6 +924,34 @@ input {
     }
 }
 
+.requierements, .requierementsn{
+    display: none;
+    flex-direction: column;
+    text-align: left;
+    margin: auto;
+}
+
+.requierement{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.star{
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+}
+
+.checked{
+    margin-left: 0.5rem;
+    color: rgba(0, 128, 0);
+}
+
+.unchecked{
+    margin-left: 0.5rem;
+    color: #ae2012;
+}
+
 .signup_item>a {
     background-color: transparent;
     color: white;
@@ -1013,6 +1041,10 @@ input {
     margin-top: 1rem;
 }
 
+#modify_pwd{
+    margin: auto;
+}
+
 .event_signup {
     margin-top: 2rem;
 }
@@ -1043,8 +1075,15 @@ input {
 }
 
 .delete{
+    display: flex;
+    margin: auto;
     color: #ae2012;
     border : 5px inset #ae2012;
+}
+
+.delete>a{
+    text-decoration: none;
+    color: #ae2012;
 }
 
 .accompte{
@@ -1068,6 +1107,27 @@ input {
 
 .validbut, .cancelbutl, .cancelbutf, .cancelbute, .cancelbutp{
     margin: auto;
+}
+
+.delete_accompte_confirm{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+}
+
+.deletebut{
+    display: flex;
+    padding: 1rem;
+}
+
+.deletebut>a{
+    text-decoration: none;
+}
+
+#notdelete{
+    margin-left: 3rem;
 }
 
 .footer {
