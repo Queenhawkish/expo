@@ -5,7 +5,7 @@
     <h4 class="year_event">2023</h4>
     <div class="year">
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -86,7 +86,7 @@
     <h4 class="year_event">2022</h4>
     <div class="year">
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -138,7 +138,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -151,7 +151,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -167,7 +167,7 @@
     <h4 class="year_event">2021</h4>
     <div class="year">
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -180,7 +180,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -193,7 +193,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -206,7 +206,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -219,7 +219,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -232,7 +232,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -248,7 +248,7 @@
     <h4 class="year_event">2020</h4>
     <div class="year">
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -261,7 +261,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -274,7 +274,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -287,7 +287,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -300,7 +300,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>
@@ -313,7 +313,7 @@
             </div>
         </div>
         <div class="event">
-            <img src="../assets/img/home.jpg" alt="affiche" class="poster">
+            <img src="../assets/img/front/home.jpg" alt="affiche" class="poster">
             <div class="event_description">
                 <h2>Event Name</h2>
                 <ul>

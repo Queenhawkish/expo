@@ -8,6 +8,7 @@ $year = date('Y');
 $today = date('d');
 $this_month = date('m');
 $ip = $_SERVER['REMOTE_ADDR'];
+$this_day = date('d-m-Y');
 // var_dump($ip);
 
 

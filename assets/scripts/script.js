@@ -87,15 +87,9 @@ if (calendar) {
     let thisevent = document.querySelector('.today');
     let display_event = document.querySelector('#display_event');
     let nodisplayevent = false;
-    let display_past_event = document.querySelector('#display_past_event');
 
     thisevent.addEventListener('click', () => {
-        if (display_past_event.style.display == "flex") {
-            display_past_event.style.display = "none";
-            display_event.style.display = "flex";
-            nodisplayevent = true;
-            nodisplaypastevent = false;
-        } else if (nodisplayevent == true) {
+        if (nodisplayevent == true) {
             display_event.style.display = "none";
             nodisplayevent = false;
         }
@@ -103,99 +97,6 @@ if (calendar) {
             display_event.style.display = "flex";
             nodisplayevent = true;
         }
-    })
-
-
-
-    let part = document.querySelector('#part');
-    let unpart = document.querySelector('#unpart');
-
-    part.addEventListener('click', () => {
-        let participation = document.querySelector('.participation');
-        participation.style.display = "flex";
-        part.style.display = "none";
-        unpart.style.display = "none";
-        let infos_event = document.querySelector('.infos_event');
-        infos_event.style.display = "none";
-        let wishpart = document.querySelector('.wishpart');
-        wishpart.style.display = "flex";
-        let numbpart = document.querySelector('#numbpart');
-
-        numbpart.addEventListener('input', () => {
-            let part_infos = document.querySelector('#part_infos');
-            part_infos.innerHTML = "";
-            let numb = numbpart.value;
-            for (let people = 0; people < numb; people++) {
-                part_infos.innerHTML += `
-            <div class="participant">
-                <p>Participant ${people + 1}</p>
-                <input class="part_info" type="text" name="name" placeholder="Nom">
-                <input class="part_info" type="text" name="firstname" placeholder="Prénom">
-                <input class="part_info" type="text" name="email" placeholder="Adresse email">
-            </div>
-            `
-            }
-            let validate = document.querySelector('.nbpartvalidate');
-            validate.addEventListener('click', () => {
-                part_infos.style.display = "flex";
-                let register = document.querySelector('.register');
-                register.style.display = "flex";
-                wishpart.style.display = "none";
-                part.style.display = "none";
-                let cancel = document.querySelector('.cancel');
-                cancel.addEventListener('click', () => {
-                    part_infos.style.display = "none";
-                    part.style.display = "flex";
-                    infos_event.style.display = "flex";
-                    register.style.display = "none";
-                    unpart.style.display = "flex";
-                })
-            })
-        })
-
-
-    })
-
-
-    unpart.addEventListener('click', () => {
-        unpart.style.display = "none";
-        part.style.display = "none";
-        partnumb.innerHTML = `
-        Nombre de personne souhaitant se désinscrire :
-        `
-        let wishpart = document.querySelector('.wishpart');
-        wishpart.style.display = "flex";
-        let numbpart = document.querySelector('#numbpart');
-        numbpart.addEventListener('input', () => {
-            let numb = numbpart.value;
-            let part_infos = document.querySelector('#part_infos');
-            for (let people = 0; people < numb; people++) {
-                part_infos.innerHTML += `
-                <div class="participant">
-                    <p>Participant ${people + 1}</p>
-                    <input class="part_info" type="text" name="name" placeholder="Nom">
-                    <input class="part_info" type="text" name="firstname" placeholder="Prénom">
-                    <input class="part_info" type="text" name="email" placeholder="Adresse email">
-                </div>
-            `
-            }
-            let validate = document.querySelector('.nbpartvalidate');
-            validate.addEventListener('click', () => {
-                part_infos.style.display = "flex";
-                let register = document.querySelector('.register');
-                register.style.display = "flex";
-                wishpart.style.display = "none";
-                unpart.style.display = "none";
-                let cancel = document.querySelector('.cancel');
-                cancel.addEventListener('click', () => {
-                    part_infos.style.display = "none";
-                    unpart.style.display = "flex";
-                    infos_event.style.display = "flex";
-                    register.style.display = "none";
-                    part.style.display = "flex";
-                })
-            })
-        })
     })
 }
 

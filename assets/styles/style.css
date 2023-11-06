@@ -53,14 +53,14 @@ button:hover {
 }
 
 .visiter_home {
-    display: none;
+    display: flex;
     margin-top: 3rem;
 }
 
 .homeimg {
     width: 50%;
     height: 20rem;
-    background: url('../img/home.jpg');
+    background: url('../img/front/home.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -174,7 +174,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background: url('../img/calendar.jpg');
+    background: url('../img/front/calendar.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -426,6 +426,7 @@ li {
 }
 
 #unpart {
+    display: none;
     width: fit-content;
     background-color: #ae2012;
     color: white;
@@ -563,7 +564,7 @@ h5 {
 
 .content {
     display: flex;
-    background: url('../img/about.jpg');
+    background: url('../img/front/about.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -630,7 +631,7 @@ h5 {
 }
 
 .adminspace {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     margin-top: 4rem;
@@ -779,7 +780,7 @@ input {
     flex-direction: column;
     justify-content: center;
     margin-top: 2rem;
-    background: url('../img/visitor.jpg');
+    background: url('../img/front/visitor.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -967,8 +968,8 @@ input {
 }
 
 .visitor {
-    display: none;
-    background: url('../img/visitor.jpg');
+    display: flex;
+    background: url('../img/front/visitor.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -990,13 +991,13 @@ input {
 }
 
 .profil {
-    display: flex;
+    display: none;
 }
 
 .profil_img {
     display: flex;
     width: 50%;
-    background: url('../img/profil.jpg');
+    background: url('../img/front/profil.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
