@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/styles/style.css">
-    <link rel="shortcut icon" href="../assets/img/front/logo.webp" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/Front/logo.webp" type="image/x-icon">
     <title>les7mainsmagiques</title>
 </head>
 

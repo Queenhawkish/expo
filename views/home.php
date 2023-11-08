@@ -1,14 +1,9 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-<div class="adminspace">
     <a href="add_event_controller.php">
-        <button class="add_event">Créer</button>
+        <button class="add_event">Ajouter un évènement</button>
     </a>
-    <a href="gallery_controller.php">
-        <button class="add_event">Gérer les évènements</button>
-    </a>
-</div>
 
 <div class="visiter_home">
     <div class="homeimg"></div>

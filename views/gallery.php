@@ -2,7 +2,7 @@
 <?php include 'components/navbar.php'; ?>
 
 <div class="gallery gallerypage">
-    <h3 class="year_event">2023</h3>
+    <h2>2023</h2>
     <div class="year">
         <div class="event">
             <h4>Exposition d'hier</h4>

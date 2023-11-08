@@ -160,6 +160,11 @@ button:hover {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
+.error {
+    color: #ae2012;
+    font-size: 1rem;
+    text-align: center;
+}
 
 .year {
     display: flex;
@@ -209,6 +214,16 @@ button:hover {
 h2 {
     margin: 1rem;
     font-size: 3rem;
+}
+
+.validatepart {
+    width: fit-content;
+    margin: 0.5rem auto;
+    border-radius: 5px;
+    background-color: #ae2012;
+    color: white;
+    font-weight: 700;
+    border: 3px inset #ae2012;
 }
 
 h3 {
@@ -285,14 +300,30 @@ li {
     text-align: center;
 }
 
-.item_event{
+.participant {
+    margin: 1rem;
+    display: none;
+    flex-direction: column;
+}
+
+.email_participant {
+    width: fit-content;
+    margin: 0.5rem auto;
+}
+
+.item_event {
     display: flex;
     justify-content: center;
     position: relative;
     align-items: center;
 }
 
-.item_event_place{
+.event_information {
+    display: flex;
+    flex-direction: column;
+}
+
+.item_event_place {
     display: flex;
     justify-content: left;
     position: relative;
@@ -312,11 +343,6 @@ li {
     display: flex;
     position: relative;
     width: 100%;
-    height: 15rem;
-    background: url('../img/sortie.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 .event_title {
@@ -372,7 +398,7 @@ li {
     width: 100%;
 }
 
-#part,
+.part,
 .classify,
 .modify {
     margin: 0.5rem 0 0;
@@ -397,46 +423,13 @@ li {
     color: #fff;
     border: 3px inset #ae2012;
 }
-#unpart {
-    display: none;
-    width: fit-content;
-    background-color: #ae2012;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin: auto;
-}
 
-
-
-input#numbpart {
-    width: 3rem;
-    margin: 1rem auto;
-    text-align: center;
-}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 
     opacity: 1;
 
-}
-
-.nbpartvalidate {
-    margin-bottom: 1rem;
-    margin: auto;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    width: fit-content;
-    padding: 5px;
-}
-
-.participant {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem auto;
 }
 
 .part_info {
@@ -581,30 +574,32 @@ h5 {
     background-size: cover;
 }
 
-.info_display, .description_display {
+.info_display,
+.description_display {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     font-size: 2rem;
 }
 
-.info_display{
+.info_display {
     margin-top: 1rem;
 }
 
-.item_info{
+.item_info {
     display: flex;
     margin: auto;
     justify-content: center;
     align-items: center;
 }
 
-.info_detail{
+.info_detail {
     display: flex;
     margin: auto;
 }
 
-.icon_edit, .icon_edit_event{
+.icon_edit,
+.icon_edit_event {
     margin: auto 2rem auto 0;
     font-size: 1.5rem;
     color: black;
@@ -614,21 +609,22 @@ h5 {
     align-items: center;
 }
 
-.edit_poster{
+.edit_poster {
     position: absolute;
     right: 0;
     top: 0;
     margin: 0;
 }
 
-.icon_edit:hover, .icon_edit_event:hover{
+.icon_edit:hover,
+.icon_edit_event:hover {
     cursor: pointer;
     color: #ae2012;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 
-.description_display{
+.description_display {
     justify-content: center;
 }
 
@@ -653,7 +649,7 @@ h5 {
 }
 
 .edit_photo,
-.delete{
+.delete {
     display: flex;
     margin: auto;
     text-decoration: none;
@@ -684,7 +680,7 @@ h5 {
     border: 3px inset #ae2012;
 }
 
-.add{
+.add {
     display: none;
 }
 
@@ -749,6 +745,25 @@ h5 {
     color: black;
 }
 
+span{
+    font-size: 1rem;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.compel{
+    color: #ae2012;
+    font-style: normal;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
 .add_event {
     display: flex;
     background-color: transparent;
@@ -758,6 +773,10 @@ h5 {
     border-radius: 5px;
     font-weight: 700;
     padding: 5px;
+}
+
+a{
+    text-decoration: none;
 }
 
 .new {

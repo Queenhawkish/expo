@@ -82,20 +82,11 @@ window.addEventListener('scroll', function () {
 let calendar = document.querySelector('.calendar');
 
 if (calendar) {
-
-    let thisevent = document.querySelector('.today');
-    let display_event = document.querySelector('#display_event');
-    let nodisplayevent = false;
-
-    thisevent.addEventListener('click', () => {
-        if (nodisplayevent == true) {
-            display_event.style.display = "none";
-            nodisplayevent = false;
-        }
-        else {
-            display_event.style.display = "flex";
-            nodisplayevent = true;
-        }
+    let part = document.querySelector('.part');
+    part.addEventListener('click', () => {
+        let part2 = document.querySelector('.part2');
+        part2.style.display = "flex";
+        part.style.display = "none";
     })
 }
 
@@ -142,13 +133,13 @@ if (form_add_event) {
         let date_event = document.querySelector('.date_event');
         let picture_event = document.querySelector('.picture_event');
         let event_poster = document.querySelector('.event_poster');
-        if (event_type.value == "sortie" || event_type.value == "assemblee_generale") {
+        if (event_type.value == 2 || event_type.value == 3) {
             picture_event.style.display = "none";
             date_event.style.display = "flex";
             sortie.style.display = "flex";
             other_type.style.display = "none";
             event_poster.style.display = "none";
-        } else if (event_type.value == 'exposition') {
+        } else if (event_type.value == 1) {
             sortie.style.display = "none";
             date_event.style.display = "flex";
             other_type.style.display = "flex";

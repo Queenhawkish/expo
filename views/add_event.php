@@ -1,28 +1,31 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
+
 <div class="form_add_event">
     <form action="" method="post">
         <h6 class="add_event_title">Ajouter un évènement</h6>
+        <p class="field">Champs obligatoire<i class="compel"> *</i></p>
         <div class="item_add_event">
-            <label for="event_name">Nom de l'évènement :</label>
-            <input type="text" name="event_name" placeholder="Nom de l'évènement">
+            <label for="event_name">Nom de l'évènement :  <i class="compel">*</i></label>
+            <p class="error"><?= $error['event_name'] ??"" ?></p>
+            <input type="text" name="event_name" placeholder="Ex. Exposition d'hiver" value="">
         </div>
         <div class="item_add_event">
-            <label for="event_type">Type d'évènement :</label>
+            <label for="event_type">Type d'évènement : <i class="compel">*</i></label>
             <select name="event_type" id="event_type">
-                <option value="default">Selectionner</option>
-                <option value="exposition">Exposition</option>
-                <option value="sortie">Sortie</option>
-                <option value="assemblee_generale">Assemblée générale</option>
+                <option selected disabled>Selectionner</option>
+                <?php foreach (type::getAllTypes() as $type) { ?>
+                    <option value="<?= $type['Id'] ?>" <?= isset($_POST["type"]) && $_POST["type"] == $type["Id"] ? "selected" : "" ?>><?= $type['Type'] ?></option>
+                <?php } ?>
             </select>
         </div>
         <div class="item_add_event">
-            <label for="event_place">Lieu de l'évènement :</label>
-            <input type="text" name="event_place" placeholder="Lieu de l'évènement">
+            <label for="event_place">Lieu de l'évènement : <i class="compel">*</i></label>
+            <input type="text" name="event_place" placeholder="Ex. Alfortville">
         </div>
         <div class="item_add_event date_event">
-            <p>Dates de l'évènement :</p>
+            <p>Dates de l'évènement : <i class="compel">*</i></p>
             <div class="sortie">
                 <label for="event_sortie" class="add_date">Le :</label>
                 <input type="datetime-local" name="event_sortie" class="expo_date">
@@ -35,13 +38,12 @@
             </div>
         </div>
         <div class="item_add_event">
-            <label for="event_description">Description de l'évènement :</label>
-            <textarea name="event_description" placeholder="Description de l'évènement" cols="30" rows="10">
-            </textarea>
+            <label for="event_description">Description de l'évènement : <span>(facultatif)</span></label>
+            <textarea name="event_description" placeholder="Ex. Champignons en carton" cols="30" rows="10"></textarea>
         </div>
         <div class="item_add_event picture_event">
             <div class="event_poster">
-                <p class="picture_poster">Photo d'affiche</p>
+                <p class="picture_poster">Photo d'affiche <i class="compel">*</i></p>
                 <input class="pic_input" type="file" name="poster" accept="image/png, image/jpeg">
             </div>
         </div>
