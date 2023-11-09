@@ -34,31 +34,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error['event_expo'] = 'Les 2 dates de l\'évènement sont obligatoires pour une exposition';
         }
     }
-    $exposition = false;
-    if ($_POST['event_type'] == 1) {
-        $exposition = true;
-        if (isset($_FILES['poster'])) {
-            $tfile = new finfo(FILEINFO_MIME);
-            if (!str_contains($tfile->file($_FILES['poster']['tmp_name']), "image")) {
-                $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
-            } else if (!str_contains($_FILES["poster"]["type"], "image")) {
-                $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
-            } else if ($_FILES["poster"]["size"] > 1048576) {
-                $error['event_poster'] = "Le justificatif ne doit pas dépasser 1Mo";
+    if (isset($_POST["event_type"])) {
+        if ($_POST['event_type'] == 1) {
+            if (isset($_FILES['poster'])) {
+                $tfile = new finfo(FILEINFO_MIME);
+                if (!str_contains($tfile->file($_FILES['poster']['tmp_name']), "image")) {
+                    $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
+                } else if (!str_contains($_FILES["poster"]["type"], "image")) {
+                    $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
+                } else if ($_FILES["poster"]["size"] > 1048576) {
+                    $error['event_poster'] = "Le justificatif ne doit pas dépasser 1Mo";
+                }
+                if (empty($error)) {
+                    $picture = $_FILES['poster']['tmp_name'];
+                    $poster = $_FILES['poster']['name'];
+                }
+            } else {
+                $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
             }
-            if (empty($error)) {
-                $picture = $_FILES['poster']['tmp_name'];
-                $poster = $_FILES['poster']['name'];
-            }
-        } else {
-            $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
         }
-    }
-    if ($_POST['event_type'] == 2) {
-        $poster = "Front/sortie.jpg";
-    }
-    if ($_POST['event_type'] == 3) {
-        $poster = "Front/assemblee.jpg";
+        if ($_POST['event_type'] == 2) {
+            $poster = "Front/sortie.jpg";
+        }
+        if ($_POST['event_type'] == 3) {
+            $poster = "Front/assemblee.jpg";
+        }
     } else {
         $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
     }
@@ -93,15 +93,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $classify = false;
             }
         }
-        // if (event::addEvent($poster, $name, $type, $first_date, $second_date, $place, $description, $classify)) {
-        //     header('Location: calendar_controller.php');
-        //     exit;
-        // } else {
-        //     $error['event_add'] = 'L\'évènement n\'a pas pu être ajouté';
-        // }
+
+
+
+        if (Event::addEvent($poster, $name, $type, $first_date, $second_date, $place, $description, $classify)) {
+            $foldername = strtolower(Form::noAccent($_POST['event_name']));
+            $folder = "../assets/img/$foldername";
+            if (!file_exists($folder)) {
+                mkdir($folder, 0777, true);
+            }
+            if (isset($_FILES['poster'])) {
+                $testUpload = $folder . '/' . $_FILES['poster']['name'] . $foldername . '.jpg';
+                move_uploaded_file($_FILES['poster']['tmp_name'], $testUpload);
+            }
+            if ($type == 1) {
+                header('Location: add_photos_controller.php');
+                exit;
+            } else {
+            header('Location: calendar_controller.php');
+            exit;
+            }
+            exit;
+        } else {
+            $error['event_add'] = 'L\'évènement n\'a pas pu être ajouté';
+        }
     }
 }
-$exposition = false;
 
 
 

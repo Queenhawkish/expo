@@ -1,6 +1,5 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
-<?php var_dump($_FILES) ?>
 
 <p class="error"><?= $error['event_add'] ?? "" ?></p>
 <div class="form_add_event">
@@ -17,8 +16,8 @@
                     <p class="error"><?= $error['event_type'] ?? "" ?></p>
                     <select name="event_type" id="event_type">
                         <option selected disabled>Selectionner</option>
-                        <?php foreach (type::getAllTypes() as $type) { ?>
-                            <option value="<?= $type['Id'] ?>" <?= isset($_POST["event_type"]) && $_POST["event_type"] == $type["Id"] ? "selected" : "" ?>><?= $type['Type'] ?></option>
+                        <?php foreach (Type::getAllTypes() as $type) { ?>
+                            <option value="<?= $type['id'] ?>" <?= isset($_POST["event_type"]) && $_POST["event_type"] == $type["id"] ? "selected" : "" ?>><?= $type['type'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -55,13 +54,7 @@
                     </div>
                 </div>
                 <div class="item_add_event">
-                    <?php if ($exposition == true) { ?>
-                        <a href="add_photos_controller.php">
-                            <p class="event_add">Ajouter l'évènement</p>
-                        </a>
-                    <?php } else { ?>
-                        <button class="event_add">Ajouter l'évènement</button>
-                    <?php } ?>
+                    <button class="event_add">Ajouter l'évènement</button>
                 </div>
     </form>
 </div>

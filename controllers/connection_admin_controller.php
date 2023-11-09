@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($error)) {
-        if (!loginAdmin::checkLoginAdmin($login)) {
+        if (!LoginAdmin::checkLoginAdmin($login)) {
             $error['login'] = 'Login incorrect';
         } else {
-            if (!loginAdmin::checkPasswordAdmin($login, $password)) {
+            if (!LoginAdmin::checkPasswordAdmin($login, $password)) {
                 $error['password'] = 'Mot de passe incorrect';
             } else {
                 $_SESSION['admin'] = $login;

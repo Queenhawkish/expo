@@ -1,6 +1,6 @@
 <?php
 
-class loginAdmin
+class LoginAdmin
 {
 
     private int $id;

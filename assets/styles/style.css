@@ -887,10 +887,6 @@ input {
     margin: 1rem auto;
 }
 
-.picture_event {
-    display: none;
-}
-
 .pictures {
     display: flex;
     flex-direction: column;
