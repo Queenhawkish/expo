@@ -1,14 +1,6 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
-<?php
-// var_dump($poster);
-// var_dump($today);
-// var_dump($classify);
-// var_dump($test);
-// var_dump($first_date);
-// var_dump($second_date);
-// var_dump($_POST);
-?>
+<?php var_dump($_FILES) ?>
 
 <p class="error"><?= $error['event_add'] ?? "" ?></p>
 <div class="form_add_event">

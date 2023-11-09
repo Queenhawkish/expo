@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error['event_poster'] = "Le justificatif ne doit pas dépasser 1Mo";
             }
             if (empty($error)) {
+                $picture = $_FILES['poster']['tmp_name'];
                 $poster = $_FILES['poster']['name'];
             }
         } else {
@@ -71,11 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $description = '';
         }
         if (!empty($_POST['event_date'])) {
-            $test = 'test';
             $first_date = $_POST['event_date'];
             $second_date = $_POST['event_date'];
-            if ($second_date < $today) {
-                $classify = true;
+            if ($second_date > $today) {
+                $classify = false;
             } else {
                 $error['event_date'] = 'La date de l\'évènement ne peut pas être antérieure à aujourd\'hui pour un évènement autre qu\'une exposition';
             }
@@ -93,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $classify = false;
             }
         }
-        var_dump($first_date, $second_date);
         // if (event::addEvent($poster, $name, $type, $first_date, $second_date, $place, $description, $classify)) {
         //     header('Location: calendar_controller.php');
         //     exit;

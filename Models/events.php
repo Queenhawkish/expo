@@ -28,11 +28,26 @@ class event {
             $query->bindValue(':place', form::secureData($place) , PDO::PARAM_STR);
             $query->bindValue(':description', form::secureData($description) , PDO::PARAM_STR);
             $query->bindValue(':classify', form::secureData($classify) , PDO::PARAM_BOOL);
+            mkdir("../assets/img/$name", 0777, true);
             
             return $query->execute();
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return false;
+        }
+    }
+
+    public static function getAllEvents(): array
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT * FROM `event`";
+            $query = $db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return [];
         }
     }
 }
