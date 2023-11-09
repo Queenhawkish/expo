@@ -20,7 +20,7 @@
             </div>
             <div class="display_event">
                 <div>
-                    <img src="../assets/img/sortie.jpg" alt="" class="new_poster">
+                    <img src="../assets/img/Front/assemblee.jpg" alt="" class="new_poster">
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <button class="edit_date icon_edit_event edit_poster">
                             <i class="bi bi-pencil-square"></i>
@@ -77,7 +77,7 @@
             </div>
             <div class="display_event">
                 <div>
-                    <img src="../assets/img/sortie.jpg" alt="" class="new_poster">
+                    <img src="../assets/img/Front/assemblee.jpg" alt="" class="new_poster">
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <button class="edit_date icon_edit_event edit_poster">
                             <i class="bi bi-pencil-square"></i>
@@ -134,7 +134,7 @@
             </div>
             <div class="display_event">
                 <div>
-                    <img src="../assets/img/sortie.jpg" alt="" class="new_poster">
+                    <img src="../assets/img/Front/assemblee.jpg" alt="" class="new_poster">
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <button class="edit_date icon_edit_event edit_poster">
                             <i class="bi bi-pencil-square"></i>
@@ -191,7 +191,7 @@
             </div>
             <div class="display_event">
                 <div>
-                    <img src="../assets/img/sortie.jpg" alt="" class="new_poster">
+                    <img src="../assets/img/Front/assemblee.jpg" alt="" class="new_poster">
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <button class="edit_date icon_edit_event edit_poster">
                             <i class="bi bi-pencil-square"></i>

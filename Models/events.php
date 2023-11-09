@@ -16,8 +16,8 @@ class event {
     {
         try {
             $db = database::getDatabase();
-            $sql = "INSERT INTO `assocalfort_events` 
-            (`poster`, `name`, `type`, `dateStart`, `dateEnd`, `place`, `description`, `classify`) 
+            $sql = "INSERT INTO `event` 
+            (`Poster`, `Name`, `Id_Type`, `Date_start`, `Date_end`, `Place`, `Description`, `Classify`) 
             VALUES (:poster, :name, :type, :dateStart, :dateEnd, :place, :description, :classify)";
             $query = $db->prepare($sql);
             $query->bindValue(':poster', form::secureData($poster) , PDO::PARAM_STR);

@@ -127,12 +127,12 @@ if (event_details) {
 
 if (form_add_event) {
     let event_type = document.querySelector('#event_type');
+    let sortie = document.querySelector('.sortie');
+    let other_type = document.querySelector('.other_type');
+    let date_event = document.querySelector('.date_event');
+    let picture_event = document.querySelector('.picture_event');
+    let event_poster = document.querySelector('.event_poster');
     event_type.addEventListener('change', () => {
-        let sortie = document.querySelector('.sortie');
-        let other_type = document.querySelector('.other_type');
-        let date_event = document.querySelector('.date_event');
-        let picture_event = document.querySelector('.picture_event');
-        let event_poster = document.querySelector('.event_poster');
         if (event_type.value == 2 || event_type.value == 3) {
             picture_event.style.display = "none";
             date_event.style.display = "flex";
@@ -153,6 +153,27 @@ if (form_add_event) {
             event_poster.style.display = "none";
         }
     })
+    if (event_type.value == 2 || event_type.value == 3) {
+        picture_event.style.display = "none";
+        date_event.style.display = "flex";
+        sortie.style.display = "flex";
+        other_type.style.display = "none";
+        event_poster.style.display = "none";
+    }
+    if (event_type.value == 1) {
+        sortie.style.display = "none";
+        date_event.style.display = "flex";
+        other_type.style.display = "flex";
+        picture_event.style.display = "flex";
+        event_poster.style.display = "flex";
+    }
+    if (event_type.value == 0) {
+        picture_event.style.display = "flex";
+        sortie.style.display = "none";
+        other_type.style.display = "none";
+        date_event.style.display = "none";
+        event_poster.style.display = "none";
+    }
 }
 
 let add_photos = document.querySelector('.add_photos');
