@@ -893,6 +893,10 @@ input {
     width: 100%;
 }
 
+.calendar_poster{
+    position: relative;
+}
+
 .add_pictures {
     display: flex;
     flex-wrap: wrap;

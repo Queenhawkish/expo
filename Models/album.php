@@ -42,7 +42,7 @@ class Album {
             $db = database::getDatabase();
             $sql = "SELECT COUNT(*) FROM `album` WHERE `name` = :album_name";
             $query = $db->prepare($sql);
-            $query->bindValue(':album_name', form::secureData($album_name) , PDO::PARAM_INT);
+            $query->bindValue(':album_name', form::secureData($album_name) , PDO::PARAM_STR);
             $query->execute();
             $query->fetchColumn() == 1 ? $result = true : $result = false;
             return $result;

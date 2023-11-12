@@ -25,3 +25,11 @@ gallery_controller.php
                 <p>Photo ${pic + 1}</p>
                 <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
             </div>
+
+            
+                    header('Location: add_photos_controller.php?id=' . $idAlbum);
+
+Add event : 
+if event_type == 2 : 
+album_name = other ;
+picture_name = sortie/A-G;

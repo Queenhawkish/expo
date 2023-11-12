@@ -23,11 +23,14 @@ $today = date('Y-m-d\TH:i');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $album_name = Album::getAlbumName(strtolower(Form::noAccent($_POST['event_name'])));
+
+
     if (empty($_POST['event_name'])) {
         $error['event_name'] = 'Le nom de l\'évènement est obligatoire';
     } else if (Event::getNameEvent($_POST['event_name'])) {
         $error['event_name'] = 'Ce nom d\'évènement existe déjà';
-    } else if ($album_name == strtolower(Form::noAccent($_POST['event_name']))) {
+    } 
+    else if ($album_name) {
         $error['event_name'] = 'Ce nom d\'évènement existe déjà';
     }
     if (empty($_POST['event_type'])) {
@@ -45,10 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST["event_type"])) {
         if ($_POST['event_type'] == 1) {
-            if (!isset($_FILES)) {
+
+            if($_FILES["poster"]["error"] == 4) {
                 $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
             }
-            else {
+
+            if (empty($error['event_poster'])) {
                 $tfile = new finfo(FILEINFO_MIME);
                 if (!str_contains($tfile->file($_FILES['poster']['tmp_name']), "image")) {
                     $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
@@ -61,10 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $picture = $_FILES['poster']['tmp_name'];
                     $poster = $_FILES['poster']['name'];
                 }
-            } 
+            }
         }
         if ($_POST['event_type'] == 2) {
             $poster = "Front/sortie.jpg";
+            if (isset($_POST['event_date'])) {
+                if ($_POST['event_date'] > $today) {
+                    $classify = false;
+                } else {
+                    $error['event_date'] = 'La date de l\'évènement ne peut pas être antérieure à aujourd\'hui pour une sortie';
+                }
+            }
         }
         if ($_POST['event_type'] == 3) {
             $poster = "Front/assemblee.jpg";
@@ -134,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         $idAlbum = Album::getIdAblum($foldername);
                         Picture::addPicture($poster, $idAlbum);
                     }
-                    header('Location: add_photos_controller.php?id=' . $idAlbum);
+                    header('Location: calendar_controller.php');
                     exit;
                 } else {
                     header('Location: calendar_controller.php');

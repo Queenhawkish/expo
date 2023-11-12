@@ -1,18 +1,26 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
+
+
+
 <?php if (isset($_SESSION['admin'])) { ?>
     <a href="add_event_controller.php">
         <button class="add_event">Ajouter un évènement</button>
     </a>
 <?php } ?>
 <div class="container calendar">
-    <h2>Année <?= $year ?></h2>
+    <?php foreach (Event::getNewYear() as $allyear => $year) { 
+        $thisyear = $year["YEAR(`date_start`)"] 
+        ?>
+        
+    <h2>Année <?= $thisyear ?></h2>
 
     <div class="year">
-        <?php foreach(Event::getNewEvents() as $event) { ?>
+        <?php foreach(Event::getNewEvents($thisyear) as $event => $value) { ?>
+            <?php var_dump($value["poster"]) ?>
         <div id="display_event">
             <div class="item_event">
-                <p class="date"><?= explode(" ",$event["date_start"])[0] ?> - <?= $event["date_end"] ?></p>
+                <p class="date">Date</p>
                 <?php if (isset($_SESSION['admin'])) { ?>
                     <button class="edit_date icon_edit_event">
                         <i class="bi bi-pencil-square"></i>
@@ -20,7 +28,7 @@
                 <?php } ?>
             </div>
             <div class="display_event">
-                <div>
+                <div class="calendar_poster">
                     <img src="../assets/img/Front/assemblee.jpg" alt="" class="new_poster">
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <button class="edit_date icon_edit_event edit_poster">
@@ -71,6 +79,8 @@
 
 
     </div>
+
+    <?php } ?>
 
 
 </div>

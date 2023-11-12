@@ -84,8 +84,8 @@ let calendar = document.querySelector('.calendar');
 if (calendar) {
     let part = document.querySelector('.part');
     part.addEventListener('click', () => {
-        let part2 = document.querySelector('.part2');
-        part2.style.display = "flex";
+        let participant = document.querySelector('.participant');
+        participant.style.display = "flex";
         part.style.display = "none";
     })
 }

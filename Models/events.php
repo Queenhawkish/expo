@@ -70,11 +70,17 @@ class Event {
         }
     }
 
-    public static function getNewEvents(): array
+    public static function getNewYear(): array
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT * FROM `event` WHERE `date_end` > NOW()";
+            $sql = "SELECT 
+                        YEAR(`date_start`)
+                    FROM
+                        `event`
+                    WHERE
+                    `date_end` > NOW()
+                    GROUP BY YEAR(`date_start`)";
             $query = $db->query($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -84,30 +90,25 @@ class Event {
         }
     }
 
-    public static function getEventYear(int $year): array
+    public static function getNewEvents(string $year): array
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT * FROM `event` WHERE `date_start` >= :year-01-01 AND `date_end` <= :year-12-31";
+            $year = $year . '%';
+            $sql = "SELECT 
+                        *
+                    FROM
+                        `event`
+                            INNER JOIN
+                        `album` ON `id_event` = `event`.`id`
+                            INNER JOIN
+                        `picture` ON `id_album` = `album`.`id`
+                    WHERE
+                        `date_end` LIKE :year";
             $query = $db->prepare($sql);
-            $query->bindValue(':year', form::secureData($year) , PDO::PARAM_STR);
+            $query->bindValue(':year', form::secureData($year), PDO::PARAM_STR);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-    public static function getEventById(int $id): array
-    {
-        try {
-            $db = database::getDatabase();
-            $sql = "SELECT * FROM `event` WHERE `id` = :id";
-            $query = $db->prepare($sql);
-            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return [];
