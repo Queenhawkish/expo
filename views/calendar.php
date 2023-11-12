@@ -1,6 +1,5 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
-<?php var_dump(Event::getNewEvents()[0]) ?>
 <?php if (isset($_SESSION['admin'])) { ?>
     <a href="add_event_controller.php">
         <button class="add_event">Ajouter un évènement</button>

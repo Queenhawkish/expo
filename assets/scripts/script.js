@@ -180,18 +180,32 @@ let add_photos = document.querySelector('.add_photos');
 
 if (add_photos) {
     let event_nb_pic = document.querySelector('.event_nb_pic');
+    let add_pictures = document.querySelector('.add_pictures');
+    let pictures = document.querySelector('.pictures');
     event_nb_pic.addEventListener('input', () => {
-        let add_pictures = document.querySelector('.add_pictures');
-        let pictures = document.querySelector('.pictures');
-        add_pictures.innerHTML = "";
         for (let pic = 0; pic < event_nb_pic.value; pic++) {
             add_pictures.innerHTML += `
             <div class="add_picture">
-                <p>Photo ${pic + 1}</p>
+                <label>Photo ${pic + 1}</label>
                 <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
             </div>
             `
         }
         pictures.style.display = "flex";
+        if (event_nb_pic.value == 0) {
+            add_pictures.innerHTML = "";
+        }
     })
+    if (event_nb_pic.value != 0) {
+        for (let pic = 0; pic < event_nb_pic.value; pic++) {
+            add_pictures.innerHTML += `
+            <div class="add_picture">
+                <label>Photo ${pic + 1}</label>
+                <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
+            </div>
+            `
+        }
+        add_pictures.style.display = "flex";
+        pictures.style.display = "flex";
+    }
 }

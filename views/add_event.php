@@ -1,6 +1,9 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
+<?php var_dump($error); ?>
+<?php var_dump($_POST); ?>
+
 <p class="error"><?= $error['event_add'] ?? "" ?></p>
 <div class="form_add_event">
     <form action="" method="post" enctype="multipart/form-data">
@@ -17,7 +20,7 @@
                     <select name="event_type" id="event_type">
                         <option selected disabled>Selectionner</option>
                         <?php foreach (Type::getAllTypes() as $type) { ?>
-                            <option value="<?= $type['id'] ?>" <?= isset($_POST["event_type"]) && $_POST["event_type"] == $type["id"] ? "selected" : "" ?>><?= $type['type'] ?></option>
+                            <option value=<?= $type['id'] ?> <?= isset($_POST["event_type"]) && $_POST["event_type"] == $type["id"] ? "selected" : "" ?>><?= $type['type'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
@@ -31,15 +34,15 @@
                     <div class="sortie">
                         <label for="event_sortie" class="add_date">Le :</label>
                         <p class="error"><?= $error['event_date'] ?? "" ?></p>
-                        <input type="datetime-local" name="event_date" class="expo_date" value="<?= $_POST['event_date'] ?? "" ?>">
+                        <input type="date" name="event_date" class="expo_date" value="<?= $_POST['event_date'] ?? "" ?>">
                     </div>
                     <div class="other_type">
                         <label for="event_first_date" class="add_date">Du :</label>
                         <p class="error"><?= $error['event_expo'] ?? "" ?></p>
-                        <input type="datetime-local" name="event_first_date" class="expo_date" value="<?= $_POST['event_first_date'] ?? "" ?>">
+                        <input type="date" name="event_first_date" class="expo_date" value="<?= $_POST['event_first_date'] ?? "" ?>">
                         <label for="event_second_date" class="add_date">Au :</label>
                         <p class="error"><?= $error['event_expo'] ?? "" ?></p>
-                        <input type="datetime-local" name="event_second_date" class="expo_date" value="<?= $_POST['event_second_date'] ?? "" ?>">
+                        <input type="date" name="event_second_date" class="expo_date" value="<?= $_POST['event_second_date'] ?? "" ?>">
                     </div>
                 </div>
                 <div class="item_add_event">
@@ -57,5 +60,6 @@
                     <button class="event_add">Ajouter l'évènement</button>
                 </div>
     </form>
+    
 </div>
 <?php include 'components/footer.php'; ?>

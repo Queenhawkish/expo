@@ -11,14 +11,18 @@ class Event {
     private string $place;
     private string $description;
     private bool $classify;
+    private string $album;
+    private string $picture;
 
     public static function addEvent (string $poster, string $name, int $type, string $dateStart, string $dateEnd, string $place, string $description, bool $classify): bool
     {
         try {
             $db = database::getDatabase();
-            $sql = "INSERT INTO `event` 
-            (`poster`, `name`, `id_Type`, `date_start`, `date_end`, `place`, `description`, `classify`) 
-            VALUES (:poster, :name, :type, :dateStart, :dateEnd, :place, :description, :classify)";
+            $sql = "INSERT INTO `event`
+            (`poster`, `name`, `id_type`, `date_start`, `date_end`, `place`, `description`, `classify`)
+            VALUES (:poster, :name, :type, :dateStart, :dateEnd, :place, :description, :classify);";
+
+
             $query = $db->prepare($sql);
             $query->bindValue(':poster', form::secureData($poster) , PDO::PARAM_STR);
             $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
@@ -36,31 +40,33 @@ class Event {
         }
     }
 
-    public static function getAllEvents(): array
-    {
+    public static function getNameEvent(string $name){
         try {
             $db = database::getDatabase();
-            $sql = "SELECT * FROM `event`";
-            $query = $db->query($sql);
+            $sql = "SELECT COUNT(*) FROM `event` WHERE `name` = :name";
+            $query = $db->prepare($sql);
+            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->fetchColumn() == 1 ? $result = true : $result = false;
+            return $result;
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
-            return [];
+            return false;
         }
     }
-
-    public static function getOldEvents(): array
+    
+    public static function getIdEvent(string $name): int
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT * FROM `event` WHERE `date_end` < NOW()";
-            $query = $db->query($sql);
+            $sql = "SELECT `id` FROM `event` WHERE `name` = :name";
+            $query = $db->prepare($sql);
+            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            return $query->fetch(PDO::FETCH_ASSOC)['id'];
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
-            return [];
+            return 0;
         }
     }
 
@@ -77,4 +83,35 @@ class Event {
             return [];
         }
     }
+
+    public static function getEventYear(int $year): array
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT * FROM `event` WHERE `date_start` >= :year-01-01 AND `date_end` <= :year-12-31";
+            $query = $db->prepare($sql);
+            $query->bindValue(':year', form::secureData($year) , PDO::PARAM_STR);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return [];
+        }
+    }
+
+    public static function getEventById(int $id): array
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT * FROM `event` WHERE `id` = :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return [];
+        }
+    }
+
 }

@@ -4,86 +4,86 @@
 
 
 #------------------------------------------------------------
-# Table: Type
+# Table: type
 #------------------------------------------------------------
 
-CREATE TABLE Type(
-        Id   Int  Auto_increment  NOT NULL ,
-        Type Varchar (250) NOT NULL
-	,CONSTRAINT Type_PK PRIMARY KEY (Id)
+CREATE TABLE type(
+        id   Int  Auto_increment  NOT NULL ,
+        type Varchar (250) NOT NULL
+	,CONSTRAINT type_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Event
+# Table: event
 #------------------------------------------------------------
 
-CREATE TABLE Event(
-        Id          Int  Auto_increment  NOT NULL ,
-        Poster      Int NOT NULL ,
-        Name        Varchar (50) NOT NULL ,
-        Date_start  Datetime ,
-        Date_end    Datetime ,
-        Place       Varchar (50) ,
-        Description Text ,
-        Classify    Bool NOT NULL ,
-        Id_Type     Int NOT NULL
-	,CONSTRAINT Event_PK PRIMARY KEY (Id)
+CREATE TABLE event(
+        id          Int  Auto_increment  NOT NULL ,
+        poster      Varchar (50) NOT NULL ,
+        name        Varchar (50) NOT NULL ,
+        date_start  Date ,
+        date_end    Date ,
+        place       Varchar (50) ,
+        description Text ,
+        classify    Bool NOT NULL ,
+        id_type     Int NOT NULL
+	,CONSTRAINT event_PK PRIMARY KEY (id)
 
-	,CONSTRAINT Event_Type_FK FOREIGN KEY (Id_Type) REFERENCES Type(Id)
+	,CONSTRAINT event_type_FK FOREIGN KEY (id_type) REFERENCES type(id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: AssocAlfort Administrator
+# Table: assocalfort administrator
 #------------------------------------------------------------
 
-CREATE TABLE AssocAlfort_Administrator(
-        ID       Int  Auto_increment  NOT NULL ,
-        Login    Varchar (50) NOT NULL ,
-        Password Varchar (50) NOT NULL
-	,CONSTRAINT AssocAlfort_Administrator_PK PRIMARY KEY (ID)
+CREATE TABLE assocalfort_administrator(
+        id       Int  Auto_increment  NOT NULL ,
+        login    Varchar (50) NOT NULL ,
+        password Varchar (250) NOT NULL
+	,CONSTRAINT assocalfort_administrator_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: User participant
+# Table: user participant
 #------------------------------------------------------------
 
-CREATE TABLE User_participant(
-        Id       Int  Auto_increment  NOT NULL ,
-        Email    Varchar (50) NOT NULL ,
-        Id_Event Int NOT NULL
-	,CONSTRAINT User_participant_PK PRIMARY KEY (Id)
+CREATE TABLE user_participant(
+        id       Int  Auto_increment  NOT NULL ,
+        email    Varchar (50) NOT NULL ,
+        id_event Int NOT NULL
+	,CONSTRAINT user_participant_PK PRIMARY KEY (id)
 
-	,CONSTRAINT User_participant_Event_FK FOREIGN KEY (Id_Event) REFERENCES Event(Id)
+	,CONSTRAINT user_participant_event_FK FOREIGN KEY (id_event) REFERENCES event(id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Album
+# Table: album
 #------------------------------------------------------------
 
-CREATE TABLE Album(
-        Id       Int  Auto_increment  NOT NULL ,
-        Name     Varchar (50) NOT NULL ,
-        Id_Event Int NOT NULL
-	,CONSTRAINT Album_PK PRIMARY KEY (Id)
+CREATE TABLE album(
+        id       Int  Auto_increment  NOT NULL ,
+        name     Varchar (50) NOT NULL ,
+        id_event Int NOT NULL
+	,CONSTRAINT album_PK PRIMARY KEY (id)
 
-	,CONSTRAINT Album_Event_FK FOREIGN KEY (Id_Event) REFERENCES Event(Id)
+	,CONSTRAINT album_event_FK FOREIGN KEY (id_event) REFERENCES event(id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: Picture
+# Table: picture
 #------------------------------------------------------------
 
-CREATE TABLE Picture(
-        Id           Int  Auto_increment  NOT NULL ,
-        Picture_path Varchar (250) NOT NULL ,
-        Id_Album     Int NOT NULL
-	,CONSTRAINT Picture_PK PRIMARY KEY (Id)
+CREATE TABLE picture(
+        id       Int  Auto_increment  NOT NULL ,
+        name     Varchar (250) NOT NULL ,
+        id_album Int NOT NULL
+	,CONSTRAINT picture_PK PRIMARY KEY (id)
 
-	,CONSTRAINT Picture_Album_FK FOREIGN KEY (Id_Album) REFERENCES Album(Id)
+	,CONSTRAINT picture_album_FK FOREIGN KEY (id_album) REFERENCES album(id)
 )ENGINE=InnoDB;
 

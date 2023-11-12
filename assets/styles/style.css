@@ -904,7 +904,10 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30%;
+}
+
+input[type=file] {
+    border: none;
 }
 
 .picture_poster {
@@ -958,7 +961,7 @@ input {
 
 .event_nb_pic {
     width: 5rem;
-    margin: 0.5rem auto;
+    margin: 1rem auto;
     font-size: 1.5rem;
 }
 
@@ -970,6 +973,34 @@ input {
     font-size: 2rem;
     padding: 10px;
     border-radius: 15rem;
+}
+
+.add_photos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+}
+
+.add_gallery {
+    display: flex;
+    border-radius: 5px;
+    border: 3px inset #ae2012;
+    background-color: #fff;
+    padding: 5px;
+    width: fit-content;
+    margin: 3rem auto;
+    align-items: center;
+}
+
+.add_gallery>button {
+    border: none;
+    background-color: transparent;
+    color: #ae2012;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 5px;
 }
 
 .footer {

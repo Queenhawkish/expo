@@ -9,7 +9,7 @@ class Type {
         {
             try {
                 $db = database::getDatabase();
-                $sql = "SELECT * FROM `types`";
+                $sql = "SELECT * FROM `type`";
                 $query = $db->query($sql);
                 $types = $query->fetchAll(PDO::FETCH_ASSOC);
                 return $types;
