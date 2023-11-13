@@ -1,9 +1,6 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-    <a href="add_event_controller.php">
-        <button class="add_event">Ajouter un évènement</button>
-    </a>
 
 <div class="visiter_home">
     <div class="homeimg"></div>

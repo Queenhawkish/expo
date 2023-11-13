@@ -2,85 +2,135 @@
 <?php include 'components/navbar.php'; ?>
 
 
-
 <?php if (isset($_SESSION['admin'])) { ?>
-    <a href="add_event_controller.php">
-        <button class="add_event">Ajouter un évènement</button>
+    <a href="add_event_controller.php" class="add_event">
+        <button>Ajouter un évènement</button>
     </a>
 <?php } ?>
 <div class="container calendar">
-    <?php foreach (Event::getNewYear() as $allyear => $year) { 
-        $thisyear = $year["YEAR(`date_start`)"] 
-        ?>
-        
-    <h2>Année <?= $thisyear ?></h2>
+    <?php foreach (Event::getNewYear() as $allyear => $year) {
+        $thisyear = $year["YEAR(`date_start`)"]
+    ?>
 
-    <div class="year">
-        <?php foreach(Event::getNewEvents($thisyear) as $event => $value) { ?>
-            <?php var_dump($value["poster"]) ?>
-        <div id="display_event">
-            <div class="item_event">
-                <p class="date">Date</p>
-                <?php if (isset($_SESSION['admin'])) { ?>
-                    <button class="edit_date icon_edit_event">
-                        <i class="bi bi-pencil-square"></i>
-                    </button>
-                <?php } ?>
-            </div>
-            <div class="display_event">
-                <div class="calendar_poster">
-                    <img src="../assets/img/Front/assemblee.jpg" alt="" class="new_poster">
-                    <?php if (isset($_SESSION['admin'])) { ?>
-                        <button class="edit_date icon_edit_event edit_poster">
-                            <i class="bi bi-pencil-square"></i>
-                        </button>
-                    <?php } ?>
+        <h2>Année <?= $thisyear ?></h2>
 
-                </div>
-                <div class="event_information">
-                    <div class="event_infos">
-                        <div class="item_event">
-                            <h4>Titre de l'évènement</h4>
-                            <?php if (isset($_SESSION['admin'])) { ?>
-                                <button class="edit_date icon_edit_event">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
+        <div class="year">
+            <?php foreach (Type::getAllTypes() as $idType) { ?>
+                <?php if ($idType["id"] == 1) { ?>
+                    <?php if (Event::getNewEvents($thisyear, $idType["id"]) != null) { ?>
+                        <h3>Exposition</h3>
+                        <div class="year_item">
+                            <?php foreach (Event::getNewEvents($thisyear, $idType["id"]) as $events => $event) { ?>
+                                <div class="display_event">
+                                    <?php if (isset($_SESSION['admin'])) { ?>
+                                        <div class="button_edit">
+                                            <a href="edit_controller.php" class="button_modify">Modifier</a>
+                                            <button type="button" class="cancel" data-bs-toggle="modal" data-bs-target="#modal<?= $event["event_id"] ?>">
+                                                Supprimer
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal<?= $event["event_id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title fs-5" id="exampleModalLabel">êtes-vous sûr de vouloir supprimer <?= $event["event_name"] ?></h4>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ...
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                    <div class="display_event">
+                                        <div class="calendar_poster">
+                                            <img src="<?= getPicture($event) ?>" alt="" class="new_poster">
+
+                                        </div>
+                                        <div class="event_information">
+                                            <p class="date"><?= getEventDate($event) ?></p>
+                                            <h4><?= $event["event_name"] ?></h4>
+                                            <p><?= $event["place"] ?> </p>
+                                        </div>
+                                        <div class="bupart">
+                                            <a href="event_controller.php?id=<?= $event["event_id"] ?>" class="button_participate">Participer</a>
+                                        </div>
+                                    </div>
+
+                                </div>
                             <?php } ?>
                         </div>
-                    </div>
-                    <div class="infos_event">
-                        <div class="item_event_place">
-                            <p>Lieux: </p>
-                            <?php if (isset($_SESSION['admin'])) { ?>
-                                <button class="edit_date icon_edit_event">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
+                    <?php }
+                } else if ($idType["id"] == 2) { ?>
+                    <?php if (Event::getNewEvents($thisyear, $idType["id"]) != null) { ?>
+                        <h3>Sortie</h3>
+                        <div class="year_item">
+                            <?php foreach (Event::getNewEvents($thisyear, $idType["id"]) as $events => $event) { ?>
+                                <div class="display_event">
+                                    <?php if (isset($_SESSION['admin'])) { ?>
+                                        <div class="button_edit">
+                                            <a href="edit_controller.php" class="button_modify">Modifier</a>
+                                            <button class="delete_event">Supprimer</button>
+                                        </div>
+                                    <?php } ?>
+                                    <div class="display_event">
+                                        <div class="calendar_poster">
+                                            <img src="<?= getPicture($event) ?>" alt="" class="new_poster">
+
+                                        </div>
+                                        <div class="event_information">
+                                            <p class="date"><?= getEventDate($event) ?></p>
+                                            <h4><?= $event["event_name"] ?></h4>
+                                            <p><?= $event["place"] ?> </p>
+                                        </div>
+                                    </div>
+
+                                </div>
                             <?php } ?>
                         </div>
-                        <div class="butpart">
-                            <button class="part">Participer</button>
-                            <?php if (isset($_SESSION['admin'])) { ?>
-                                <button class="classify">Archiver</button>
-                                <button class="classify">Supprimer</button>
+                    <?php }
+                } else if ($idType["id"] == 3) { ?>
+                    <?php if (Event::getNewEvents($thisyear, $idType["id"]) != null) { ?>
+                        <h3>Assemblée Générale</h3>
+                        <div class="year_item">
+                            <?php foreach (Event::getNewEvents($thisyear, $idType["id"]) as $events => $event) { ?>
+                                <div class="display_event">
+                                    <?php if (isset($_SESSION['admin'])) { ?>
+                                        <div class="button_edit">
+                                            <a href="edit_controller.php" class="button_modify">Modifier</a>
+                                            <button class="delete_event">Supprimer</button>
+                                        </div>
+                                    <?php } ?>
+                                    <div class="display_event">
+                                        <div class="calendar_poster">
+                                            <img src="<?= getPicture($event) ?>" alt="" class="new_poster">
+
+                                        </div>
+                                        <div class="event_information">
+                                            <p class="date"><?= getEventDate($event) ?></p>
+                                            <h4><?= $event["event_name"] ?></h4>
+                                            <p><?= $event["place"] ?> </p>
+                                        </div>
+                                    </div>
+
+                                </div>
                             <?php } ?>
                         </div>
-                    </div>
-                </div>
-
-                <div class="participant">
-                    <label for="participant">Votre adresse email :</label>
-                    <input type="text" placeholder="john.doe@email.fr" class="email_participant" name="email_participant">
-                    <button class="validatepart">Valider</button>
-                </div>
-
-            </div>
+                <?php }
+                } ?>
+            <?php } ?>
         </div>
-        <?php } ?>
-
-
-    </div>
 
     <?php } ?>
+</div>
+
 
 
 </div>

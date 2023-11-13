@@ -166,10 +166,32 @@ button:hover {
     text-align: center;
 }
 
-.year {
+.confirm_delete{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    font-size: 2rem;
+    background-color: #fff;
+    border: 3px solid #ae2012;
+    left: 20%;
+    top: 35%;
+    padding: 1rem;
+}
+
+.confirm{
+    font-size: 1.5rem;
+}
+
+.button_participate{
+    color: black;
+    border: 2px inset #ae2012;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.year{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-evenly;
 }
 
@@ -192,7 +214,6 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 1rem;
 }
 
 .first {
@@ -212,8 +233,9 @@ button:hover {
 }
 
 h2 {
-    margin: 1rem;
     font-size: 3rem;
+    background-color: #ae2012;
+    color: white;
 }
 
 .validatepart {
@@ -226,9 +248,17 @@ h2 {
     border: 3px inset #ae2012;
 }
 
+.year_item{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
 h3 {
-    font-size: 3rem;
+    font-size: 2rem;
     color: black;
+    font-weight: 900;
+    margin-top: 1rem;
 }
 
 .event_description {
@@ -282,14 +312,14 @@ li {
     font-weight: 700;
 }
 
-#display_event {
+.display_event {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
-    width: 30%;
+    margin: 1rem;
+    width: fit-content;
 }
 
-.display_event {
+.display_event_infos {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -321,6 +351,7 @@ li {
 .event_information {
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 .item_event_place {
@@ -331,18 +362,15 @@ li {
 }
 
 .date {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ae2012;
+    font-size: 1.1rem;
+    color: #ae2012;
+    width: 20rem;
 }
 
 .new_poster {
     display: flex;
     position: relative;
-    width: 100%;
+    width: 20rem;
     height: 15rem;
 }
 
@@ -450,9 +478,9 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     background-color: #ae2012;
     color: white;
-    border: none;
+    border: 3px inset #ae2012;
     border-radius: 5px;
-    padding: 5px;
+    padding: 2px;
     margin: auto;
 }
 
@@ -681,6 +709,15 @@ h5 {
     border: 3px inset #ae2012;
 }
 
+.delete_event{
+    background-color: #ae2012;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 3px inset #ae2012;
+}
+
 .add {
     display: none;
 }
@@ -750,12 +787,26 @@ span{
     font-size: 1rem;
 }
 
+.button_edit{
+    margin-top: 1rem;
+    align-items: center;
+}
+
 .field {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
     font-weight: 700;
+}
+
+.button_modify{
+    width: fit-content;
+    color: #ae2012;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 700;
+    border: 3px inset #ae2012;
 }
 
 .compel{
@@ -767,10 +818,23 @@ span{
 
 .add_event {
     display: flex;
+    width: fit-content;
+    margin: 1rem auto;
+}
+
+.cancelpart{
+    background-color: black;
+    color: white;
+    border: 3px inset black;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.add_event>button{
+    border: 3px inset #ae2012;
     background-color: transparent;
     font-size: 2rem;
     width: fit-content;
-    margin: 1rem auto;
     border-radius: 5px;
     font-weight: 700;
     padding: 5px;
@@ -1237,7 +1301,7 @@ footer {
         height: 15rem;
     }
 
-    .display_event {
+    .display_event_infos {
         flex-direction: column;
     }
 

@@ -1,8 +1,6 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-<?php var_dump($classify) ?>
-
 
 
 <p class="error"><?= $error['event_add'] ?? "" ?></p>

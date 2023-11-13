@@ -83,11 +83,17 @@ let calendar = document.querySelector('.calendar');
 
 if (calendar) {
     let part = document.querySelector('.part');
+    let participant = document.querySelector('.participant');
     part.addEventListener('click', () => {
-        let participant = document.querySelector('.participant');
         participant.style.display = "flex";
         part.style.display = "none";
     })
+    let cancelpart = document.querySelector('.cancelpart');
+    cancelpart.addEventListener('click', () => {
+        participant.style.display = "none";
+        part.style.display = "flex";
+    })
+
 }
 
 let event_details = document.querySelector('.event_details');

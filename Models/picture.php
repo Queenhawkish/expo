@@ -36,4 +36,33 @@ class Picture {
             return 0;
         }
     }
+
+    public static function getPictureNameByAlbumId(int $id): string
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT `name` FROM `picture` WHERE `id_album` = :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return "";
+        }
+    }
+
+    public static function deletePicture(int $id): bool
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "DELETE FROM `picture` WHERE `id_album` = :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            return $query->execute();
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
 }

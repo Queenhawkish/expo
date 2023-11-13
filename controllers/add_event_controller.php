@@ -64,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 if (empty($error['event_poster'])) {
                     $picture = $_FILES['poster']['tmp_name'];
-                    $poster = $_FILES['poster']['name'];
+                    $poster = $_FILES['poster']['name'] . strtolower(Form::noAccent($_POST['event_name'])) .'.jpg';
                 }
             }
         }
         if ($_POST['event_type'] == 2) {
-            $poster = "Front/sortie.jpg";
+            $poster = "sortie.jpg";
             if (isset($_POST['event_date'])) {
                 if ($_POST['event_date'] > $today) {
                     $classify = false;
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
         if ($_POST['event_type'] == 3) {
-            $poster = "Front/assemblee.jpg";
+            $poster = "assemblee.jpg";
             if (isset($_POST['event_date'])) {
                 if ($_POST['event_date'] > $today) {
                     $classify = false;
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     if ($picture_name) {
                         $error['event_add'] = 'Ce nom de photo existe déjà';
                     } else {
-                        $idAlbum = Album::getIdAblum($foldername);
+                        $idAlbum = Album::getIdAlbum($foldername);
                         Picture::addPicture($poster, $idAlbum);
                     }
                     header('Location: calendar_controller.php');
