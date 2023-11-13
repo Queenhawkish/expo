@@ -18,7 +18,7 @@ require_once '../models/picture.php';
 
 $error = [];
 
-$today = date('Y-m-d\TH:i');
+$today = date('Y-m-d');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -29,8 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error['event_name'] = 'Le nom de l\'évènement est obligatoire';
     } else if (Event::getNameEvent($_POST['event_name'])) {
         $error['event_name'] = 'Ce nom d\'évènement existe déjà';
-    } 
-    else if ($album_name) {
+    } else if ($album_name) {
         $error['event_name'] = 'Ce nom d\'évènement existe déjà';
     }
     if (empty($_POST['event_type'])) {
@@ -49,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST["event_type"])) {
         if ($_POST['event_type'] == 1) {
 
-            if($_FILES["poster"]["error"] == 4) {
+            if ($_FILES["poster"]["error"] == 4) {
                 $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
             }
 
@@ -64,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 if (empty($error['event_poster'])) {
                     $picture = $_FILES['poster']['tmp_name'];
-                    $poster = $_FILES['poster']['name'] . strtolower(Form::noAccent($_POST['event_name'])) .'.jpg';
+                    $poster = $_FILES['poster']['name'] . '.' . strtolower(Form::noAccent($_POST['event_name'])) . '.jpg';
                 }
             }
         }
@@ -121,33 +120,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
+
+
         if (empty($error)) {
+            $poster = str_replace('.jpg', '', $poster);
+
+            $poster = $poster . ".jpg";
             if (Event::addEvent($poster, $name, $type, $first_date, $second_date, $place, $description, $classify)) {
                 if ($type == 1) {
-                    $foldername = strtolower(Form::noAccent($_POST['event_name']));
-                    $folder = "../assets/img/$foldername";
-                    if (!file_exists($folder)) {
-                        mkdir($folder, 0777, true);
-                    }
                     if (isset($_FILES['poster'])) {
-                        $uploadPicture = $folder . '/' . $_FILES['poster']['name'] . $foldername . '.jpg';
+                        $uploadPicture = "../assets/img/poster/" . $poster;
                         move_uploaded_file($_FILES['poster']['tmp_name'], $uploadPicture);
                     }
-                    if ($album_name) {
-                        $error['event_add'] = 'L\'évènement existe déjà';
+                    if ($second_date < $today) {
+                        header('Location: add_photos_controller.php?id=' . Event::getIdEvent($name));
+                        exit;
                     } else {
-                        $idEvent = Event::getIdEvent($name);
-                        Album::addAlbum($foldername, $idEvent);
+                        header('Location: calendar_controller.php');
+                        exit;
                     }
-                    $picture_name = Picture::getNamePicture($poster);
-                    if ($picture_name) {
-                        $error['event_add'] = 'Ce nom de photo existe déjà';
-                    } else {
-                        $idAlbum = Album::getIdAlbum($foldername);
-                        Picture::addPicture($poster, $idAlbum);
-                    }
-                    header('Location: calendar_controller.php');
-                    exit;
                 } else {
                     header('Location: calendar_controller.php');
                     exit;

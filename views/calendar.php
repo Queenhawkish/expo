@@ -24,7 +24,7 @@
                                 <div class="display_event">
                                     <?php if (isset($_SESSION['admin'])) { ?>
                                         <div class="button_edit">
-                                            <a href="edit_controller.php" class="button_modify">Modifier</a>
+                                            <a href="edit_event_controller.php?id=<?= $event["event_id"]?>" class="button_modify">Modifier</a>
                                             <button type="button" class="cancel" data-bs-toggle="modal" data-bs-target="#modal<?= $event["event_id"] ?>">
                                                 Supprimer
                                             </button>
@@ -33,16 +33,13 @@
                                             <div class="modal fade" id="modal<?= $event["event_id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title fs-5" id="exampleModalLabel">êtes-vous sûr de vouloir supprimer <?= $event["event_name"] ?></h4>
+                                                        <div class="modal-header delete_confirm">
+                                                            <h4 class="modal-title fs-5" id="exampleModalLabel">Êtes-vous sûr de vouloir supprimer "<?= $event["event_name"] ?>"</h4>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            ...
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        <div class="modal-footer button_confirm">
+                                                            <a href="calendar_controller.php?action=delete&id=<?= $event["event_id"] ?>"><button type="button" class="btn btn-primary delete_new_event">Oui</button></a>
+                                                            <button type="button" class="btn btn-secondary delete_new_event" data-bs-dismiss="modal">Non</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -51,7 +48,7 @@
                                     <?php } ?>
                                     <div class="display_event">
                                         <div class="calendar_poster">
-                                            <img src="<?= getPicture($event) ?>" alt="" class="new_poster">
+                                            <img src="../assets/img/poster/<?=$event["poster"]?>" alt="affiche" class="new_poster">
 
                                         </div>
                                         <div class="event_information">
@@ -76,13 +73,13 @@
                                 <div class="display_event">
                                     <?php if (isset($_SESSION['admin'])) { ?>
                                         <div class="button_edit">
-                                            <a href="edit_controller.php" class="button_modify">Modifier</a>
+                                            <a href="edit_event_controller.php" class="button_modify">Modifier</a>
                                             <button class="delete_event">Supprimer</button>
                                         </div>
                                     <?php } ?>
                                     <div class="display_event">
                                         <div class="calendar_poster">
-                                            <img src="<?= getPicture($event) ?>" alt="" class="new_poster">
+                                            <img src="../assets/img/poster/<?= $event["poster"]?>" alt="" class="new_poster">
 
                                         </div>
                                         <div class="event_information">
@@ -104,13 +101,13 @@
                                 <div class="display_event">
                                     <?php if (isset($_SESSION['admin'])) { ?>
                                         <div class="button_edit">
-                                            <a href="edit_controller.php" class="button_modify">Modifier</a>
+                                            <a href="edit_event_controller.php" class="button_modify">Modifier</a>
                                             <button class="delete_event">Supprimer</button>
                                         </div>
                                     <?php } ?>
                                     <div class="display_event">
                                         <div class="calendar_poster">
-                                            <img src="<?= getPicture($event) ?>" alt="" class="new_poster">
+                                            <img src="../assets/img/poster/<?= $event["poster"]?>" alt="" class="new_poster">
 
                                         </div>
                                         <div class="event_information">

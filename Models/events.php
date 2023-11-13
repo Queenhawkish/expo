@@ -40,7 +40,8 @@ class Event {
         }
     }
 
-    public static function getNameEvent(string $name){
+    public static function getNameEvent(string $name) : bool
+    {
         try {
             $db = database::getDatabase();
             $sql = "SELECT COUNT(*) FROM `event` WHERE `name` = :name";
@@ -116,8 +117,8 @@ class Event {
                             LEFT JOIN 
                         `album` ON `id_event` = `event`.`id`
                     WHERE
-                        `date_end` LIKE :year
-                        and `id_type` = :type";
+                        `date_end` > NOW() AND `id_type` = :type
+                            AND `date_end` LIKE :year";
             $query = $db->prepare($sql);
             $query->bindValue(':year', form::secureData($year), PDO::PARAM_STR);
             $query->bindValue(':type', form::secureData($type), PDO::PARAM_INT);
@@ -156,6 +157,40 @@ class Event {
             $sql = "DELETE FROM `event` WHERE `id` = :id";
             $query = $db->prepare($sql);
             $query->bindValue(':id', form::secureData($id), PDO::PARAM_INT);
+            return $query->execute();
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    public static function updateEvent(int $id, string $poster, string $name, int $type, string $dateStart, string $dateEnd, string $place, string $description, bool $classify): bool
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "UPDATE `event`
+            SET
+                `poster` = :poster,
+                `name` = :name,
+                `id_type` = :type,
+                `date_start` = :dateStart,
+                `date_end` = :dateEnd,
+                `place` = :place,
+                `description` = :description,
+                `classify` = :classify
+            WHERE
+                `id` = :id;";
+            $query = $db->prepare($sql);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            $query->bindValue(':poster', form::secureData($poster) , PDO::PARAM_STR);
+            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
+            $query->bindValue(':type', form::secureData($type) , PDO::PARAM_INT);
+            $query->bindValue(':dateStart', form::secureData($dateStart) , PDO::PARAM_STR);
+            $query->bindValue(':dateEnd', form::secureData($dateEnd) , PDO::PARAM_STR);
+            $query->bindValue(':place', form::secureData($place) , PDO::PARAM_STR);
+            $query->bindValue(':description', form::secureData($description) , PDO::PARAM_STR);
+            $query->bindValue(':classify', form::secureData($classify) , PDO::PARAM_BOOL);
+            
             return $query->execute();
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();

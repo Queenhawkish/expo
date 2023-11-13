@@ -2,7 +2,6 @@
 <?php include 'components/navbar.php'; ?>
 
 
-
 <p class="error"><?= $error['event_add'] ?? "" ?></p>
 <div class="form_add_event">
     <form action="" method="post" enctype="multipart/form-data">

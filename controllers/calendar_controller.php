@@ -51,20 +51,8 @@ function getEventDate(array $event)
     return $date;
 }
 
-function getPicture(array $event)
-{
-    $type = $event['type_id'];
-    $event_id = $event['event_id'];
-    if ($type == 1) {
-        $album = $event['album_name'];
-        $picture = $event['poster'];
-        $path = "../assets/img/" . $album . "/" . $picture;
-    } else if ($type == 2) {
-        $path = "../assets/img/other/sortie.jpg";
-    } else if ($type == 3){
-        $path = "../assets/img/other/assemblee.jpg";
-    }
-    return $path;
+if(isset($_GET["action"]) && $_GET["action"] == "delete"){
+    Event::deleteEvent($_GET["id"]);
 }
 
 

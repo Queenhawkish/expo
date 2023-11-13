@@ -68,5 +68,5 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         }
     }
 
-    include '../views/add_photos.php';
 }
+    include '../views/add_photos.php';

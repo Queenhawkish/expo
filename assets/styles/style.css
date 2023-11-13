@@ -179,7 +179,10 @@ button:hover {
 }
 
 .confirm{
-    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 3px solid #ae2012;
+    border-radius: 5px;
 }
 
 .button_participate{
@@ -232,6 +235,17 @@ button:hover {
     rotate: -5deg;
 }
 
+.delete_confirm{
+    border: none;
+}
+
+.button_confirm{
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    border: none;
+}
+
 h2 {
     font-size: 3rem;
     background-color: #ae2012;
@@ -250,6 +264,7 @@ h2 {
 
 .year_item{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
 }
@@ -425,6 +440,10 @@ li {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.modify_poster{
+    width: 30rem;
 }
 
 .part,
@@ -709,6 +728,18 @@ h5 {
     border: 3px inset #ae2012;
 }
 
+.delete_new_event{
+    border: 3px inset black;
+    background-color: #ae2012;
+}
+
+.delete_new_event:hover{
+    background-color: black;
+    border: 3px inset black;
+    color: white;
+    cursor: pointer;
+}
+
 .delete_event{
     background-color: #ae2012;
     color: #fff;
@@ -932,6 +963,7 @@ option {
 
 textarea {
     margin-top: 0.5rem;
+    font-size: 1rem;
 }
 
 .item_add_event>input[type=number] {

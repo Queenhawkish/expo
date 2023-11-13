@@ -1,7 +1,6 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-<?php var_dump($_FILES) ?>
 
 <form class="add_photos" method="post" enctype="multipart/form-data">
     <div class="event_picture">

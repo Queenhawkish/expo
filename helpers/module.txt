@@ -33,3 +33,7 @@ Add event :
 if event_type == 2 : 
 album_name = other ;
 picture_name = sortie/A-G;
+
+checkNameEvent = getNameEvent;
+
+check id_type if exist : if (id_type != 1 && id_type !=2 && id_type != 3){ $error = "choisissez parmis les types d'évènements existants"} 
