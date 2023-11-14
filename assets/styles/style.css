@@ -998,7 +998,7 @@ input {
     width: 100%;
 }
 
-.gallery_event{
+.gallery_events{
     display: flex;
     flex-direction: column;
 }
@@ -1033,10 +1033,24 @@ input {
     margin: auto;
 }
 
+.add_album{
+    display: flex;
+}
+
+.add_album hr{
+    rotate: 90deg;
+    width: 2rem;
+    height: 20rem;
+}
 .user_part:hover{
     background-color: black;
     color: white;
     border: none;
+}
+
+.event_picture>input[type=text] {
+    width: fit-content;
+    margin: 0.5rem auto;
 }
 
 .success_register{
@@ -1045,13 +1059,34 @@ input {
     text-align: center;
 }
 
+.show_images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 5rem;
+}
+
+.show_image{
+    width: 15rem;
+    height: 15rem;
+}
+
 .add_picture {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-input[type=file] {
+.add_picture>input[type=text] {
+    width: fit-content;
+    margin: 0.5rem auto;
+}
+
+.add_photos input[type=file] {
+    border: none;
+}
+
+.form_add_event input[type=file] {
     border: none;
     font-size: 1.5rem;
     background-color: black;
@@ -1124,32 +1159,81 @@ input[type=file] {
     border-radius: 15rem;
 }
 
+.add_picture>label{
+    font-size: 1.5rem;
+
+}
+
+#nb_pic_validate{
+    width: fit-content;
+    margin: 0.5rem auto;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 3px inset black;
+    padding: 5px;
+    font-weight: 900;
+}
+
+#nb_pic_validate:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 3px inset black;
+}
+
 .add_photos{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 50vh;
-    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+    border-right: 1px solid grey;
+    padding: 0 1rem;
+}
+
+.go_back{
+    margin: auto;
+    width: fit-content;
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    border: 3px inset black;
+}
+
+.go_back:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 3px inset black;
 }
 
 .add_gallery {
     display: flex;
-    border-radius: 5px;
-    border: 3px inset #ae2012;
-    background-color: #fff;
-    padding: 5px;
     width: fit-content;
-    margin: 3rem auto;
-    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    justify-content: space-evenly;
+    height: 10rem;
 }
 
 .add_gallery>button {
-    border: none;
+    display: flex;
+    margin: auto;
     background-color: transparent;
     color: #ae2012;
     font-size: 1.5rem;
     font-weight: 700;
+    border: 3px inset #ae2012;
+    background-color: #fff;
     padding: 5px;
+    border-radius: 5px;
+}
+
+.add_gallery>button:hover {
+    cursor: pointer;
+    background-color: #ae2012;
+    color: white;
+    border: 3px inset #ae2012;
 }
 
 .footer {

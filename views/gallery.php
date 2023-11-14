@@ -14,7 +14,7 @@
     <h2><?= $thisyear ?></h2>
     <div class="year">
         <?php foreach(Event::getOldEvents($thisyear) as $events => $event) {?>
-        <div class="gallery_event">
+        <div class="gallery_events">
             <h4><?= $event["event_name"]?></h4>
             <a href="event_controller.php?id=<?= $event["event_id"] ?>">
                 <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="<?= $event["poster"]?>" class="new_poster">

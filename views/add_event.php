@@ -46,7 +46,7 @@
                     </div>
                     <div class="item_add_event">
                         <label for="event_description">Description de l'évènement : <span>(facultatif)</span></label>
-                        <textarea name="event_description" placeholder="Ex. Champignons en carton" cols="30" rows="10"></textarea>
+                        <textarea name="event_description" placeholder="Ex. Champignons en carton" cols="30" rows="10"><?= htmlspecialchars($_POST["event_description"] ?? "") ?></textarea>
                     </div>
                     <div class="item_add_event picture_event">
                         <div class="event_poster">

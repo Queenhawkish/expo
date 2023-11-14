@@ -185,33 +185,23 @@ if (form_add_event) {
 let add_photos = document.querySelector('.add_photos');
 
 if (add_photos) {
-    let event_nb_pic = document.querySelector('.event_nb_pic');
-    let add_pictures = document.querySelector('.add_pictures');
-    let pictures = document.querySelector('.pictures');
-    event_nb_pic.addEventListener('input', () => {
-        for (let pic = 0; pic < event_nb_pic.value; pic++) {
-            add_pictures.innerHTML += `
-            <div class="add_picture">
-                <label>Photo ${pic + 1}</label>
-                <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
-            </div>
+    console.log(image.src);
+    input_image.onchange = evt => {
+        const [file] = input_image.files
+        if (file) {
+            image.src = URL.createObjectURL(file)
+            image.style.display = "block";
+            let add_picture = document.querySelector('.add_picture');
+            add_picture.innerHTML += `
+            <input id="input_image" class="pic_input" type="file" name="pic" accept="image/png, image/jpeg">
+            `
+            if (image.src == "") {
+                image.style.display = "none";
+            }
+            let show_images = document.querySelector('.show_images');
+            show_images.innerHTML += `
+            <img id="image" class="show_image" alt="Photo">
             `
         }
-        pictures.style.display = "flex";
-        if (event_nb_pic.value == 0) {
-            add_pictures.innerHTML = "";
-        }
-    })
-    if (event_nb_pic.value != 0) {
-        for (let pic = 0; pic < event_nb_pic.value; pic++) {
-            add_pictures.innerHTML += `
-            <div class="add_picture">
-                <label>Photo ${pic + 1}</label>
-                <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
-            </div>
-            `
-        }
-        add_pictures.style.display = "flex";
-        pictures.style.display = "flex";
     }
 }
