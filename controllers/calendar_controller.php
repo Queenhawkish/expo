@@ -43,18 +43,26 @@ function getEventDate(array $event)
     );
     $month_start = array_search($month_start, $month);
     $month_end = array_search($month_end, $month);
-    if($type == 1){
+    if ($type == 1) {
         $date = "Du " . $day_start . " " . $month_start . " au " . $day_end . " " . $month_end;
-    }else{
+    } else {
         $date = $day_start . " " . $month_start;
     }
     return $date;
 }
 
-if(isset($_GET["action"]) && $_GET["action"] == "delete"){
+if (isset($_GET["action"]) && $_GET["action"] == "delete") {
     Event::deleteEvent($_GET["id"]);
 }
 
+$showform = false;
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (isset($_POST["user_email"]) && !empty($_POST["user_email"])) {
+        $showform = true;
+    }
+}
 
 include '../views/calendar.php';

@@ -1,39 +1,19 @@
 npm init
 npm i bootstrap-icons
-INSERT INTO `event`
-(`poster`, `name`, `id_Type`, `date_start`, `date_end`, `place`, `description`, `classify`)
-Values ("about.jpg", "try", 1 , "2023-10-12", "2023-10-18", "Alfort", "", true); 
-select `id` from `event` where `name` = "try";
-Insert into `album`
-(`id_event`, `name`)
-Values (1, "try");
-select `id` from `album` where `name` = "try";
-insert into `picture`
-(`id_album`, `name`)
-values (1, "about.jpg");
-
-<?php 
-$test_name = "premiere expo";
-var_dump(Album::getIdAblum($test_name)) 
-?>
-
-<?php var_dump($poster) ?>
-gallery_controller.php
 
 
-            <div class="add_picture">
-                <p>Photo ${pic + 1}</p>
-                <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
-            </div>
 
-            
-                    header('Location: add_photos_controller.php?id=' . $idAlbum);
 
-Add event : 
-if event_type == 2 : 
-album_name = other ;
-picture_name = sortie/A-G;
 
-checkNameEvent = getNameEvent;
+<div class="add_picture">
+    <p>Photo ${pic + 1}</p>
+    <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
+</div>
+
+
+header('Location: add_photos_controller.php?id=' . $idAlbum);
+
 
 check id_type if exist : if (id_type != 1 && id_type !=2 && id_type != 3){ $error = "choisissez parmis les types d'évènements existants"} 
+
+foreach $type : "exposition" ; 

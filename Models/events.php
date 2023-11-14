@@ -10,17 +10,29 @@ class Event {
     private string $dateEnd;
     private string $place;
     private string $description;
-    private bool $classify;
     private string $album;
     private string $picture;
 
-    public static function addEvent (string $poster, string $name, int $type, string $dateStart, string $dateEnd, string $place, string $description, bool $classify): bool
+    public static function addEvent (string $poster, string $name, int $type, string $dateStart, string $dateEnd, string $place, string $description): bool
     {
         try {
             $db = database::getDatabase();
             $sql = "INSERT INTO `event`
-            (`poster`, `name`, `id_type`, `date_start`, `date_end`, `place`, `description`, `classify`)
-            VALUES (:poster, :name, :type, :dateStart, :dateEnd, :place, :description, :classify);";
+            (`poster`,
+             `name`, 
+             `id_type`, 
+             `date_start`, 
+             `date_end`, 
+             `place`, 
+             `description`)
+            VALUES 
+            (:poster, 
+            :name, 
+            :type, 
+            :dateStart, 
+            :dateEnd, 
+            :place, 
+            :description)";
 
 
             $query = $db->prepare($sql);
@@ -31,7 +43,6 @@ class Event {
             $query->bindValue(':dateEnd', form::secureData($dateEnd) , PDO::PARAM_STR);
             $query->bindValue(':place', form::secureData($place) , PDO::PARAM_STR);
             $query->bindValue(':description', form::secureData($description) , PDO::PARAM_STR);
-            $query->bindValue(':classify', form::secureData($classify) , PDO::PARAM_BOOL);
             
             return $query->execute();
         } catch (PDOException $e) {
@@ -47,6 +58,23 @@ class Event {
             $sql = "SELECT COUNT(*) FROM `event` WHERE `name` = :name";
             $query = $db->prepare($sql);
             $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
+            $query->execute();
+            $query->fetchColumn() == 1 ? $result = true : $result = false;
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    public static function getNameEventbyId(int $id, string $name) : bool
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT COUNT(*) FROM `event` WHERE `name` = :name AND `id` != :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             $query->execute();
             $query->fetchColumn() == 1 ? $result = true : $result = false;
             return $result;
@@ -105,7 +133,6 @@ class Event {
                         `date_end`,
                         `place`,
                         `description`,
-                        `classify`,
                         `type`.`id` `type_id`,
                         `type`.`type` `type_name`,
                         `album`.`id` `album_id`,
@@ -117,7 +144,7 @@ class Event {
                             LEFT JOIN 
                         `album` ON `id_event` = `event`.`id`
                     WHERE
-                        `date_end` > NOW() AND `id_type` = :type
+                        `date_end` >= date(now()) AND `id_type` = :type
                             AND `date_end` LIKE :year";
             $query = $db->prepare($sql);
             $query->bindValue(':year', form::secureData($year), PDO::PARAM_STR);
@@ -164,7 +191,7 @@ class Event {
         }
     }
 
-    public static function updateEvent(int $id, string $poster, string $name, int $type, string $dateStart, string $dateEnd, string $place, string $description, bool $classify): bool
+    public static function updateEvent(int $id, string $poster, string $name, int $type, string $dateStart, string $dateEnd, string $place, string $description): bool
     {
         try {
             $db = database::getDatabase();
@@ -176,8 +203,7 @@ class Event {
                 `date_start` = :dateStart,
                 `date_end` = :dateEnd,
                 `place` = :place,
-                `description` = :description,
-                `classify` = :classify
+                `description` = :description
             WHERE
                 `id` = :id;";
             $query = $db->prepare($sql);
@@ -189,7 +215,6 @@ class Event {
             $query->bindValue(':dateEnd', form::secureData($dateEnd) , PDO::PARAM_STR);
             $query->bindValue(':place', form::secureData($place) , PDO::PARAM_STR);
             $query->bindValue(':description', form::secureData($description) , PDO::PARAM_STR);
-            $query->bindValue(':classify', form::secureData($classify) , PDO::PARAM_BOOL);
             
             return $query->execute();
         } catch (PDOException $e) {

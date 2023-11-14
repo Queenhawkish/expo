@@ -37,9 +37,15 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     exit;
 }
 
+$showform = true;
+$expo = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $other_event = Event::getNameEvent($_POST["event_name"]);
+
+    $today = date('Y-m-d');
+    $poster = $event["poster"];
+
+    $other_event = Event::getNameEventbyId($_GET["id"], $_POST["event_name"]);
 
     if (isset($_POST["event_name"]) && !empty($_POST["event_name"])) {
         if ($other_event) {
@@ -53,6 +59,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST["event_type"]) && !empty($_POST["event_type"])) {
         $type = $_POST["event_type"];
+        if ($type == 1) {
+            if ($_FILES["poster"]["error"] == 4) {
+                $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
+            } else {
+                $tfile = new finfo(FILEINFO_MIME);
+                if (!str_contains($tfile->file($_FILES['poster']['tmp_name']), "image")) {
+                    $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
+                } else if (!str_contains($_FILES["poster"]["type"], "image")) {
+                    $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
+                } else if ($_FILES["poster"]["size"] > 1048576) {
+                    $error['event_poster'] = "L'image ne doit pas dépasser 1Mo";
+                } 
+                if (empty($error['event_poster'])) {
+                    if (!empty($poster)) {
+                        $folder = "../assets/img/poster/";
+                        $path = $folder . $poster;
+                        unlink($path);
+                    }
+                    if (str_contains($_FILES["poster"]["name"], '.jpg')) {
+                        $poster = $_FILES["poster"]["name"] . '.' . strtolower(Form::noAccent($_POST['event_name']));
+                        $poster = str_replace('.jpg', '', $poster);
+                        $poster = $poster . ".jpg";
+                    } else if (str_contains($_FILES["poster"]["name"], '.png')) {
+                        $poster = $_FILES["poster"]["name"] . '.' . strtolower(Form::noAccent($_POST['event_name']));
+                        $poster = str_replace('.png', '', $poster);
+                        $poster = $poster . ".png";
+                    } else if (str_contains($_FILES["poster"]["name"], '.jpeg')) {
+                        $poster = $_FILES["poster"]["name"] . '.' . strtolower(Form::noAccent($_POST['event_name']));
+                        $poster = str_replace('.jpeg', '', $poster);
+                        $poster = $poster . ".jpeg";
+                    } else {
+                        $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
+                    }
+                }
+            }
+        }
+        if ($type == 2) {
+            $poster = "sortie.jpg";
+            if (!empty($poster)) {
+                $folder = "../assets/img/poster/";
+                $path = $folder . $poster;
+                unlink($path);
+            }
+        }
+        if ($type == 3) {
+            $poster = "assemblee.jpg";
+            if (!empty($poster)) {
+                $folder = "../assets/img/poster/";
+                $path = $folder . $poster;
+                unlink($path);
+            }
+        }
     } else {
         $error["event_type"] = "Veuillez renseigner un type d'évènement";
     }
@@ -66,21 +124,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ((isset($_POST["event_date"]) && !empty($_POST["event_date"]))) {
         $dateStart = $_POST["event_date"];
         $dateEnd = $_POST["event_date"];
-    } 
-    if (!empty($_POST["event_date"])) {
+        if ($dateEnd < $dateStart) {
+            $error["event_date"] = "La date de fin ne peut pas être inférieur à la date de début";
+        }
+        if ($dateStart < $today || $dateEnd < $today) {
+            $error["event_date"] = "La date ne peut pas être inférieur à la date du jour";
+        }
+    }
+    if (empty($_POST["event_date"])) {
         if (isset($_POST["event_first_date"]) && !empty($_POST["event_first_date"])) {
             $dateStart = $_POST["event_first_date"];
         }
         if (isset($_POST["event_second_date"]) && !empty($_POST["event_second_date"])) {
             $dateEnd = $_POST["event_second_date"];
         }
-        if (!empty($_POST["event_first_date"])) {
+        if (empty($_POST["event_first_date"])) {
             $error["event_expo"] = "Veuillez renseigner une date de début";
         }
-        if (!empty($_POST["event_second_date"])) {
+        if (empty($_POST["event_second_date"])) {
             $error["event_expo"] = "Veuillez renseigner une date de fin";
         } else {
             $error["event_date"] = "Veuillez renseigner une date";
+        }
+    }
+
+    if (isset($_POST["event_description"]) && !empty($_POST["event_description"])) {
+        $description = $_POST["event_description"];
+    } else {
+        $description = "";
+    }
+
+    if (empty($error)) {
+        if (!empty($poster)) {
+            move_uploaded_file($_FILES["poster"]["tmp_name"], $folder . $poster);
+            if (Event::updateEvent($id, $poster, $name, $type, $dateStart, $dateEnd, $place, $description)) {
+                $showform = false;
+                if ($type == 1) {
+                    $expo = true;
+                }
+            } else {
+                $error['event_add'] = "L'évènement n'a pas pu être modifié";
+            }
         }
     }
 }

@@ -20,6 +20,9 @@ $error = [];
 
 $today = date('Y-m-d');
 
+$showform = true;
+$expo = false;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $album_name = Album::getAlbumName(strtolower(Form::noAccent($_POST['event_name'])));
@@ -63,16 +66,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 if (empty($error['event_poster'])) {
                     $picture = $_FILES['poster']['tmp_name'];
-                    $poster = $_FILES['poster']['name'] . '.' . strtolower(Form::noAccent($_POST['event_name'])) . '.jpg';
+                    $poster = $_FILES['poster']['name'] . '.' . strtolower(Form::noAccent($_POST['event_name']));
                 }
             }
         }
         if ($_POST['event_type'] == 2) {
             $poster = "sortie.jpg";
             if (isset($_POST['event_date'])) {
-                if ($_POST['event_date'] > $today) {
-                    $classify = false;
-                } else {
+                if ($_POST['event_date'] < $today) {
                     $error['event_date'] = 'La date de l\'évènement ne peut pas être antérieure à aujourd\'hui pour une sortie';
                 }
             }
@@ -80,9 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($_POST['event_type'] == 3) {
             $poster = "assemblee.jpg";
             if (isset($_POST['event_date'])) {
-                if ($_POST['event_date'] > $today) {
-                    $classify = false;
-                } else {
+                if ($_POST['event_date'] < $today) {
                     $error['event_date'] = 'La date de l\'évènement ne peut pas être antérieure à aujourd\'hui pour une assemblée générale';
                 }
             }
@@ -106,15 +105,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['event_first_date']) && !empty($_POST['event_second_date'])) {
             $first_date = $_POST['event_first_date'];
             $second_date = $_POST['event_second_date'];
-            if ($_POST['event_second_date'] < $today) {
-                if ($type == 1) {
-                    $classify = true;
-                } else {
-                    $classify = false;
-                }
-            } else {
-                $classify = false;
-            }
         }
 
 
@@ -126,24 +116,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $poster = str_replace('.jpg', '', $poster);
 
             $poster = $poster . ".jpg";
-            if (Event::addEvent($poster, $name, $type, $first_date, $second_date, $place, $description, $classify)) {
+            if (Event::addEvent($poster, $name, $type, $first_date, $second_date, $place, $description)) {
+                $id = Event::getIdEvent($name);
                 if ($type == 1) {
                     if (isset($_FILES['poster'])) {
                         $uploadPicture = "../assets/img/poster/" . $poster;
                         move_uploaded_file($_FILES['poster']['tmp_name'], $uploadPicture);
                     }
-                    if ($second_date < $today) {
-                        header('Location: add_photos_controller.php?id=' . Event::getIdEvent($name));
-                        exit;
-                    } else {
-                        header('Location: calendar_controller.php');
-                        exit;
-                    }
+                    $showform = false;
+                    $expo = true;
                 } else {
-                    header('Location: calendar_controller.php');
-                    exit;
+                    $showform = false;
                 }
-                exit;
             } else {
                 $error['event_add'] = 'L\'évènement n\'a pas pu être ajouté';
             }
@@ -151,6 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+var_dump($error);
+var_dump($showform);
 
 
 include '../views/add_event.php';
