@@ -104,12 +104,32 @@ class Event {
         try {
             $db = database::getDatabase();
             $sql = "SELECT 
-                        YEAR(`date_start`)
+                        YEAR(`date_end`)
                     FROM
                         `event`
                     WHERE
                     `date_end` > now()
-                    GROUP BY YEAR(`date_start`);";
+                    GROUP BY YEAR(`date_end`);";
+            $query = $db->query($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return [];
+        }
+    }
+
+    public static function getOldYear(): array
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT 
+                        YEAR(`date_end`)
+                    FROM
+                        `event`
+                    WHERE
+                    `date_end` < now()
+                    GROUP BY YEAR(`date_end`);";
             $query = $db->query($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
@@ -149,6 +169,42 @@ class Event {
             $query = $db->prepare($sql);
             $query->bindValue(':year', form::secureData($year), PDO::PARAM_STR);
             $query->bindValue(':type', form::secureData($type), PDO::PARAM_INT);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return [];
+        }
+    }
+
+    public static function getOldEvents(string $year): array
+    {
+        try {
+            $db = database::getDatabase();
+            $year = $year . '%';
+            $sql = "SELECT 
+                        `event`.`id` `event_id`,
+                        `poster`,
+                        `event`.`name` `event_name`,
+                        `date_start` ,
+                        `date_end`,
+                        `place`,
+                        `description`,
+                        `type`.`id` `type_id`,
+                        `type`.`type` `type_name`,
+                        `album`.`id` `album_id`,
+                        `album`.`name` `album_name`
+                    FROM
+                        `event`
+                            INNER JOIN
+                        `type` ON `id_type` = `type`.`id`
+                            LEFT JOIN 
+                        `album` ON `id_event` = `event`.`id`
+                    WHERE
+                        `date_end` < date(now())
+                            AND `date_end` LIKE :year";
+            $query = $db->prepare($sql);
+            $query->bindValue(':year', form::secureData($year), PDO::PARAM_STR);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {

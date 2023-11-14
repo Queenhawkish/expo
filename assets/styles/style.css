@@ -998,6 +998,21 @@ input {
     width: 100%;
 }
 
+.gallery_event{
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery_event_infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 .calendar_poster{
     position: relative;
 }
@@ -1007,6 +1022,27 @@ input {
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+}
+
+.user_part{
+    background-color: white;
+    color: black;
+    font-weight: 900;
+    width: fit-content;
+    border: 1px inset black;
+    margin: auto;
+}
+
+.user_part:hover{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.success_register{
+    color: #ae2012;
+    font-size: 2rem;
+    text-align: center;
 }
 
 .add_picture {

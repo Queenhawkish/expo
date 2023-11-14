@@ -10,58 +10,54 @@ require_once '../models/events.php';
 require_once '../models/album.php';
 require_once '../models/picture.php';
 require_once '../models/type.php';
+require_once '../models/participant.php';
 
 
 $today = date('d');
 
-
-function getEventDate(array $event)
-{
-
-    $date_start = $event['date_start'];
-    $date_end = $event['date_end'];
-    $type = $event['type_id'];
-    $date_start = explode('-', $date_start);
-    $date_end = explode('-', $date_end);
-    $day_start = $date_start[2];
-    $month_start = $date_start[1];
-    $day_end = $date_end[2];
-    $month_end = $date_end[1];
-    $month = array(
-        "Janvier" => 1,
-        "Février" => 2,
-        "Mars" => 3,
-        "Avril" => 4,
-        "Mai" => 5,
-        "Juin" => 6,
-        "Juillet" => 7,
-        "Août" => 8,
-        "Septembre" => 9,
-        "Octobre" => 10,
-        "Novembre" => 11,
-        "Décembre" => 12
-    );
-    $month_start = array_search($month_start, $month);
-    $month_end = array_search($month_end, $month);
-    if ($type == 1) {
-        $date = "Du " . $day_start . " " . $month_start . " au " . $day_end . " " . $month_end;
-    } else {
-        $date = $day_start . " " . $month_start;
-    }
-    return $date;
-}
 
 if (isset($_GET["action"]) && $_GET["action"] == "delete") {
     Event::deleteEvent($_GET["id"]);
 }
 
 $showform = false;
-
+$error = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id_event = $_POST["event_id"];
+    $participants = Participant::getParticipant($id_event);
+    $objet = Event::getEventById($id_event)["name"];
+    $message = "Vous êtes bien inscrit à l'évènement " . $objet . " !";
 
-    if (isset($_POST["user_email"]) && !empty($_POST["user_email"])) {
-        $showform = true;
+    function checkParticipant($participants, $email)
+    {
+        foreach ($participants as $participant) {
+            if ($email == $participant["email"]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    if (!isset($_POST["user_email"]) || empty($_POST["user_email"])) {
+        $error["user_email"] = "Veuillez renseigner votre adresse email";
+    } else if (checkParticipant($participants, $_POST["user_email"])) {
+        $error["user_email"] = "Vous êtes déjà inscrit à cet évènement";
+    } else if (!filter_var($_POST["user_email"], FILTER_VALIDATE_EMAIL)) {
+        $error["user_email"] = "Veuillez renseigner une adresse email valide";
+    }
+    if (empty($error)) {
+        if (mail($_POST["user_email"], $objet, $message)) {
+            $error["user_email"] = "Un email de confirmation vous a été envoyé à l'adresse suivante : <br> " . $_POST['user_email'];
+
+            $user_email = $_POST["user_email"];
+            if (Participant::addParticipant($user_email, $id_event)) {
+                $showform = true;
+            } else {
+                $showform = false;
+                $error["user_email"] = "Une erreur est survenue, veuillez réessayer";
+            }
+        }
     }
 }
 

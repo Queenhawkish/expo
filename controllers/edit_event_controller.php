@@ -18,7 +18,6 @@ require_once '../models/picture.php';
 
 
 
-$error = [];
 
 if (isset($_GET["id"]) && !empty($_GET["id"])) {
     if (!ctype_digit($_GET["id"])) {
@@ -37,6 +36,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     exit;
 }
 
+$error = [];
 $showform = true;
 $expo = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
