@@ -90,6 +90,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else {
                         $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
                     }
+                    $picture = $_FILES['poster']['tmp_name'];
+                    $poster = $_FILES['poster']['name'] . '.' . strtolower(Form::noAccent($_POST['event_name']));
                 }
             }
         }

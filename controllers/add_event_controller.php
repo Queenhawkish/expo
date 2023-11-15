@@ -65,6 +65,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $error['event_poster'] = "Le justificatif ne doit pas dépasser 1Mo";
                 }
                 if (empty($error['event_poster'])) {
+                    if (str_contains($_FILES["poster"]["name"], '.jpg')) {
+                        $poster = $_FILES["poster"]["name"] . '.' . strtolower(Form::noAccent($_POST['event_name']));
+                        $poster = str_replace('.jpg', '', $poster);
+                        $poster = $poster . ".jpg";
+                    } else if (str_contains($_FILES["poster"]["name"], '.png')) {
+                        $poster = $_FILES["poster"]["name"] . '.' . strtolower(Form::noAccent($_POST['event_name']));
+                        $poster = str_replace('.png', '', $poster);
+                        $poster = $poster . ".png";
+                    } else if (str_contains($_FILES["poster"]["name"], '.jpeg')) {
+                        $poster = $_FILES["poster"]["name"] . '.' . strtolower(Form::noAccent($_POST['event_name']));
+                        $poster = str_replace('.jpeg', '', $poster);
+                        $poster = $poster . ".jpeg";
+                    } else {
+                        $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
+                    }
                     $picture = $_FILES['poster']['tmp_name'];
                     $poster = $_FILES['poster']['name'] . '.' . strtolower(Form::noAccent($_POST['event_name']));
                 }

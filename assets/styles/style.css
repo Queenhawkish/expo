@@ -17,6 +17,7 @@ body {
     text-align: center;
     width: 100%;
 }
+
 /* head.php */
 .head {
     display: flex;
@@ -121,7 +122,7 @@ button:hover {
 
 .homeimg {
     width: 50%;
-    height: 20rem;
+    height: 30rem;
     background: url('../img/front/home.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -147,7 +148,7 @@ button:hover {
 /* calendar.php */
 
 
-.calendar_event{
+.calendar_event {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -169,7 +170,7 @@ h2 {
     color: white;
 }
 
-.year{
+.year {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -190,26 +191,39 @@ h2 {
     flex-direction: column;
 }
 
-.confirm_delete{
+.gallery_event {
     display: flex;
-    position: fixed;
     flex-direction: column;
-    font-size: 2rem;
-    background-color: #fff;
-    border: 3px solid #ae2012;
-    left: 20%;
-    top: 35%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1rem;
     padding: 1rem;
 }
 
-.confirm{
+.event_gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.event_head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+
+}
+
+.confirm {
     padding: 1rem;
     background-color: #fff;
     border: 3px solid #ae2012;
     border-radius: 5px;
 }
 
-.button_participate{
+.button_participate {
     color: black;
     border: 2px inset #ae2012;
     border-radius: 5px;
@@ -223,6 +237,11 @@ h2 {
     width: 40%;
     padding: 0.5rem;
     margin: 0.5rem;
+}
+
+.gallery_image{
+    width: 100%;
+    height: 100%;
 }
 
 .poster {
@@ -253,11 +272,11 @@ h2 {
     rotate: -5deg;
 }
 
-.delete_confirm{
+.delete_confirm {
     border: none;
 }
 
-.button_confirm{
+.button_confirm {
     display: flex;
     justify-content: center;
     margin: 1rem auto;
@@ -286,21 +305,16 @@ h3 {
     text-align: justify;
 }
 
-h4{
+h4 {
     font-size: 1.5rem;
     color: #ae2012;
     font-weight: 900;
     margin-top: 1rem;
 }
 
-.event_detail{
+.event_detail {
     width: 50%;
     height: 100vh;
-}
-
-.title>h5{
-    font-weight: 900;
-    border: none;
 }
 
 ul {
@@ -386,12 +400,26 @@ li {
     font-size: 1.1rem;
     color: #ae2012;
     width: 20rem;
+    margin: auto;
+}
+
+.album{
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+dd {
+    display: flex;
+    text-align: justify;
+    width: 100%;
+    margin: auto;
+    padding: 2rem;
 }
 
 .new_poster {
     display: flex;
-    position: relative;
-    width: 20rem;
+    margin: auto;
+    width: 100%;
     height: 15rem;
 }
 
@@ -409,8 +437,13 @@ li {
 .event_infos {
     display: flex;
     flex-direction: column;
+}
+
+.event_infos_item {
+    display: flex;
     justify-content: space-evenly;
     width: 100%;
+    margin: auto;
 }
 
 .infos_event {
@@ -436,7 +469,7 @@ li {
     width: 100%;
 }
 
-.modify_poster{
+.modify_poster {
     width: 30rem;
 }
 
@@ -533,6 +566,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 h5 {
     font-size: 2rem;
+    font-weight: 900;
     color: #ae2012;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
@@ -608,13 +642,13 @@ h5 {
     padding: 5px;
 }
 
-.success{
+.success {
     color: #ae2012;
     font-size: 3rem;
     text-align: center;
 }
 
-.event_item {
+.event_head_item {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -622,7 +656,7 @@ h5 {
     align-items: center;
 }
 
-.event_item>img{
+.event_item>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -635,11 +669,17 @@ h5 {
     font-size: 2rem;
 }
 
+.item_info{
+    display: flex;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
 .info_display {
     margin-top: 1rem;
 }
 
-.item_info {
+.event_item_info {
     display: flex;
     margin: auto;
     justify-content: center;
@@ -678,13 +718,21 @@ h5 {
 }
 
 .description_display {
-    justify-content: center;
+    width: 100%;
 }
 
-.title {
+.event_info {
     display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 1rem;
+}
+
+.item_info>h4 {
     font-size: 3rem;
-    margin: 2rem auto;
     color: #ae2012;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
@@ -733,19 +781,19 @@ h5 {
     border: 3px inset #ae2012;
 }
 
-.delete_new_event{
+.delete_new_event {
     border: 3px inset black;
     background-color: #ae2012;
 }
 
-.delete_new_event:hover{
+.delete_new_event:hover {
     background-color: black;
     border: 3px inset black;
     color: white;
     cursor: pointer;
 }
 
-.delete_event{
+.delete_event {
     background-color: #ae2012;
     color: #fff;
     padding: 5px;
@@ -758,19 +806,8 @@ h5 {
     display: none;
 }
 
-.delete_picture {
-    position: absolute;
-    right: 2%;
-    top: 0;
-    background-color: black;
-    display: flex;
-    width: fit-content;
-    border-radius: 5px;
-    color: white;
-    font-weight: 900;
-    border: 3px inset white;
-    padding: 5px;
-    text-decoration: none;
+.zero{
+    rotate: 0deg;
 }
 
 .delete_picture:hover {
@@ -779,19 +816,10 @@ h5 {
     border: 3px inset #ae2012;
 }
 
-.gallery_event {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 1rem;
-}
-
 .event_img {
     width: 20rem;
     height: 20rem;
-    margin: 1rem;
+    margin: 3rem 2rem;
 }
 
 .connect {
@@ -820,11 +848,11 @@ h5 {
     color: black;
 }
 
-span{
+span {
     font-size: 1rem;
 }
 
-.button_edit{
+.button_edit {
     margin-top: 1rem;
     align-items: center;
 }
@@ -837,7 +865,7 @@ span{
     font-weight: 700;
 }
 
-.button_modify{
+.button_modify {
     width: fit-content;
     color: #ae2012;
     padding: 5px;
@@ -846,7 +874,7 @@ span{
     border: 3px inset #ae2012;
 }
 
-.compel{
+.compel {
     color: #ae2012;
     font-style: normal;
     font-size: 2rem;
@@ -859,7 +887,7 @@ span{
     margin: 1rem auto;
 }
 
-.cancelpart{
+.cancelpart {
     background-color: black;
     color: white;
     border: 3px inset black;
@@ -867,7 +895,7 @@ span{
     border-radius: 5px;
 }
 
-.add_event>button{
+.add_event>button {
     border: 3px inset #ae2012;
     background-color: transparent;
     font-size: 2rem;
@@ -877,7 +905,7 @@ span{
     padding: 5px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -996,7 +1024,7 @@ input {
     width: 100%;
 }
 
-.gallery_event_infos{
+.gallery_event_infos {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1006,8 +1034,9 @@ input {
     text-align: center;
 }
 
-.calendar_poster{
+.calendar_poster {
     position: relative;
+    width: 100%;
 }
 
 .add_pictures {
@@ -1017,7 +1046,7 @@ input {
     width: 100%;
 }
 
-.user_part{
+.user_part {
     background-color: white;
     color: black;
     font-weight: 900;
@@ -1026,16 +1055,17 @@ input {
     margin: auto;
 }
 
-.add_album{
+.add_album {
     display: flex;
 }
 
-.add_album hr{
+.add_album hr {
     rotate: 90deg;
     width: 2rem;
     height: 20rem;
 }
-.user_part:hover{
+
+.user_part:hover {
     background-color: black;
     color: white;
     border: none;
@@ -1046,22 +1076,43 @@ input {
     margin: 0.5rem auto;
 }
 
-.success_register{
+.success_register {
     color: #ae2012;
     font-size: 2rem;
     text-align: center;
 }
 
-.show_images{
+.show_images {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    width: 100%;
     margin-left: 5rem;
 }
 
-.show_image{
+.new_picture{
+    display: flex;
+    flex-direction: column;
+}
+
+.show_image {
+    display: flex;
+    margin: 1rem auto;
     width: 15rem;
     height: 15rem;
+}
+
+.delete_picture {
+    background-color: #ae2012;
+    display: flex;
+    width: fit-content;
+    border-radius: 5px;
+    color: white;
+    font-weight: 900;
+    border: 3px inset #ae2012;
+    padding: 5px;
+    text-decoration: none;
+    margin: auto;
 }
 
 .add_picture {
@@ -1085,6 +1136,14 @@ input {
     background-color: black;
     color: white;
     border-radius: 5px;
+}
+
+.event_head_poster {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
 }
 
 .picture_poster {
@@ -1152,12 +1211,12 @@ input {
     border-radius: 15rem;
 }
 
-.add_picture>label{
+.add_picture>label {
     font-size: 1.5rem;
 
 }
 
-#nb_pic_validate{
+#nb_pic_validate {
     width: fit-content;
     margin: 0.5rem auto;
     background-color: transparent;
@@ -1167,14 +1226,14 @@ input {
     font-weight: 900;
 }
 
-#nb_pic_validate:hover{
+#nb_pic_validate:hover {
     cursor: pointer;
     background-color: black;
     color: white;
     border: 3px inset black;
 }
 
-.add_photos{
+.add_photos {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -1183,7 +1242,7 @@ input {
     padding: 0 1rem;
 }
 
-.go_back{
+.go_back {
     margin: auto;
     width: fit-content;
     background-color: black;
@@ -1193,7 +1252,7 @@ input {
     border: 3px inset black;
 }
 
-.go_back:hover{
+.go_back:hover {
     cursor: pointer;
     background-color: white;
     color: black;
@@ -1213,8 +1272,7 @@ input {
     display: flex;
     margin: auto;
     background-color: transparent;
-    color: #ae2012;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
     border: 3px inset #ae2012;
     background-color: #fff;
@@ -1280,7 +1338,7 @@ footer {
         display: flex;
         width: 72%;
         margin: auto;
-        height: 10rem;
+        height: 25rem;
     }
 
     .home {
@@ -1455,7 +1513,7 @@ footer {
     }
 
     .new_poster {
-        width: 15rem;
+        width: 100%;
         height: 15rem;
     }
 
@@ -1516,6 +1574,15 @@ footer {
     h1 {
         font-size: 2rem;
         font-weight: 300;
+    }
+
+    .home_page {
+        flex-direction: column;
+    }
+
+    .homeimg {
+        width: 100%;
+        height: 10rem;
     }
 
     .container {

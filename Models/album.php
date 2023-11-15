@@ -21,6 +21,23 @@ class Album {
         }
     }
 
+    public static function existAlbum(string $name, int $id) : bool
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT COUNT(*) FROM `album` WHERE `name` = :name AND `id_event` = :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            $query->execute();
+            $query->fetchColumn() == 1 ? $result = true : $result = false;
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
     public static function getIdAlbum(string $name): int
     {
         try {
@@ -29,7 +46,7 @@ class Album {
             $query = $db->prepare($sql);
             $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
             $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC);
+            return $query->fetch(PDO::FETCH_ASSOC)["id"];
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return 0;

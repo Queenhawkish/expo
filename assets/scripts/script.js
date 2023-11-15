@@ -2,7 +2,6 @@ let home = document.querySelector('#home');
 let about = document.querySelector('#about');
 let events = document.querySelector('#calendar');
 let gallery = document.querySelector('#gallery');
-let connection = document.querySelector('#connection');
 let homepage = document.querySelector('.home');
 let aboutpage = document.querySelector('.about');
 let eventspage = document.querySelector('.calendar');
@@ -26,11 +25,6 @@ if (eventspage) {
 if (gallerypage) {
     gallery.style.color = "white";
     gallery.style.backgroundColor = "black";
-}
-
-if (connectionpage) {
-    connection.style.color = "white";
-    connection.style.backgroundColor = "black";
 }
 
 
@@ -144,29 +138,5 @@ if (form_add_event) {
         other_type.style.display = "none";
         date_event.style.display = "none";
         event_poster.style.display = "none";
-    }
-}
-
-let add_photos = document.querySelector('.add_photos');
-
-if (add_photos) {
-    console.log(image.src);
-    input_image.onchange = evt => {
-        const [file] = input_image.files
-        if (file) {
-            image.src = URL.createObjectURL(file)
-            image.style.display = "block";
-            let add_picture = document.querySelector('.add_picture');
-            add_picture.innerHTML += `
-            <input id="input_image" class="pic_input" type="file" name="pic" accept="image/png, image/jpeg">
-            `
-            if (image.src == "") {
-                image.style.display = "none";
-            }
-            let show_images = document.querySelector('.show_images');
-            show_images.innerHTML += `
-            <img id="image" class="show_image" alt="Photo">
-            `
-        }
     }
 }

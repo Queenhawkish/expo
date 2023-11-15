@@ -34,6 +34,14 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete") {
 }
 
 $error = [];
+$album_name = Album::getAlbumNameByEventId($id);
+$rotate = array(
+    "first" => 0,
+    "second" => 1,
+    "third" => 2,
+    "fourth" => 3,
+    "zero" => 4
+);
 
 
 include '../views/event.php';

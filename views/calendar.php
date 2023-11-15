@@ -67,28 +67,29 @@
                                                 <?php } ?>
                                             </ul>
                                         <?php } else { ?>
-                                        <div class="modal fade" id="exampleModalToggle<?= $event["event_id"]?>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Participer à <?= $event["event_name"] ?></h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="modal fade" id="exampleModalToggle<?= $event["event_id"] ?>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Participer à <?= $event["event_name"] ?></h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form method="post">
+                                                            <div class="modal-body">
+                                                                <label for="user_email">Veuillez entrer votre adresse email :</label>
+                                                                <input type="hidden" name="event_id" value="<?= $event["event_id"] ?>">
+                                                                <input type="text" name="user_email" placeholder="doe.john@email.com">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button class="btn btn-primary">Participer</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
-                                                    <form method="post">
-                                                        <div class="modal-body">
-                                                            <label for="user_email">Veuillez entrer votre adresse email :</label>
-                                                            <input type="hidden" name="event_id" value="<?= $event["event_id"]?>">
-                                                            <input type="text" name="user_email" placeholder="doe.john@email.com">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button class="btn btn-primary">Participer</button>
-                                                        </div>
-                                                    </form>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <button class="btn btn-primary user_part" data-bs-target="#exampleModalToggle<?= $event["event_id"]?>" data-bs-toggle="modal">Participer</button>
-                                    <?php }} ?>
+                                            <button class="btn btn-primary user_part" data-bs-target="#exampleModalToggle<?= $event["event_id"] ?>" data-bs-toggle="modal">Participer</button>
+                                    <?php }
+                                    } ?>
                                 </div>
 
                             </div>
@@ -99,6 +100,13 @@
         </div>
 
     <?php } ?>
+</div>
+
+<div class="modal-body">
+    <p>Un email de confirmation vous a été envoyé</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary">Fermer</button>
 </div>
 
 

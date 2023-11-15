@@ -50,14 +50,14 @@
                             <li><?= Form::getEventDate($event) ?></li>
                             <li>À <?= $event["place"] ?></li>
                         </ul>
-                        <p class="event_description"><?= $event["description"] ?></p>
+
                     </div>
-                    
+
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <div class="button_edit">
                             <a href="add_photos_controller.php?id=<?= $event["event_id"] ?>" class="button_modify">Ajouter / supprimer des photos</a>
                         </div>
-                    <?php } ?>
+                <?php } ?>
                 </div>
             <?php } ?>
         </div>

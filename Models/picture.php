@@ -37,15 +37,15 @@ class Picture {
         }
     }
 
-    public static function getPictureNameByAlbumId(int $id): string
+    public static function getAllPicture(int $id): array
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT `name` FROM `picture` WHERE `id_album` = :id";
+            $sql = "SELECT * FROM `picture` WHERE `id_album` = :id";
             $query = $db->prepare($sql);
             $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC);
+            return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return "";
@@ -56,7 +56,7 @@ class Picture {
     {
         try {
             $db = database::getDatabase();
-            $sql = "DELETE FROM `picture` WHERE `id_album` = :id";
+            $sql = "DELETE FROM `picture` WHERE `id` = :id";
             $query = $db->prepare($sql);
             $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             return $query->execute();

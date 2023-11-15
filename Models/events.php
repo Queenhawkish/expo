@@ -217,8 +217,15 @@ class Event {
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT 
-                        *
+            $sql = "SELECT
+                        `event`.`id` `event_id`,
+                        `poster`,
+                        `event`.`name` `event_name`,
+                        `date_start` ,
+                        `date_end`,
+                        `place`,
+                        `description`,
+                        `id_type` `type_id`
                     FROM
                         `event`
                     WHERE

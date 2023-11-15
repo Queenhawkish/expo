@@ -12,6 +12,4 @@
         </p>
     </div>
 </div>
-<div class="footer">
-    <?php include 'components/footer.php'; ?>
-</div>
+<?php include 'components/footer.php'; ?>
