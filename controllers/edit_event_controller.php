@@ -60,9 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["event_type"]) && !empty($_POST["event_type"])) {
         $type = $_POST["event_type"];
         if ($type == 1) {
-            if ($_FILES["poster"]["error"] == 4) {
-                $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';
-            } else {
+            if ($_FILES["poster"]["error"] != 4) {
                 $tfile = new finfo(FILEINFO_MIME);
                 if (!str_contains($tfile->file($_FILES['poster']['tmp_name']), "image")) {
                     $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
@@ -70,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $error['event_poster'] = "Le format doit être de type image (jpg, jpeg, png)";
                 } else if ($_FILES["poster"]["size"] > 1048576) {
                     $error['event_poster'] = "L'image ne doit pas dépasser 1Mo";
-                } 
+                }
                 if (empty($error['event_poster'])) {
                     if (!empty($poster)) {
                         $folder = "../assets/img/poster/";
@@ -155,16 +153,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($error)) {
-        if (!empty($poster)) {
-            move_uploaded_file($_FILES["poster"]["tmp_name"], $folder . $poster);
-            if (Event::updateEvent($id, $poster, $name, $type, $dateStart, $dateEnd, $place, $description)) {
-                $showform = false;
-                if ($type == 1) {
-                    $expo = true;
-                }
-            } else {
-                $error['event_add'] = "L'évènement n'a pas pu être modifié";
+        if ($_FILES["poster"]["error"] != 4) {
+            if (!empty($poster)) {
+                move_uploaded_file($_FILES["poster"]["tmp_name"], $folder . $poster);
             }
+        }
+        if (Event::updateEvent($id, $poster, $name, $type, $dateStart, $dateEnd, $place, $description)) {
+            $showform = false;
+            if ($type == 1 && $dateEnd < $today) {
+                $expo = true;
+            }
+        } else {
+            $error['event_add'] = "L'évènement n'a pas pu être modifié";
         }
     }
 }

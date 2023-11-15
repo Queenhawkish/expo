@@ -135,8 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-var_dump($error);
-var_dump($showform);
 
 
 include '../views/add_event.php';

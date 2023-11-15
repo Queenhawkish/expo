@@ -6,28 +6,25 @@
     <a href="../controllers/gallery_controller.php" class="back">
         <button>Retour</button>
     </a>
-    <div class="head">
-        <div class="event_item">
-            <img src="../assets/img/poster/Halloween.expo halloween.jpg" alt="">
+    <?php if (isset($_SESSION["admin"])) { ?>
+        <a href="edit_event_controller.php?id=<?= $event["event_id"] ?>" class="button_modify">Modifier</a>
+    <?php } ?>
+    <div class="event_poster">
+        <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
+    </div>
+    <div class="info_display">
+        <div class="item_info">
+            <p class="info_detail event_date">06/12/2022 </p>
         </div>
-        <div class="event_item">
-            <div class="info_display">
-                <div class="item_info">
-                    <p class="info_detail event_date">06/12/2022 </p>
-                </div>
-                <div class="item_info">
-                    <p class="info_detail event_place">Alfortville </p>
-                </div>
-            </div>
-            <div class="title&description">
-                <h5>Exposition de décembre </h5>
-            </div>
-            <description>
-                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptatem rem fugiat ipsam quaerat, nulla autem aliquam doloremque iste modi? Doloremque maiores atque illum sed et cum unde consequuntur ab. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nesciunt, adipisci recusandae, earum accusantium architecto blanditiis, odio in officiis eius ad provident laboriosam modi cumque consequuntur? Aliquid quo praesentium hic. </p>
-            </description>
-
+        <div class="item_info">
+            <p class="info_detail event_place">Alfortville </p>
         </div>
-
+    </div>
+    <div class="title">
+        <h4 class="event_details_title">Exposition de décembre </h4>
+    </div>
+    <div class="description_display">
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro voluptatem rem fugiat ipsam quaerat, nulla autem aliquam doloremque iste modi? Doloremque maiores atque illum sed et cum unde consequuntur ab. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nesciunt, adipisci recusandae, earum accusantium architecto blanditiis, odio in officiis eius ad provident laboriosam modi cumque consequuntur? Aliquid quo praesentium hic. </p>
     </div>
     <div class="gallery_event">
         <div class="event_img first">
