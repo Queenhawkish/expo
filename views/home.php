@@ -2,7 +2,7 @@
 <?php include 'components/navbar.php'; ?>
 
 
-<div class="visiter_home">
+<div class="home_page">
     <div class="homeimg"></div>
     <div class="home">
         <p class="intro">

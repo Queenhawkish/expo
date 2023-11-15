@@ -20,7 +20,7 @@
             <?php foreach (Type::getAllTypes() as $idType) { ?>
                 <?php if (Event::getNewEvents($thisyear, $idType["id"]) != null) { ?>
                     <h3><?= $idType["type"] ?></h3>
-                    <div class="year_item">
+                    <div class="calendar_event">
                         <?php foreach (Event::getNewEvents($thisyear, $idType["id"]) as $events => $event) { ?>
                             <div class="display_event">
                                 <?php if (isset($_SESSION['admin'])) { ?>

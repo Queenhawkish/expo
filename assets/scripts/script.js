@@ -7,8 +7,6 @@ let homepage = document.querySelector('.home');
 let aboutpage = document.querySelector('.about');
 let eventspage = document.querySelector('.calendar');
 let gallerypage = document.querySelector('.gallerypage');
-let connectionpage = document.querySelector('.visitor');
-let form_add_event = document.querySelector('.form_add_event');
 
 if (homepage) {
     home.style.color = "white";
@@ -96,40 +94,7 @@ if (calendar) {
 
 }
 
-let event_details = document.querySelector('.event_details');
-
-if (event_details) {
-    let add_photos = document.querySelector('.add_photos');
-    add_photos.style.display = "none";
-    let button_event = document.querySelector('.button_event');
-    if (button_event) {
-        let edit_photo = document.querySelector('.edit_photo');
-        edit_photo.addEventListener('click', () => {
-            add_photos.style.display = "block";
-            let event_nb_pic = document.querySelector('.event_nb_pic');
-            event_nb_pic.addEventListener('input', () => {
-                let add_pictures = document.querySelector('.add_pictures');
-                let pictures = document.querySelector('.pictures');
-                let add = document.querySelector('.add');
-                add.style.display = "flex";
-                add_pictures.innerHTML = "";
-                for (let pic = 0; pic < event_nb_pic.value; pic++) {
-                    add_pictures.innerHTML += `
-                <div class="add_picture">
-                    <p>Photo ${pic + 1}</p>
-                    <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
-                </div>
-                `
-                }
-                pictures.style.display = "flex";
-                if (event_nb_pic.value == 0) {
-                    add.style.display = "none";
-                }
-            })
-        })
-    }
-}
-
+let form_add_event = document.querySelector('.form_add_event');
 
 if (form_add_event) {
     let event_type = document.querySelector('#event_type');

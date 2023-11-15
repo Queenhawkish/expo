@@ -17,7 +17,7 @@ body {
     text-align: center;
     width: 100%;
 }
-
+/* head.php */
 .head {
     display: flex;
     justify-content: center;
@@ -56,6 +56,8 @@ h1 {
     font-family: 'raleway thin', sans-serif;
     margin-left: 3rem;
 }
+
+/* navbar.php */
 
 .scroll {
     display: flex;
@@ -112,7 +114,7 @@ button:hover {
 
 /* Home page */
 
-.visiter_home {
+.home_page {
     display: flex;
     margin-top: 3rem;
 }
@@ -142,28 +144,50 @@ button:hover {
     text-align: justify;
 }
 
+/* calendar.php */
 
-/* Gallery page */
+
+.calendar_event{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.display_event {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: fit-content;
+}
+
+/* calendar & gallery */
+
+h2 {
+    font-size: 3rem;
+    background-color: #ae2012;
+    color: white;
+}
+
+.year{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.error {
+    color: #ae2012;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* gallery.php*/
 
 .gallery {
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.year_event {
-    display: flex;
-    text-align: center;
-    margin: auto;
-    font-size: 3.5rem;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-}
-.error {
-    color: #ae2012;
-    font-size: 1rem;
-    text-align: center;
 }
 
 .confirm_delete{
@@ -190,13 +214,6 @@ button:hover {
     border: 2px inset #ae2012;
     border-radius: 5px;
     padding: 5px;
-}
-
-.year{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
 }
 
 .event {
@@ -247,12 +264,6 @@ button:hover {
     border: none;
 }
 
-h2 {
-    font-size: 3rem;
-    background-color: #ae2012;
-    color: white;
-}
-
 .validatepart {
     width: fit-content;
     margin: 0.5rem auto;
@@ -261,13 +272,6 @@ h2 {
     color: white;
     font-weight: 700;
     border: 3px inset #ae2012;
-}
-
-.year_item{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
 }
 
 h3 {
@@ -282,14 +286,21 @@ h3 {
     text-align: justify;
 }
 
-.event>h4 {
-    font-size: 4rem;
-    margin: 0.5rem;
-    font-family: 'raleway thin', sans-serif;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ae2012;
-    font-weight: 200;
+h4{
+    font-size: 1.5rem;
+    color: #ae2012;
+    font-weight: 900;
+    margin-top: 1rem;
+}
+
+.event_detail{
+    width: 50%;
+    height: 100vh;
+}
+
+.title>h5{
+    font-weight: 900;
+    border: none;
 }
 
 ul {
@@ -327,13 +338,6 @@ li {
     padding: 10px;
     font-size: 1rem;
     font-weight: 700;
-}
-
-.display_event {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    width: fit-content;
 }
 
 .display_event_infos {
@@ -402,23 +406,11 @@ li {
 
 }
 
-.event_title>h4 {
-    font-size: 2rem;
-    width: 15rem;
-    margin: auto;
-    text-align: center;
-}
-
 .event_infos {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
-}
-
-.item_event>h4 {
-    font-size: 1.5rem;
-    margin: 1rem;
 }
 
 .infos_event {
@@ -622,20 +614,29 @@ h5 {
     text-align: center;
 }
 
-.card_event_img {
-    width: 100%;
+.event_item {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
     height: 100vh;
-    background: url('https://picsum.photos/600/300');
-    background-position: center;
-    background-size: cover;
+    align-items: center;
 }
 
-.info_display,
-.description_display {
+.event_item>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info_display {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     font-size: 2rem;
+}
+
+.title{
+
 }
 
 .info_display {
@@ -786,11 +787,12 @@ h5 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
 }
 
 .event_img {
-    position: relative;
     width: 20rem;
     height: 20rem;
     margin: 1rem;
@@ -996,11 +998,6 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-.gallery_event{
-    display: flex;
-    flex-direction: column;
 }
 
 .gallery_event_infos{
