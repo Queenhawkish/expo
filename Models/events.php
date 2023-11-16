@@ -239,45 +239,7 @@ class Event {
             return [];
         }
     }
-
-    public static function getAllEventById(int $id): array
-    {
-        try {
-            $db = database::getDatabase();
-            $sql = "SELECT 
-                        `event`.`id` `event_id`,
-                        `poster`,
-                        `event`.`name` `event_name`,
-                        `date_start` ,
-                        `date_end`,
-                        `place`,
-                        `description`,
-                        `type`.`id` `type_id`,
-                        `type`.`type` `type_name`,
-                        `album`.`id` `album_id`,
-                        `album`.`name` `album_name`,
-                        `picture`.`id` `picture_id`,
-                        `picture`.`name` `picture_name`
-                    FROM
-                        `event`
-                            INNER JOIN
-                        `type` ON `id_type` = `type`.`id`
-                            LEFT JOIN 
-                        `album` ON `id_event` = `event`.`id`
-                            LEFT JOIN
-                        `picture` ON `id_album` = `album`.`id`
-                    WHERE
-                        `event`.`id` = :id";
-            $query = $db->prepare($sql);
-            $query->bindValue(':id', form::secureData($id), PDO::PARAM_INT);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
-            return [];
-        }
-    }
-
+    
     public static function deleteEvent(int $id): bool
     {
         try {

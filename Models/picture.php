@@ -21,7 +21,7 @@ class Picture {
         }
     }
 
-    public static function getNamePicture(string $name): bool
+    public static function checkNamePicture(string $name): bool
     {
         try {
             $db = database::getDatabase();

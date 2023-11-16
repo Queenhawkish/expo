@@ -13,6 +13,4 @@
     </a>
 </form>
 
-<div class="footer">
-    <?php include 'components/footer.php'; ?>
-</div>
+<?php include 'components/footer.php'; ?>

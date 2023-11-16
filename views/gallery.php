@@ -57,7 +57,7 @@
                         <div class="button_edit">
                             <a href="add_photos_controller.php?id=<?= $event["event_id"] ?>" class="button_modify">Ajouter / supprimer des photos</a>
                         </div>
-                <?php } ?>
+                    <?php } ?>
                 </div>
             <?php } ?>
         </div>

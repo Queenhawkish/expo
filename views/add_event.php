@@ -62,13 +62,9 @@
     <?php } else { ?>
         <p class="error"><?= $error['event_add'] ?? "" ?></p>
         <p class="success">L'évènement a bien été ajouté</p>
-        <?php if ($expo) { ?>
-            <a href="add_photos_controller.php?id=<?= $id ?>" class="event_add">Ajouter les photos de l'exposition</a>
-            <a href="../index.php" class="event_add">Retour à l'accueil</a>
-        <?php } else { ?>
-            <a href="../index.php" class="event_add">Retour à l'accueil</a>
-    <?php }
-    } ?>
+        <a href="add_photos_controller.php?id=<?= $id ?>" class="event_add">Ajouter les photos de l'évènement</a>
+        <a href="../index.php" class="event_add">Retour à l'accueil</a>
+    <?php } ?>
 </div>
 <?php if ($showform == false) { ?>
     <div class="footer">

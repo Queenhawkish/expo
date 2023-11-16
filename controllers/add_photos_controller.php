@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $error['event_picture'] = "Le format doit être de type image (jpg, jpeg, png)";
             }
             $picture = $_FILES['picture']['name'];
-            if (Album::existAlbum($album_name, $id)) {
+            if (Album::existAlbum($id)) {
                 if (is_dir('../assets/img/' . $album_name)) {
                     $id_album = Album::getIdAlbum($album_name);
                     if (Picture::addPicture($picture, $id_album)) {

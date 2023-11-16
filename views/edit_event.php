@@ -13,7 +13,7 @@
                     <div class="item_add_event">
                         <label for="event_name">Nom de l'évènement : <i class="compel">*</i></label>
                         <p class="error"><?= $error['event_name'] ?? "" ?></p>
-                        <input type="text" name="event_name" placeholder="Ex. Exposition d'hiver" value="<?= htmlspecialchars($_POST["event_name"] ?? htmlspecialchars_decode($event["name"])) ?>">
+                        <input type="text" name="event_name" placeholder="Ex. Exposition d'hiver" value="<?= htmlspecialchars($_POST["event_name"] ?? htmlspecialchars_decode($event["event_name"])) ?>">
                     </div>
                     <div class="item_add_event">
                         <label for="event_type">Type d'évènement : <i class="compel">*</i></label>
@@ -21,7 +21,7 @@
                         <select name="event_type" id="event_type">
                             <option selected disabled>Selectionner</option>
                             <?php foreach (Type::getAllTypes() as $type) { ?>
-                                <option value=<?= $type['id'] ?> <?= isset($_POST["event_type"]) && $_POST["event_type"] == $type["id"] ? "selected" : ($event["id_type"] == $type["id"] ? "selected" : "") ?>><?= $type['type'] ?></option>
+                                <option value=<?= $type['id'] ?> <?= isset($_POST["event_type"]) && $_POST["event_type"] == $type["id"] ? "selected" : ($event["type_id"] == $type["id"] ? "selected" : "") ?>><?= $type['type'] ?></option>
                             <?php } ?>
                         </select>
                     </div>

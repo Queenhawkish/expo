@@ -21,13 +21,12 @@ class Album {
         }
     }
 
-    public static function existAlbum(string $name, int $id) : bool
+    public static function existAlbum(int $id) : bool
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT COUNT(*) FROM `album` WHERE `name` = :name AND `id_event` = :id";
+            $sql = "SELECT COUNT(*) FROM `album` WHERE `id_event` = :id";
             $query = $db->prepare($sql);
-            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
             $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             $query->execute();
             $query->fetchColumn() == 1 ? $result = true : $result = false;
@@ -53,7 +52,23 @@ class Album {
         }
     }
 
-    public static function getAlbumName(string $album_name): bool
+    public static function checkIdAlbum(int $id): bool
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "SELECT COUNT(*) FROM `album` WHERE `id_event` = :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            $query->execute();
+            $query->fetchColumn() == 1 ? $result = true : $result = false;
+            return $result;
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    public static function checkAlbumName(string $album_name): bool
     {
         try {
             $db = database::getDatabase();
@@ -69,45 +84,15 @@ class Album {
         }
     }
 
-    public static function getAlbumNameByEventId(int $id): string
+    public static function getAlbumByEventId(int $id): array
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT `name` FROM `album` WHERE `id_event` = :id";
+            $sql = "SELECT * FROM `album` WHERE `id_event` = :id";
             $query = $db->prepare($sql);
             $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC)['name'];
-        } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-    public static function getAlbumId(int $id): string
-    {
-        try {
-            $db = database::getDatabase();
-            $sql = "SELECT `name` FROM `album` WHERE `id` = :id";
-            $query = $db->prepare($sql);
-            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC)['name'];
-        } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-    public static function getEventId(int $id): int
-    {
-        try {
-            $db = database::getDatabase();
-            $sql = "SELECT `id_event` FROM `album` WHERE `id` = :id";
-            $query = $db->prepare($sql);
-            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC)['id_event'];
+            return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return [];

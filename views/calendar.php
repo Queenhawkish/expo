@@ -49,14 +49,25 @@
                                 <?php } ?>
                                 <div class="display_event">
                                     <div class="calendar_poster">
-                                        <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
-
+                                        <?php if (Album::existAlbum($event["event_id"])) { ?>
+                                            <a href="event_controller.php?id=<?= $event["event_id"] ?>">
+                                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
+                                            </a>
+                                        <?php } else { ?>
+                                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
+                                        <?php } ?>
                                     </div>
                                     <div class="event_information">
                                         <p class="date"><?= Form::getEventDate($event) ?></p>
                                         <h4><?= $event["event_name"] ?></h4>
                                         <p><?= $event["place"] ?> </p>
                                         <p class="event_description"><?= $event["description"] ?></p>
+
+                                        <?php if (isset($_SESSION['admin'])) { ?>
+                                            <div class="button_edit">
+                                                <a href="add_photos_controller.php?id=<?= $event["event_id"] ?>" class="button_modify">Ajouter / supprimer des photos</a>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                     <?php if ($idType["id"] == 2 || $idType["id"] == 3) { ?>
                                         <?php if (isset($_SESSION['admin'])) { ?>
@@ -101,12 +112,14 @@
 
     <?php } ?>
 </div>
+<div class="confirm_email">
+    <div class="modal-body">
+        <p>Un email de confirmation vous a été envoyé</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary">Fermer</button>
+    </div>
 
-<div class="modal-body">
-    <p>Un email de confirmation vous a été envoyé</p>
-</div>
-<div class="modal-footer">
-    <button class="btn btn-primary">Fermer</button>
 </div>
 
 

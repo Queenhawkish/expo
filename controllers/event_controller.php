@@ -34,7 +34,9 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete") {
 }
 
 $error = [];
-$album_name = Album::getAlbumNameByEventId($id);
+if (Album::existAlbum($_GET["id"])) {
+    $album_name = Album::getAlbumByEventId($id)["name"];
+}
 $rotate = array(
     "first" => 0,
     "second" => 1,

@@ -29,7 +29,7 @@
 
     </div>
     <div class="event_gallery">
-        <?php if (Album::existAlbum($album_name, $id)) {
+        <?php if (Album::existAlbum($id)) {
             $id_album = Album::getIdAlbum($album_name);
         ?>
             <?php foreach (Picture::getAllPicture($id_album) as $picture) { ?>

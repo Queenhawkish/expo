@@ -19,7 +19,7 @@
             <a href="gallery_controller.php" class="go_back">Retour à la galerie</a>
         </div>
     </form>
-    <?php if (Album::existAlbum($album_name, $id)) {
+    <?php if (Album::existAlbum($id)) {
         $id_album = Album::getIdAlbum($album_name);
     ?>
         <div class="show_images">

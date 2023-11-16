@@ -3,41 +3,11 @@ npm i bootstrap-icons
 
 
 
-
-
-<div class="add_picture">
-    <p>Photo ${pic + 1}</p>
-    <input class="pic_input" type="file" name="pic${pic + 1}" accept="image/png, image/jpeg">
-</div>
-
-
-header('Location: add_photos_controller.php?id=' . $idAlbum);
-
-
 check id_type if exist : if (id_type != 1 && id_type !=2 && id_type != 3){ $error = "choisissez parmis les types d'évènements existants"} 
 
-foreach $type : "exposition" ; 
 
-
-<form class="butpart" method="post">
-                                            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Participer à <?= $event["event_name"]?></h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <form method="post">
-                                                            <div class="modal-body">
-                                                                <label for="user_email">Veuillez entrer votre adresse email :</label>
-                                                                <input type="text" name="user_email" placeholder="doe.john@email.com">
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button class="btn btn-primary">Participer</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button class="btn btn-primary user_part" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Participer</button>
-                                        </form>
+delete folder album 
+check responsive 
+add button participant event for nadine 
+check if add album type == 2/3
+check if name picture exist

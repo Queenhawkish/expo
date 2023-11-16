@@ -13,7 +13,6 @@ require_once '../models/type.php';
 require_once '../models/participant.php';
 
 
-$today = date('d');
 
 
 if (isset($_GET["action"]) && $_GET["action"] == "delete") {

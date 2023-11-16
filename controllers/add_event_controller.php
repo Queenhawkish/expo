@@ -25,14 +25,14 @@ $expo = false;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $album_name = Album::getAlbumName(strtolower(Form::noAccent($_POST['event_name'])));
+    $album_name = strtolower(Form::noAccent($_POST['event_name']));
 
 
     if (empty($_POST['event_name'])) {
         $error['event_name'] = 'Le nom de l\'évènement est obligatoire';
     } else if (Event::getNameEvent($_POST['event_name'])) {
         $error['event_name'] = 'Ce nom d\'évènement existe déjà';
-    } else if ($album_name) {
+    } else if (Album::checkAlbumName($album_name)) {
         $error['event_name'] = 'Ce nom d\'évènement existe déjà';
     }
     if (empty($_POST['event_type'])) {
