@@ -52,9 +52,6 @@ class Form
         }
         return $date;
     }
-<<<<<<< HEAD
-}
-=======
 
     public static function checkParticipant($participants, $email)
     {
@@ -66,4 +63,3 @@ class Form
         return false;
     }
 }
->>>>>>> 6b86e01287391bfc19d0d2554d4bb7a52e369ac2

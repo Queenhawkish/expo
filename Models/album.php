@@ -92,41 +92,7 @@ class Album {
             $query = $db->prepare($sql);
             $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             $query->execute();
-<<<<<<< HEAD
             return $query->fetchAll(PDO::FETCH_ASSOC);
-=======
-            return $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-    public static function getAlbumId(int $id): string
-    {
-        try {
-            $db = database::getDatabase();
-            $sql = "SELECT `name` FROM `album` WHERE `id` = :id";
-            $query = $db->prepare($sql);
-            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC)['name'];
-        } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
-            return [];
-        }
-    }
-
-    public static function getEventId(int $id): int
-    {
-        try {
-            $db = database::getDatabase();
-            $sql = "SELECT `id_event` FROM `album` WHERE `id` = :id";
-            $query = $db->prepare($sql);
-            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
-            $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC)['id_event'];
->>>>>>> 6b86e01287391bfc19d0d2554d4bb7a52e369ac2
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return [];
