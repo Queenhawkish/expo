@@ -8,7 +8,6 @@
         <button>Ajouter un évènement</button>
     </a>
 <?php } ?>
-<p class="error"><?= $error["user_email"] ?? "" ?></p>
 <div class="calendar">
     <?php foreach (Event::getNewYear() as $allyear => $year) {
         $thisyear = $year["YEAR(`date_end`)"]
@@ -82,7 +81,7 @@
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Participer à <?= $event["event_name"] ?></h1>
+                                                            <h4 class="modal-title fs-5" id="exampleModalToggleLabel">Participer à "<?= $event["event_name"] ?>"</h4>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <form method="post">
@@ -91,7 +90,8 @@
                                                                 <input type="hidden" name="event_id" value="<?= $event["event_id"] ?>">
                                                                 <input type="text" name="user_email" placeholder="doe.john@email.com">
                                                             </div>
-                                                            <div class="modal-footer">
+                                                            <p class="error"><?= $error["user_email"] ?? "" ?></p>
+                                                            <div>
                                                                 <button class="btn btn-primary">Participer</button>
                                                             </div>
                                                         </form>

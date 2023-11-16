@@ -8,7 +8,7 @@
     <?php if ($showform) { ?>
         <form action="" method="post" enctype="multipart/form-data">
             <p class="error"><?= $error['event_add'] ?? "" ?></p>
-            <legend>Modifier un évènement<legend>
+            <h6>Modifier un évènement</h6>
                     <p class="field">Champs obligatoire<i class="compel"> *</i></p>
                     <div class="item_add_event">
                         <label for="event_name">Nom de l'évènement : <i class="compel">*</i></label>
@@ -33,17 +33,17 @@
                     <div class="item_add_event date_event">
                         <p>Dates de l'évènement : <i class="compel">*</i></p>
                         <div class="sortie">
-                            <label for="event_sortie" class="add_date">Le :</label>
+                            <label for="event_sortie">Le :</label>
                             <p class="error"><?= $error['event_date'] ?? "" ?></p>
-                            <input type="date" name="event_date" class="expo_date" value="<?= $_POST['event_date'] ?? $event["date_start"] ?>">
+                            <input type="date" name="event_date" value="<?= $_POST['event_date'] ?? $event["date_start"] ?>">
                         </div>
                         <div class="other_type">
-                            <label for="event_first_date" class="add_date">Du :</label>
+                            <label for="event_first_date">Du :</label>
                             <p class="error"><?= $error['event_expo'] ?? "" ?></p>
-                            <input type="date" name="event_first_date" class="expo_date" value="<?= $_POST['event_first_date'] ?? $event["date_start"] ?>">
-                            <label for="event_second_date" class="add_date">Au :</label>
+                            <input type="date" name="event_first_date" value="<?= $_POST['event_first_date'] ?? $event["date_start"] ?>">
+                            <label for="event_second_date">Au :</label>
                             <p class="error"><?= $error['event_expo'] ?? "" ?></p>
-                            <input type="date" name="event_second_date" class="expo_date" value="<?= $_POST['event_second_date'] ?? $event["date_end"] ?>">
+                            <input type="date" name="event_second_date" value="<?= $_POST['event_second_date'] ?? $event["date_end"] ?>">
                         </div>
                     </div>
                     <div class="item_add_event">
@@ -54,9 +54,9 @@
                     <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="modify_poster">
                     <div class="item_add_event picture_event">
                         <div class="event_poster">
-                            <p class="picture_poster">Photo d'affiche <i class="compel">*</i></p>
+                            <label>Photo d'affiche <i class="compel">*</i></label>
                             <p class="error"><?= $error['event_poster'] ?? "" ?></p>
-                            <input class="pic_input" type="file" name="poster" accept="image/png, image/jpeg">
+                            <input type="file" name="poster" accept="image/png, image/jpeg">
                         </div>
                     </div>
                     <div class="item_add_event">

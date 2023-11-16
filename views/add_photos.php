@@ -11,7 +11,7 @@
         <div class="event_picture">
             <div class="add_picture">
                 <p class="error"><?= $error["picture"] ?? "" ?></p>
-                <input id="input_image" class="pic_input" type="file" name="picture" accept="image/png, image/jpeg">
+                <input type="file" name="picture" accept="image/png, image/jpeg">
             </div>
         </div>
         <div class="add_gallery">
