@@ -16,7 +16,6 @@
             <?php foreach (Event::getOldEvents($thisyear) as $events => $event) { ?>
 
                 <div class="gallery_event">
-
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <div class="button_edit">
                             <a href="edit_event_controller.php?id=<?= $event["event_id"] ?>" class="button_modify">Modifier</a>
@@ -41,11 +40,11 @@
                             </div>
                         </div>
                     <?php } ?>
-                    <h4><?= $event["event_name"] ?></h4>
                     <a href="event_controller.php?id=<?= $event["event_id"] ?>">
                         <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="<?= $event["poster"] ?>" class="new_poster">
                     </a>
                     <div class="gallery_event_infos">
+                    <h4><?= $event["event_name"] ?></h4>
                         <ul>
                             <li><?= Form::getEventDate($event) ?></li>
                             <li>À <?= $event["place"] ?></li>

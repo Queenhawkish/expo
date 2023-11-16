@@ -108,8 +108,9 @@ class Event {
                     FROM
                         `event`
                     WHERE
-                    `date_end` > now()
-                    GROUP BY YEAR(`date_end`);";
+                        `date_end` > DATE(NOW())
+                    GROUP BY YEAR(`date_end`)
+                    ORDER BY YEAR(`date_end`);";
             $query = $db->query($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);

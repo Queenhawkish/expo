@@ -77,7 +77,7 @@ class Album {
             $query = $db->prepare($sql);
             $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
             $query->execute();
-            return $query->fetch(PDO::FETCH_ASSOC)['name'];
+            return $query->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo 'Erreur : ' . $e->getMessage();
             return [];

@@ -9,7 +9,7 @@
     <input type="password" name="password" placeholder="password" class="login">
     <p class="error"><?= $error["password"] ?? "" ?></p>
     <a href="calendar_controller.php">
-        <button class="connect co">Connexion</button>
+        <button class="connect">Connexion</button>
     </a>
 </form>
 

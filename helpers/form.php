@@ -49,4 +49,14 @@ class Form{
         }
         return $date;
     }
+
+    public static function checkParticipant($participants, $email)
+    {
+        foreach ($participants as $participant) {
+            if ($email == $participant["email"]) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
