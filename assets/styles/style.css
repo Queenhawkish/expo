@@ -332,6 +332,20 @@ li {
     padding: 1rem;
 }
 
+.error_album{
+    width: 20rem;
+    margin: auto;
+    color: #ae2012;
+    font-weight: 900;
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
+}
+
 .gallery_event_infos {
     display: flex;
     flex-direction: column;

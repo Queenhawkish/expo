@@ -11,3 +11,16 @@ check responsive
 add button participant event for nadine 
 check if add album type == 2/3
 check if name picture exist
+change all "picture" to "image"
+
+
+
+
+if admin && no album 
+$add_album = ajoutez des photos pour que l'évènements s'affiche dans la gallerie , sinon supprimer l'évènement 
+return false
+if album 
+return true
+
+
+Allons cueillir des champignons !!

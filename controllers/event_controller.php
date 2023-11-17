@@ -29,14 +29,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     exit;
 }
 
-if (isset($_GET["action"]) && $_GET["action"] == "delete") {
-    Event::deleteEvent($_GET["id"]);
-}
-
 $error = [];
-if (Album::existAlbum($_GET["id"])) {
-    $album_name = Album::getAlbumByEventId($id)["name"];
-}
 $rotate = array(
     "first" => 0,
     "second" => 1,

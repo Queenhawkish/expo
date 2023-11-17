@@ -129,7 +129,7 @@ class Event {
                     FROM
                         `event`
                     WHERE
-                    `date_end` < now()
+                        `date_end` < DATE(NOW())
                     GROUP BY YEAR(`date_end`);";
             $query = $db->query($sql);
             $query->execute();

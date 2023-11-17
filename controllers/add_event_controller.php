@@ -87,19 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         if ($_POST['event_type'] == 2) {
             $poster = "sortie.jpg";
-            if (isset($_POST['event_date'])) {
-                if ($_POST['event_date'] < $today) {
-                    $error['event_date'] = 'La date de l\'évènement ne peut pas être antérieure à aujourd\'hui pour une sortie';
-                }
-            }
         }
         if ($_POST['event_type'] == 3) {
             $poster = "assemblee.jpg";
-            if (isset($_POST['event_date'])) {
-                if ($_POST['event_date'] < $today) {
-                    $error['event_date'] = 'La date de l\'évènement ne peut pas être antérieure à aujourd\'hui pour une assemblée générale';
-                }
-            }
         }
     } else {
         $error['event_poster'] = 'L\'affiche de l\'évènement est obligatoire';

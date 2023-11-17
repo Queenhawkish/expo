@@ -15,9 +15,9 @@ require_once '../models/participant.php';
 
 
 
-if (isset($_GET["action"]) && $_GET["action"] == "delete") {
-    Event::deleteEvent($_GET["id"]);
-}
+// if (isset($_GET["action"]) && $_GET["action"] == "delete") {
+//     Event::deleteEvent($_GET["id"]);
+// }
 
 $error = [];
 

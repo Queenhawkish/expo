@@ -9,7 +9,7 @@ class Form
         $data = htmlspecialchars($data);
         return $data;
     }
-    public static function noAccent($word)
+    public static function noAccent($word): string
     {
         $search  = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ');
         $replace = array('A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'O', 'O', 'O', 'O', 'O', 'U', 'U', 'U', 'U', 'Y', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y');
@@ -17,7 +17,7 @@ class Form
         return $newword;
     }
 
-    public static function getEventDate(array $event)
+    public static function getEventDate(array $event): string
     {
 
         $date_start = $event['date_start'];
@@ -53,7 +53,7 @@ class Form
         return $date;
     }
 
-    public static function checkParticipant($participants, $email)
+    public static function checkParticipant($participants, $email): bool
     {
         foreach ($participants as $participant) {
             if ($email == $participant["email"]) {
@@ -61,5 +61,14 @@ class Form
             }
         }
         return false;
+    }
+
+    public static function checkAlbum($id)
+    {
+        if (isset($_SESSION["admin"]) && !Album::existAlbum($id)) {
+            return true;
+        } else if (Album::existAlbum($id)) {
+            return false;
+        }
     }
 }

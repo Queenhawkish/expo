@@ -3,6 +3,7 @@
 
 
 
+
 <?php if (isset($_SESSION['admin'])) { ?>
     <a href="add_event_controller.php" class="add_event">
         <button>Ajouter un évènement</button>

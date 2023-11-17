@@ -30,13 +30,14 @@
     </div>
     <div class="event_gallery">
         <?php if (Album::existAlbum($id)) {
-            $id_album = Album::getIdAlbum($album_name);
+            foreach (Album::getAlbumByEventId($id) as $album) {
         ?>
-            <?php foreach (Picture::getAllPicture($id_album) as $picture) { ?>
-                <div class="event_img <?= array_rand($rotate, $num = 1) ?>">
-                    <img src="../assets/img/<?= $album_name . "/" . $picture["name"] ?>" alt="event image" class="gallery_image">
-                </div>
+                <?php foreach (Picture::getAllPicture($album["id"]) as $picture) { ?>
+                    <div class="event_img <?= array_rand($rotate, $num = 1) ?>">
+                        <img src="../assets/img/<?= $album["name"] . "/" . $picture["name"] ?>" alt="event image" class="gallery_image">
+                    </div>
         <?php }
+            }
         } ?>
     </div>
 </div>
