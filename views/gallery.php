@@ -1,13 +1,13 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-<?php if (isset($_SESSION['admin'])) { ?>
-    <a href="add_event_controller.php" class="add_event">
-        <button>Ajouter un évènement</button>
-    </a>
-<?php } ?>
 
 <div class="gallery gallerypage">
+    <?php if (isset($_SESSION['admin'])) { ?>
+        <a href="add_event_controller.php" class="add_event">
+            <button>Ajouter un évènement</button>
+        </a>
+    <?php } ?>
     <?php foreach (Event::getOldYear() as $allyear => $year) {
         $thisyear = $year["YEAR(`date_end`)"]
     ?>
@@ -79,7 +79,10 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-footer button_confirm">
-                                                <a href="calendar_controller.php?action=delete&id=<?= $event["event_id"] ?>"><button type="button" class="btn btn-primary delete_new_event">Oui</button></a>
+                                                <form method="post">
+                                                    <input type="hidden" name="event_id" value="<?= $event["event_id"] ?>">
+                                                    <button name="delete" class="btn btn-primary delete_new_event">Oui</button>
+                                                </form>
                                                 <button type="button" class="btn btn-secondary delete_new_event" data-bs-dismiss="modal">Non</button>
                                             </div>
                                         </div>

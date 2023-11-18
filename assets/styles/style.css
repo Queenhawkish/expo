@@ -70,14 +70,11 @@ nav {
     display: flex;
     height: 80px;
     width: 100%;
-    margin-bottom: 1rem;
     font-size: 2rem;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
     z-index: 1;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    background-color: black;
 }
 
 .burger_icon {
@@ -96,7 +93,7 @@ a {
 }
 
 .burger>a {
-    color: black;
+    color: white;
 }
 
 #home,
@@ -121,12 +118,13 @@ button:hover {
 
 .home_page {
     display: flex;
-    margin-top: 3rem;
 }
 
 .homeimg {
-    width: 50%;
+    display: flex;
+    width: 100%;
     height: 30rem;
+    align-items: center;
     background: url('../img/front/home.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -136,13 +134,15 @@ button:hover {
 .home {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 50%;
+    margin: auto;
+    width: 65%;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #ffffffd8;
 }
 
 .intro {
     font-size: 2rem;
-    width: 72%;
     font-weight: 600;
     margin: auto;
     font-family: 'raleway';
@@ -158,8 +158,8 @@ button:hover {
 }
 
 .add_event>button {
-    border: 3px inset #ae2012;
-    background-color: transparent;
+    border: 3px inset black;
+    background-color: white;
     font-size: 2rem;
     width: fit-content;
     border-radius: 5px;
@@ -171,20 +171,29 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: #ae2012;
+    padding: 1rem;
 }
 
 .calendar_event {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
+    width: fit-content;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .display_event {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
     width: fit-content;
+}
+
+.display_event_admin{
+    padding: 1rem;
+    border-bottom: 1px solid #ae2012;
 }
 
 h3 {
@@ -235,15 +244,21 @@ input {
 
 h2 {
     font-size: 3rem;
-    background-color: #ae2012;
-    color: white;
+    background-color: white;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    margin: auto;
+    color: #ae2012;
 }
 
 .year {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 100%;
+    justify-content: space-around;
+    border-radius: 5px;
+    margin: 1rem auto;
+    width: 80%;
 }
 
 .error {
@@ -253,12 +268,15 @@ h2 {
 }
 
 .button_edit {
+    display: flex;
     margin-top: 1rem;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .button_modify {
     width: fit-content;
+    margin: auto;
     color: #ae2012;
     padding: 5px;
     border-radius: 5px;
@@ -302,7 +320,6 @@ h2 {
 .new_poster {
     display: flex;
     margin: auto;
-    width: 100%;
     height: 15rem;
 }
 
@@ -321,6 +338,8 @@ li {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: #ae2012;
+    padding: 1rem;
 }
 
 .gallery_event {
@@ -328,6 +347,8 @@ li {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: #fff;
+    border-radius: 5px;
     margin-top: 1rem;
     padding: 1rem;
 }
@@ -482,22 +503,23 @@ dd {
 .about {
     display: flex;
     align-items: center;
+    background: url('../img/front/about.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 1rem;
     height: 50vh;
 }
 
 .content {
     display: flex;
-    background: url('../img/front/about.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #ffffff94;
     font-size: 3rem;
     color: black;
-    -webkit-text-stroke-color: black;
-    -webkit-text-stroke-width: 1px;
-    width: 100%;
-    height: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    width: fit-content;
+    margin: auto;
     align-items: center;
 }
 
@@ -823,12 +845,11 @@ footer {
     flex-direction: column;
     color: black;
     margin: auto;
-    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
 .foot {
-    border: 1px solid #ae2012;
+    border: 1px solid black;
     text-align: center;
     width: 15rem;
     margin: 1REM auto;
@@ -847,25 +868,6 @@ footer {
     .logo {
         width: 5rem;
         height: 5rem;
-    }
-
-    .visiter_home {
-        margin: 0;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .homeimg {
-        display: flex;
-        width: 72%;
-        margin: auto;
-        height: 25rem;
-    }
-
-    .home {
-        margin: auto;
-        width: 100%;
-        margin-top: 1rem;
     }
 
     .add_event {
@@ -905,6 +907,12 @@ footer {
     .profilbut {
         font-size: 0.8rem;
         font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .home{
+        width: 100%;
     }
 }
 
@@ -984,20 +992,8 @@ footer {
         margin-top: 5px;
     }
 
-    .logo {
-        width: 2rem;
-        height: 2rem;
-        margin: auto;
-    }
-
-    .homeimg {
-        width: 100%;
-    }
-
-    .intro {
-        font-size: 1.5rem;
-        width: auto;
-        margin: 1rem;
+    .home{
+        width: 60%;
     }
 
     .burger_icon {
@@ -1097,13 +1093,16 @@ footer {
         font-weight: 300;
     }
 
-    .home_page {
-        flex-direction: column;
+    .homeimg {
+        height: 65vh;
     }
 
-    .homeimg {
+    .home{
         width: 100%;
-        height: 10rem;
+    }
+
+    .intro {
+        font-size: 1.5rem;
     }
 
     .container {
@@ -1134,6 +1133,25 @@ footer {
     }
 }
 
+@media screen and (max-width: 415px) {
+    .display_event{
+        margin: 0;
+    }
+
+    .new_poster {
+        width: fit-content;
+        height: 10rem;
+    }
+
+    .event_information{
+        text-align: center;
+    }
+
+    .event_description{
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 400px) {
     h1 {
         font-size: 1.5rem;
@@ -1151,5 +1169,19 @@ footer {
 
     .form_add_event>form {
         padding: 0;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    h2{
+        font-size: 1.5rem;
+    }
+
+    h3{
+        font-size: 1.3rem;
+    }
+
+    .intro {
+        font-size: 1.3rem;
     }
 }

@@ -38,12 +38,12 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
 $error = [];
 $showform = true;
-$expo = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $today = date('Y-m-d');
     $poster = $event["poster"];
+    $folder = "../assets/img/poster/";
 
     $other_event = Event::getNameEventbyId($_GET["id"], $_POST["event_name"]);
 
@@ -70,8 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $error['event_poster'] = "L'image ne doit pas dépasser 1Mo";
                 }
                 if (empty($error['event_poster'])) {
-                    if (!empty($poster)) {
-                        $folder = "../assets/img/poster/";
+                    if ($poster != "sortie.jpg" && $poster != "assemblee.jpg") {
                         $path = $folder . $poster;
                         unlink($path);
                     }
@@ -96,21 +95,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
         if ($type == 2) {
-            $poster = "sortie.jpg";
-            if (!empty($poster)) {
-                $folder = "../assets/img/poster/";
+            if ($poster != "sortie.jpg" && $poster != "assemblee.jpg") {
                 $path = $folder . $poster;
                 unlink($path);
+            } else {
+                $poster = "sortie.jpg";
             }
         }
         if ($type == 3) {
-            $poster = "assemblee.jpg";
-            if (!empty($poster)) {
-                $folder = "../assets/img/poster/";
+            if ($poster != "sortie.jpg" && $poster != "assemblee.jpg") {
                 $path = $folder . $poster;
                 unlink($path);
+            } else {
+                $poster = "assemblee.jpg";
             }
         }
+    } else if ($_POST["event_type"] != 1 && $_POST["event_type"] != 2 && $_POST["event_type"] != 3) {
+        $error['event_type'] = 'Le type de l\'évènement est incorrect';
     } else {
         $error["event_type"] = "Veuillez renseigner un type d'évènement";
     }
@@ -124,31 +125,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ((isset($_POST["event_date"]) && !empty($_POST["event_date"]))) {
         $dateStart = $_POST["event_date"];
         $dateEnd = $_POST["event_date"];
-        if ($dateEnd < $dateStart) {
-            $error["event_date"] = "La date de fin ne peut pas être inférieur à la date de début";
-        }
-        if ($dateStart < $today || $dateEnd < $today) {
-            $error["event_date"] = "La date ne peut pas être inférieur à la date du jour";
-        }
+    } else {
+        $dateStart = $event["date_start"];
+        $dateEnd = $event["date_end"];
     }
-    if (empty($_POST["event_date"])) {
-        if (isset($_POST["event_first_date"]) && !empty($_POST["event_first_date"])) {
-            $dateStart = $_POST["event_first_date"];
-        }
-        if (isset($_POST["event_second_date"]) && !empty($_POST["event_second_date"])) {
-            $dateEnd = $_POST["event_second_date"];
-        }
-        if (empty($_POST["event_first_date"])) {
-            $error["event_expo"] = "Veuillez renseigner une date de début";
-        }
-        if (empty($_POST["event_second_date"])) {
-            $error["event_expo"] = "Veuillez renseigner une date de fin";
-        } else {
-            $error["event_date"] = "Veuillez renseigner une date";
-        }
+    if (isset($_POST["event_date"]) && !empty($_POST["event_date"])) {
+        $dateStart = $_POST["event_date"];
+        $dateEnd = $_POST["event_date"];
+    } else {
+        $dateStart = $event["date_start"];
+        $dateEnd = $event["date_end"];
     }
 
-    if (isset($_POST["event_description"]) && !empty($_POST["event_description"])) {
+    if (!empty($_POST["event_first_date"]) && !empty($_POST["event_second_date"])) {
+        $dateStart = $_POST["event_first_date"];
+        $dateEnd = $_POST["event_second_date"];
+    } else if (empty($_POST["event_first_date"]) || empty($_POST["event_second_date"])) {
+        $error["event_expo"] = "Veuillez renseigner une date";
+    } else {
+        $dateStart = $event["date_start"];
+        $dateEnd = $event["date_end"];
+    }
+    if (!empty($_POST["event_description"])) {
         $description = $_POST["event_description"];
     } else {
         $description = "";
@@ -162,9 +160,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if (Event::updateEvent($id, $poster, $name, $type, $dateStart, $dateEnd, $place, $description)) {
             $showform = false;
-            if ($type == 1 && $dateEnd < $today) {
-                $expo = true;
-            }
         } else {
             $error['event_add'] = "L'évènement n'a pas pu être modifié";
         }

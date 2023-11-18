@@ -4,12 +4,15 @@
 
 
 
-<?php if (isset($_SESSION['admin'])) { ?>
-    <a href="add_event_controller.php" class="add_event">
-        <button>Ajouter un évènement</button>
-    </a>
-<?php } ?>
+
+
 <div class="calendar">
+    <?php if (isset($_SESSION['admin'])) { ?>
+        <a href="add_event_controller.php" class="add_event">
+            <button>Ajouter un évènement</button>
+        </a>
+    <?php } ?>
+
     <?php foreach (Event::getNewYear() as $allyear => $year) {
         $thisyear = $year["YEAR(`date_end`)"]
     ?>
@@ -19,10 +22,10 @@
         <div class="year">
             <?php foreach (Type::getAllTypes() as $idType) { ?>
                 <?php if (Event::getNewEvents($thisyear, $idType["id"]) != null) { ?>
-                    <h3><?= $idType["type"] ?></h3>
                     <div class="calendar_event">
+                        <h3><?= $idType["type"] ?></h3>
                         <?php foreach (Event::getNewEvents($thisyear, $idType["id"]) as $events => $event) { ?>
-                            <div class="display_event">
+                            <div class="display_event_admin">
                                 <?php if (isset($_SESSION['admin'])) { ?>
                                     <div class="button_edit">
                                         <a href="edit_event_controller.php?id=<?= $event["event_id"] ?>" class="button_modify">Modifier</a>
@@ -39,7 +42,10 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-footer button_confirm">
-                                                        <a href="calendar_controller.php?action=delete&id=<?= $event["event_id"] ?>"><button type="button" class="btn btn-primary delete_new_event">Oui</button></a>
+                                                        <form method="post">
+                                                            <input type="hidden" name="event_id" value="<?= $event["event_id"] ?>">
+                                                            <button name="delete" class="btn btn-primary delete_new_event">Oui</button>
+                                                        </form>
                                                         <button type="button" class="btn btn-secondary delete_new_event" data-bs-dismiss="modal">Non</button>
                                                     </div>
                                                 </div>
@@ -54,11 +60,11 @@
                                                 <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
                                             </a>
                                         <?php } else { ?>
-                                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
+                                            <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="affiche" class="new_poster">
                                         <?php } ?>
                                     </div>
                                     <div class="event_information">
-                                        <p class="date"><?= Form::getEventDate($event) ?></p>
+                                        <p><?= Form::getEventDate($event) ?></p>
                                         <h4><?= $event["event_name"] ?></h4>
                                         <p><?= $event["place"] ?> </p>
                                         <p class="event_description"><?= $event["description"] ?></p>
@@ -107,21 +113,13 @@
                             </div>
                         <?php } ?>
                     </div>
-                <?php } ?>
-            <?php } ?>
+            <?php }
+            } ?>
         </div>
 
     <?php } ?>
 </div>
-<div class="confirm_email">
-    <div class="modal-body">
-        <p>Un email de confirmation vous a été envoyé</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-primary">Fermer</button>
-    </div>
 
-</div>
 
 
 

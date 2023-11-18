@@ -8,23 +8,23 @@ let eventspage = document.querySelector('.calendar');
 let gallerypage = document.querySelector('.gallerypage');
 
 if (homepage) {
-    home.style.color = "white";
-    home.style.backgroundColor = "black";
+    home.style.color = "black";
+    home.style.backgroundColor = "white";
 }
 
 if (aboutpage) {
-    about.style.color = "white";
-    about.style.backgroundColor = "black";
+    about.style.color = "black";
+    about.style.backgroundColor = "white";
 }
 
 if (eventspage) {
-    events.style.color = "white";
-    events.style.backgroundColor = "black";
+    events.style.color = "black";
+    events.style.backgroundColor = "white";
 }
 
 if (gallerypage) {
-    gallery.style.color = "white";
-    gallery.style.backgroundColor = "black";
+    gallery.style.color = "black";
+    gallery.style.backgroundColor = "white";
 }
 
 
@@ -67,7 +67,7 @@ window.addEventListener('scroll', function () {
     } else {
         document.querySelector('nav').style.position = "relative";
         document.querySelector('nav').style.top = "0";
-        document.querySelector('nav').style.margin = "1rem auto";
+        document.querySelector('nav').style.margin = "auto";
     }
 })
 

@@ -3,10 +3,7 @@ npm i bootstrap-icons
 
 
 
-check id_type if exist : if (id_type != 1 && id_type !=2 && id_type != 3){ $error = "choisissez parmis les types d'évènements existants"} 
 
-
-delete folder album 
 check responsive 
 add button participant event for nadine 
 check if add album type == 2/3
@@ -15,12 +12,31 @@ change all "picture" to "image"
 
 
 
+<div class="confirm_email">
+    <div class="modal-body">
+        <p>Un email de confirmation vous a été envoyé</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary">Fermer</button>
+    </div>
+</div>
 
-if admin && no album 
-$add_album = ajoutez des photos pour que l'évènements s'affiche dans la gallerie , sinon supprimer l'évènement 
-return false
-if album 
-return true
+@media screen and (max-width: 415px) {
+    .display_event{
+        margin: 0;
+    }
 
+    .new_poster {
+        width: fit-content;
+        height: 10rem;
+    }
 
-Allons cueillir des champignons !!
+    .event_information{
+        text-align: center;
+    }
+
+    .event_description{
+        text-align: center;
+    }
+}
+

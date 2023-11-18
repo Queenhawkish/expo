@@ -2,9 +2,6 @@
 
 session_start();
 
-var_dump($_SESSION);
-var_dump($_POST);
-
 require_once '../config.php';
 require_once '../helpers/database.php';
 require_once '../helpers/form.php';
@@ -17,18 +14,24 @@ require_once '../models/picture.php';
 
 if (isset($_POST["delete"])) {
     if (Album::existAlbum($_POST["event_id"])) {
-        // $folder = Album::getAlbumByEventId($_POST["event_id"])["name"];
-        // $images = glob('../assets/img/' . $folder . '/*');
-        var_dump("coucou");
-        // var_dump($images);
-        // foreach ($images as $image) {
-        //     if (is_file($image)) {
-        //         unlink($image);
-        //     }
-        // }
-        // rmdir('../assets/img/gallery/' . $folder);
+        Event::deleteEvent($_POST["event_id"]);
+        $folder = Album::getAlbumByEventId($_POST["event_id"])[0]["name"];
+        if (is_dir($folder)) {
+            $images = glob('../assets/img/' . $folder . '/*');
+            var_dump($images);
+            foreach ($images as $image) {
+                if (is_file($image)) {
+                    unlink($image);
+                }
+            }
+            if (empty($images)) {
+                rmdir('../assets/img/' . $folder);
+            }
+        } else {
+            Event::deleteEvent($_POST["event_id"]);
+        }
     } else {
-        var_dump("perdu");
+        Event::deleteEvent($_POST["event_id"]);
     }
 }
 
