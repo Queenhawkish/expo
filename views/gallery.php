@@ -45,8 +45,8 @@
                             </div>
                         </div>
                         <div class="event">
-                            <a href="event_controller.php?id=<?= $event["event_id"] ?>">
-                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="<?= $event["poster"] ?>" class="new_poster">
+                            <a class="calendar_poster" href="event_controller.php?id=<?= $event["event_id"] ?>">
+                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="<?= $event["poster"] ?>" class="gallery_poster">
                             </a>
                             <div class="gallery_event_infos">
                                 <h4><?= $event["event_name"] ?></h4>
@@ -91,8 +91,8 @@
                             </div>
                         <?php } ?>
                         <div class="event">
-                            <a href="event_controller.php?id=<?= $event["event_id"] ?>">
-                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="<?= $event["poster"] ?>" class="new_poster">
+                            <a class="calendar_event" href="event_controller.php?id=<?= $event["event_id"] ?>">
+                                <img src="../assets/img/poster/<?= $event["poster"] ?>" alt="<?= $event["poster"] ?>" class="gallery_poster">
                             </a>
                             <div class="gallery_event_infos">
                                 <h4><?= $event["event_name"] ?></h4>
