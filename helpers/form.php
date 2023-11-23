@@ -71,4 +71,15 @@ class Form
             return false;
         }
     }
+
+    public static function checkYearEvent ($year) {
+        foreach (Event::getOldEvents($year) as $events => $event) {
+            if (Form::checkAlbum($event["event_id"]) === false) {
+                $success = true;
+            }
+            if (isset($success)) {
+                return true;
+            }
+        }
+    }
 }
