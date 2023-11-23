@@ -54,8 +54,10 @@
                     <input type="file" name="poster" accept="image/png, image/jpeg">
                 </div>
             </div>
-            <div class="item_add_event">
+            <div class="button_item">
                 <button class="event_add">Ajouter l'évènement</button>
+                <a href="gallery_controller.php" class="go_back">Retour à la page galerie</a>
+                <a href="calendar_controller.php" class="go_back">Retour à la page programmation</a>
             </div>
         </form>
     <?php } else { ?>

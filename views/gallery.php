@@ -63,6 +63,7 @@
                             </div>
                         </div>
                     <?php } else if (Form::checkAlbum($event["event_id"]) === false) { ?>
+
                         <div class="gallery_event">
                             <?php if (isset($_SESSION["admin"])) { ?>
                                 <div class="button_edit">

@@ -16,7 +16,8 @@
         </div>
         <div class="add_gallery">
             <button>Ajouter la photo à l'exposition</button>
-            <a href="gallery_controller.php" class="go_back">Retour à la galerie</a>
+            <a href="gallery_controller.php" class="go_back">Retour à la page galerie</a>
+            <a href="calendar_controller.php" class="go_back">Retour à la page programmation</a>
         </div>
     </form>
     <?php if (Album::existAlbum($id)) {
