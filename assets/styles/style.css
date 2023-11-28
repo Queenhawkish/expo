@@ -244,10 +244,8 @@ input {
 h2 {
     font-size: 3rem;
     background-color: white;
-    width: fit-content;
     padding: 5px;
     border-radius: 5px;
-    margin: auto;
     color: #ae2012;
 }
 
