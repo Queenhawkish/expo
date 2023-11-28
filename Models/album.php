@@ -99,6 +99,21 @@ class Album {
         }
     }
 
+    public static function updateAlbum(string $name, int $id): bool
+    {
+        try {
+            $db = database::getDatabase();
+            $sql = "UPDATE `album` SET `name` = :name WHERE `id_event` = :id";
+            $query = $db->prepare($sql);
+            $query->bindValue(':name', form::secureData($name) , PDO::PARAM_STR);
+            $query->bindValue(':id', form::secureData($id) , PDO::PARAM_INT);
+            return $query->execute();
+        } catch (PDOException $e) {
+            echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
     public static function deleteAlbum(int $id): bool
     {
         try {

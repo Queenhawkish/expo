@@ -218,17 +218,20 @@ class Event {
     {
         try {
             $db = database::getDatabase();
-            $sql = "SELECT
+            $sql = "SELECT 
                         `event`.`id` `event_id`,
                         `poster`,
                         `event`.`name` `event_name`,
-                        `date_start` ,
+                        `date_start`,
                         `date_end`,
                         `place`,
                         `description`,
-                        `id_type` `type_id`
+                        `id_type` `type_id`,
+                        `album`.`name` `album_name`
                     FROM
                         `event`
+                            LEFT JOIN
+                        `album` ON `id_event` = `event`.`id`
                     WHERE
                         `event`.`id` = :id";
             $query = $db->prepare($sql);
