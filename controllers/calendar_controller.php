@@ -1,5 +1,6 @@
 <?php
 
+// Je démarre la session
 session_start();
 
 require_once '../config.php';
@@ -15,25 +16,36 @@ require_once '../models/participant.php';
 
 
 
+// Je vérifie si le delete de la méthode POST est demandé
 if (isset($_POST["delete"])) {
+    // Je vérifie si l'album existe
     if (Album::existAlbum($_POST["event_id"])) {
-        Event::deleteEvent($_POST["event_id"]);
+        // Je récupère le nom de l'album
         $folder = Album::getAlbumByEventId($_POST["event_id"])[0]["name"];
+        // Je vérifie si le dossier existe
         if (is_dir($folder)) {
+            // Je récupère les images du dossier
             $images = glob('../assets/img/' . $folder . '/*');
-            var_dump($images);
+            // Je supprime les images du dossier
             foreach ($images as $image) {
                 if (is_file($image)) {
                     unlink($image);
                 }
             }
+            // S'il n'y a plus d'images dans le dossier, je supprime le dossier
             if (empty($images)) {
                 rmdir('../assets/img/' . $folder);
             }
-        } else {
+        // Je supprime l'événement
+        Event::deleteEvent($_POST["event_id"]);
+        } 
+        // Si le dossier n'existe pas, je supprime l'événement
+        else {
             Event::deleteEvent($_POST["event_id"]);
         }
-    } else {
+    } 
+    // Si l'album n'existe pas, je supprime l'événement
+    else {
         Event::deleteEvent($_POST["event_id"]);
     }
 }

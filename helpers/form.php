@@ -2,13 +2,17 @@
 
 class Form
 {
+    // Création d'une fonction pour sécuriser les données envoyées par l'utilisateur
     public static function secureData($data)
     {
+        // Supprime les espaces inutiles, les antislashs et les caractères spéciaux
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
+        // Retourne les données sécurisées
         return $data;
     }
+    
     public static function noAccent($word): string
     {
         $search  = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ò', 'ó', 'ô', 'õ', 'ö', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ');

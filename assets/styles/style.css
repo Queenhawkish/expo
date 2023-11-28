@@ -122,7 +122,7 @@ button:hover {
 .homeimg {
     display: flex;
     width: 100%;
-    height: 30rem;
+    height: 35rem;
     align-items: center;
     background: url('../img/front/home.jpg');
     background-size: cover;
@@ -702,7 +702,6 @@ select{
 }
 
 .success {
-    color: #ae2012;
     font-size: 3rem;
     text-align: center;
 }
@@ -824,7 +823,6 @@ textarea {
     display: flex;
     margin: 1rem auto;
     width: 15rem;
-    height: 15rem;
 }
 
 .delete_picture {
@@ -1107,7 +1105,7 @@ footer>p {
     }
 
     .homeimg {
-        height: 65vh;
+        height: 75vh;
     }
 
     .home{
@@ -1139,6 +1137,10 @@ footer>p {
 
     .profil_img {
         display: none;
+    }
+
+    .footer{
+        position: relative;
     }
 
     footer>p {

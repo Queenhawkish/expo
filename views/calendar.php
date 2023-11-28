@@ -1,11 +1,6 @@
 <?php include 'components/head.php'; ?>
 <?php include 'components/navbar.php'; ?>
 
-
-
-
-
-
 <div class="calendar">
     <?php if (isset($_SESSION['admin'])) { ?>
         <a href="add_event_controller.php" class="add_event">

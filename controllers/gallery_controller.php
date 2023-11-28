@@ -14,7 +14,6 @@ require_once '../models/picture.php';
 
 if (isset($_POST["delete"])) {
     if (Album::existAlbum($_POST["event_id"])) {
-        Event::deleteEvent($_POST["event_id"]);
         $folder = Album::getAlbumByEventId($_POST["event_id"])[0]["name"];
         if (is_dir($folder)) {
             $images = glob('../assets/img/' . $folder . '/*');
@@ -27,6 +26,7 @@ if (isset($_POST["delete"])) {
             if (empty($images)) {
                 rmdir('../assets/img/' . $folder);
             }
+        Event::deleteEvent($_POST["event_id"]);
         } else {
             Event::deleteEvent($_POST["event_id"]);
         }
