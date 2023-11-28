@@ -63,6 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error["event_name"] = "Le nom de l'évènement exixste déjà";
         } else {
             $name = $_POST["event_name"];
+            if (Album::existAlbum($id)) {
+                $album_name = strtolower(Form::noAccent($name));
+                $album_old_name = $event['album_name'];
+            }
         }
     } else {
         $error["event_name"] = "Veuillez renseigner le nom de l'évènement";
@@ -188,12 +192,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
     // Sinon on envoie un message d'erreur
     else if (empty($_POST["event_first_date"]) || empty($_POST["event_second_date"])) {
+    } else {
+        $dateStart = $event["date_start"];
+        $dateEnd = $event["date_end"];
+    }
+    if (isset($_POST["event_date"]) && !empty($_POST["event_date"])) {
+        $dateStart = $_POST["event_date"];
+        $dateEnd = $_POST["event_date"];
+    } else if (!empty($_POST["event_first_date"]) && !empty($_POST["event_second_date"])) {
+        $dateStart = $_POST["event_first_date"];
+        $dateEnd = $_POST["event_second_date"];
+    } else if (empty($_POST["event_first_date"]) || empty($_POST["event_second_date"])) {
         $error["event_expo"] = "Veuillez renseigner une date";
     } else {
         $dateStart = $event["date_start"];
         $dateEnd = $event["date_end"];
     }
     // Vérification que la description de l'évènement est renseignée
+
+    
     if (!empty($_POST["event_description"])) {
         $description = $_POST["event_description"];
     } 
@@ -213,6 +230,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         // Si la méthode updateEvent renvoie true on affiche un message de succès
         if (Event::updateEvent($id, $poster, $name, $type, $dateStart, $dateEnd, $place, $description)) {
+            if (Album::existAlbum($id)) {
+                if (Album::updateAlbum($album_name, $id)) {
+                    if (is_dir('../assets/img/' . $album_old_name)) {
+                        rename('../assets/img/' . $album_old_name, '../assets/img/' . $album_name);
+                    }
+                }
+            }
             $showform = false;
         } 
         // Sinon on affiche un message d'erreur
