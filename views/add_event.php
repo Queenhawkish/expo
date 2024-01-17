@@ -16,7 +16,7 @@
                 <p class="error"><?= $error['event_name'] ?? "" ?></p>
                 <!-- Si le formulaire est envoyer mais possède une erreur je sécurise les données à l'aide d'un "htmlspecialchars" 
                 et les laisses dans les inputs afin que l'administrateur n'ai pas à toujours devoir les rerentrer . Exemple ci-dessous -->
-                <input type="text" name="event_name" placeholder="Ex. Exposition d'hiver" value="<?= htmlspecialchars($_POST["event_name"] ?? "") ?>">
+                <input type="text" name="event_name" id="event_name" placeholder="Ex. Exposition d'hiver" value="<?= htmlspecialchars($_POST["event_name"] ?? "") ?>">
             </div>
             <div class="item_add_event">
                 <label for="event_type">Type d'évènement : <i class="compel">*</i></label>
