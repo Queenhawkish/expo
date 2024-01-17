@@ -26,7 +26,6 @@ CREATE TABLE event(
         date_end    Date ,
         place       Varchar (50) ,
         description Text ,
-        classify    Bool NOT NULL ,
         id_type     Int NOT NULL
 	,CONSTRAINT event_PK PRIMARY KEY (id)
 

@@ -68,19 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // pour ajouter le nom de l'album et remettre le nom de l'extension à la fin afin d'obtenir un nom unique
             // de type : nom_photo.nom_album.jpg
             if (str_contains($_FILES["picture"]["name"], '.jpg')) {
-                $picture = $_FILES["picture"]["name"] . '.' . strtolower(Form::noAccent($event["event_name"]));
-                $picture = str_replace('.jpg', '', $picture);
                 $picture = $_FILES['picture']['name'] . '.' . $album_name;
+                $picture = str_replace('.jpg', '', $picture);
                 $picture = $picture . ".jpg";
             } else if (str_contains($_FILES["picture"]["name"], '.png')) {
-                $picture = $_FILES["picture"]["name"] . '.' . strtolower(Form::noAccent($event["event_name"]));
-                $picture = str_replace('.png', '', $picture);
                 $picture = $_FILES['picture']['name'] . '.' . $album_name;
+                $picture = str_replace('.png', '', $picture);
                 $picture = $picture . ".png";
             } else if (str_contains($_FILES["picture"]["name"], '.jpeg')) {
-                $picture = $_FILES["picture"]["name"] . '.' . strtolower(Form::noAccent($event["event_name"]));
-                $picture = str_replace('.jpeg', '', $picture);
                 $picture = $_FILES['picture']['name'] . '.' . $album_name;
+                $picture = str_replace('.jpeg', '', $picture);
                 $picture = $picture . ".jpeg";
             } else {
                 $error['event_picture'] = "Le format doit être de type image (jpg, jpeg, png)";

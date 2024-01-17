@@ -180,7 +180,8 @@ class Event {
                         `album` ON `id_event` = `event`.`id`
                     WHERE
                         `date_end` >= date(now()) AND `id_type` = :type
-                            AND `date_end` LIKE :year";
+                            AND `date_end` LIKE :year
+                    ORDER BY `date_end`";
             
             // Je prépare ma requête SQL
             $query = $db->prepare($sql);

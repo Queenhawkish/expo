@@ -139,4 +139,7 @@ if (form_add_event) {
         date_event.style.display = "none";
         event_poster.style.display = "none";
     }
+    $(document).ready(function () {
+        $('#summernote').summernote();
+    });
 }
